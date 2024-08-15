@@ -124,40 +124,16 @@
   <data name="homeBg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\homeBg1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loginLogo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loginLogo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backBtn3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backBtn3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backGlowBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backGlowBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backBtn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backBtn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logInBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logInBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backBtn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backBtn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loginLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="registerBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\registerBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="homeBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\homeBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginLogo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loginLogo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="backGlowBtn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backGlowBtn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backBtn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backBtn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

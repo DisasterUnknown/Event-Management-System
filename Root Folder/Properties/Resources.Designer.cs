@@ -63,26 +63,6 @@ namespace Root_Folder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backBtn {
-            get {
-                object obj = ResourceManager.GetObject("backBtn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap backBtn1 {
-            get {
-                object obj = ResourceManager.GetObject("backBtn1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap backBtn2 {
             get {
                 object obj = ResourceManager.GetObject("backBtn2", resourceCulture);
@@ -93,39 +73,9 @@ namespace Root_Folder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backBtn3 {
-            get {
-                object obj = ResourceManager.GetObject("backBtn3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap backGlowBtn {
-            get {
-                object obj = ResourceManager.GetObject("backGlowBtn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap backGlowBtn1 {
             get {
                 object obj = ResourceManager.GetObject("backGlowBtn1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap homeBg {
-            get {
-                object obj = ResourceManager.GetObject("homeBg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,36 +96,6 @@ namespace Root_Folder.Properties {
         internal static System.Drawing.Bitmap logInBg {
             get {
                 object obj = ResourceManager.GetObject("logInBg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loginLogo {
-            get {
-                object obj = ResourceManager.GetObject("loginLogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loginLogo1 {
-            get {
-                object obj = ResourceManager.GetObject("loginLogo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loginLogo2 {
-            get {
-                object obj = ResourceManager.GetObject("loginLogo2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
