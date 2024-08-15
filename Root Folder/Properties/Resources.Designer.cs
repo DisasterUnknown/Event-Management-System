@@ -83,6 +83,16 @@ namespace Root_Folder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap customerBg {
+            get {
+                object obj = ResourceManager.GetObject("customerBg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap homeBg1 {
             get {
                 object obj = ResourceManager.GetObject("homeBg1", resourceCulture);
