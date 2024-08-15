@@ -19,6 +19,7 @@ namespace Root_Folder
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            // Back Btn to the home page
             HomePage h1 = new HomePage();
             h1.Show();
             this.Hide();
