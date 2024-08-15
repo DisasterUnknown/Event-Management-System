@@ -63,6 +63,16 @@ namespace Root_Folder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adminBg {
+            get {
+                object obj = ResourceManager.GetObject("adminBg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backBtn2 {
             get {
                 object obj = ResourceManager.GetObject("backBtn2", resourceCulture);
@@ -116,6 +126,16 @@ namespace Root_Folder.Properties {
         internal static System.Drawing.Bitmap loginLogo3 {
             get {
                 object obj = ResourceManager.GetObject("loginLogo3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oganizerBg {
+            get {
+                object obj = ResourceManager.GetObject("oganizerBg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

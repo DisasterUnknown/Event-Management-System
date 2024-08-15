@@ -64,11 +64,11 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Cooper Black", 20F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(330, 29);
+            label1.Location = new Point(268, 29);
             label1.Name = "label1";
-            label1.Size = new Size(140, 39);
+            label1.Size = new Size(277, 39);
             label1.TabIndex = 3;
-            label1.Text = "Events";
+            label1.Text = "Events Details";
             // 
             // dataGridView1
             // 
@@ -83,6 +83,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.adminBg;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
