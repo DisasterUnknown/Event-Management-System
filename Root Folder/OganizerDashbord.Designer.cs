@@ -55,7 +55,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Cooper Black", 20F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(275, 39);
+            label1.Location = new Point(275, 33);
             label1.Name = "label1";
             label1.Size = new Size(254, 39);
             label1.TabIndex = 4;
