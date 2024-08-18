@@ -63,6 +63,16 @@ namespace Root_Folder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addEventBg {
+            get {
+                object obj = ResourceManager.GetObject("addEventBg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap adminBg {
             get {
                 object obj = ResourceManager.GetObject("adminBg", resourceCulture);
