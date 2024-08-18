@@ -143,6 +143,16 @@ namespace Root_Folder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pfpBg {
+            get {
+                object obj = ResourceManager.GetObject("pfpBg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap registerBg {
             get {
                 object obj = ResourceManager.GetObject("registerBg", resourceCulture);
