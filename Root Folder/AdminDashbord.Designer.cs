@@ -32,6 +32,7 @@
             button1 = new Button();
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -79,6 +80,17 @@
             dataGridView1.Size = new Size(656, 509);
             dataGridView1.TabIndex = 4;
             // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ControlDark;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button2.Location = new Point(336, 605);
+            button2.Name = "button2";
+            button2.Size = new Size(127, 29);
+            button2.TabIndex = 5;
+            button2.Text = "Remove Event";
+            button2.UseVisualStyleBackColor = false;
+            // 
             // AdminDashbord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -86,6 +98,7 @@
             BackgroundImage = Properties.Resources.adminBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
+            Controls.Add(button2);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(button1);
@@ -104,5 +117,6 @@
         private Button button1;
         private Label label1;
         private DataGridView dataGridView1;
+        private Button button2;
     }
 }
