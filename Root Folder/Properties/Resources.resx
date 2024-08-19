@@ -118,35 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="logInBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logInBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="joinEventBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\joinEventBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="loginLogo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginLogo3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backGlowBtn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backGlowBtn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="registerBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\registerBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pfpBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pfpBg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="oganizerBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oganizerBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="addEventBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addEventBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backBtn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backBtn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="adminBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\adminBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="customerBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\customerBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,7 +127,37 @@
   <data name="homeBg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\homeBg1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="registerBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\registerBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pfpBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pfpBg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backGlowBtn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backGlowBtn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="joinEventBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\joinEventBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="viewEventBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\viewEventBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logInBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logInBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backBtn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backBtn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addEventBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addEventBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oganizerBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\oganizerBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="adminBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adminBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="viewUserProfileBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\viewUserProfileBg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
