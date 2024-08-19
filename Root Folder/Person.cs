@@ -22,7 +22,6 @@ namespace Root_Folder
         public string Password { get { return password; } set { password = value; } }
         public string Email { get { return email; } set { email = value; } }
         public string PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
-        //public string Discription { get { return discription; } set { discription = value; } }
 
         public Person(string name, int age, string id, string password, string email, string phoneNo) 
         {
