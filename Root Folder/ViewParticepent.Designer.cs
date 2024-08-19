@@ -58,11 +58,11 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Rockwell Extra Bold", 20F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(113, 27);
+            label1.Location = new Point(122, 27);
             label1.Name = "label1";
-            label1.Size = new Size(280, 40);
+            label1.Size = new Size(254, 40);
             label1.TabIndex = 1;
-            label1.Text = "Usear Profile";
+            label1.Text = "User Profile";
             // 
             // label2
             // 
