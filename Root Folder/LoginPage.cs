@@ -12,9 +12,12 @@ namespace Root_Folder
 {
     public partial class LoginPage : Form
     {
-        public LoginPage()
+        private string role;
+
+        public LoginPage(string role)
         {
             InitializeComponent();
+            this.role = role;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -30,6 +33,11 @@ namespace Root_Folder
             RegisterPage r1 = new RegisterPage();
             r1.Show();
             this.Hide();
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
