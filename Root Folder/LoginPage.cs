@@ -30,7 +30,7 @@ namespace Root_Folder
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            RegisterPage r1 = new RegisterPage();
+            RegisterPage r1 = new RegisterPage(role);
             r1.Show();
             this.Hide();
         }
@@ -38,6 +38,28 @@ namespace Root_Folder
         private void LoginPage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (role == "particepent")
+            {
+                CustemerDashbord c1 = new CustemerDashbord();
+                this.Hide();
+                c1.Show();
+            }
+            else if (role == "orgnizer")
+            {
+                OganizerDashbord o1 = new OganizerDashbord();
+                this.Hide();
+                o1.Show();
+            }
+            else
+            {
+                AdminDashbord a1 = new AdminDashbord();
+                this.Hide();
+                a1.Show();
+            }
         }
     }
 }
