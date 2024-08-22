@@ -44,7 +44,7 @@
             AgeIN = new MaskedTextBox();
             TelIN = new MaskedTextBox();
             label8 = new Label();
-            textBox1 = new TextBox();
+            AdminPassIN = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(86, 98);
+            label2.Location = new Point(86, 112);
             label2.Name = "label2";
             label2.Size = new Size(102, 23);
             label2.TabIndex = 2;
@@ -90,7 +90,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(86, 149);
+            label3.Location = new Point(86, 163);
             label3.Name = "label3";
             label3.Size = new Size(62, 23);
             label3.TabIndex = 3;
@@ -102,7 +102,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(86, 198);
+            label4.Location = new Point(86, 212);
             label4.Name = "label4";
             label4.Size = new Size(47, 23);
             label4.TabIndex = 4;
@@ -114,7 +114,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(86, 254);
+            label5.Location = new Point(86, 268);
             label5.Name = "label5";
             label5.Size = new Size(70, 23);
             label5.TabIndex = 5;
@@ -126,7 +126,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(86, 307);
+            label6.Location = new Point(86, 321);
             label6.Name = "label6";
             label6.Size = new Size(90, 23);
             label6.TabIndex = 6;
@@ -138,7 +138,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(86, 358);
+            label7.Location = new Point(86, 372);
             label7.Name = "label7";
             label7.Size = new Size(171, 23);
             label7.TabIndex = 7;
@@ -146,21 +146,21 @@
             // 
             // UnameIN
             // 
-            UnameIN.Location = new Point(271, 95);
+            UnameIN.Location = new Point(271, 109);
             UnameIN.Name = "UnameIN";
             UnameIN.Size = new Size(190, 27);
             UnameIN.TabIndex = 8;
             // 
             // GmailIN
             // 
-            GmailIN.Location = new Point(271, 146);
+            GmailIN.Location = new Point(271, 160);
             GmailIN.Name = "GmailIN";
             GmailIN.Size = new Size(190, 27);
             GmailIN.TabIndex = 9;
             // 
             // PassIN
             // 
-            PassIN.Location = new Point(271, 304);
+            PassIN.Location = new Point(271, 318);
             PassIN.Name = "PassIN";
             PassIN.PasswordChar = '•';
             PassIN.Size = new Size(190, 27);
@@ -168,7 +168,7 @@
             // 
             // ComPassIN
             // 
-            ComPassIN.Location = new Point(271, 355);
+            ComPassIN.Location = new Point(271, 369);
             ComPassIN.Name = "ComPassIN";
             ComPassIN.PasswordChar = '•';
             ComPassIN.Size = new Size(190, 27);
@@ -178,7 +178,7 @@
             // 
             RegisterBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             RegisterBtn.ForeColor = SystemColors.ActiveCaptionText;
-            RegisterBtn.Location = new Point(219, 459);
+            RegisterBtn.Location = new Point(219, 473);
             RegisterBtn.Name = "RegisterBtn";
             RegisterBtn.Size = new Size(94, 29);
             RegisterBtn.TabIndex = 14;
@@ -188,7 +188,7 @@
             // 
             // AgeIN
             // 
-            AgeIN.Location = new Point(271, 194);
+            AgeIN.Location = new Point(271, 208);
             AgeIN.Mask = "000";
             AgeIN.Name = "AgeIN";
             AgeIN.PromptChar = ' ';
@@ -198,7 +198,7 @@
             // 
             // TelIN
             // 
-            TelIN.Location = new Point(271, 250);
+            TelIN.Location = new Point(271, 264);
             TelIN.Mask = "000 000 0000";
             TelIN.Name = "TelIN";
             TelIN.PromptChar = ' ';
@@ -211,18 +211,18 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(86, 406);
+            label8.Location = new Point(86, 420);
             label8.Name = "label8";
             label8.Size = new Size(115, 23);
             label8.TabIndex = 17;
             label8.Text = "Admin Code:";
             // 
-            // textBox1
+            // AdminPassIN
             // 
-            textBox1.Location = new Point(271, 406);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(190, 27);
-            textBox1.TabIndex = 18;
+            AdminPassIN.Location = new Point(271, 420);
+            AdminPassIN.Name = "AdminPassIN";
+            AdminPassIN.Size = new Size(190, 27);
+            AdminPassIN.TabIndex = 18;
             // 
             // RegisterPage
             // 
@@ -230,7 +230,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.registerBg;
             ClientSize = new Size(555, 538);
-            Controls.Add(textBox1);
+            Controls.Add(AdminPassIN);
             Controls.Add(label8);
             Controls.Add(TelIN);
             Controls.Add(AgeIN);
@@ -250,6 +250,7 @@
             ForeColor = SystemColors.ButtonHighlight;
             Name = "RegisterPage";
             Text = "RegisterPage";
+            Load += RegisterPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -273,6 +274,6 @@
         private MaskedTextBox AgeIN;
         private MaskedTextBox TelIN;
         private Label label8;
-        private TextBox textBox1;
+        private TextBox AdminPassIN;
     }
 }

@@ -13,7 +13,7 @@ namespace Root_Folder
         private int age;
         private string password;
         private string email;
-        private int phoneNo;
+        private long phoneNo;
         private string role;
         private static string discription;
 
@@ -21,10 +21,10 @@ namespace Root_Folder
         public int Age { get { return age; } set { age = value; } }
         public string Password { get { return password; } set { password = value; } }
         public string Email { get { return email; } set { email = value; } }
-        public int PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
+        public long PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
         public string Role { get { return role; } set { role = value; } }
 
-        public Person(string name, int age, string password, string comPassword, string email, int phoneNo, string role) 
+        public Person(string name, int age, string password, string comPassword, string email, long phoneNo, string role) 
         {
             // Checking for form validation!!
             if ((name.Replace(" ", string.Empty).Length < 2))
@@ -41,7 +41,7 @@ namespace Root_Folder
             }
             else if ((($"{phoneNo}").Replace(" ", string.Empty).Length < 10))
             {
-                MessageBox.Show($"Your Tel. No. Entry's Invalid!! {($"{phoneNo}").Replace(" ", string.Empty).Length}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Your Tel. No. Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if ((password != comPassword))
             {

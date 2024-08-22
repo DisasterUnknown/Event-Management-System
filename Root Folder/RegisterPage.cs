@@ -19,6 +19,20 @@ namespace Root_Folder
             this.role = role;
         }
 
+        private void RegisterPage_Load(object sender, EventArgs e)
+        {
+            if (role == "admin")
+            {
+                label8.Visible = true;
+                AdminPassIN.Visible = true;
+            }
+            else
+            {
+                label8.Visible = false;
+                AdminPassIN.Visible = false;
+            }
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             LoginPage l1 = new LoginPage(role);
@@ -33,15 +47,30 @@ namespace Root_Folder
                 string name = UnameIN.Text;
                 string gmail = GmailIN.Text;
                 int age = int.Parse(AgeIN.Text);
-                int tel = int.Parse((TelIN.Text).Replace(" ", string.Empty));
+                long tel = long.Parse((TelIN.Text).Replace(" ", string.Empty));
                 string pass = PassIN.Text;
                 string comPass = ComPassIN.Text;
 
-                Person p1 = new Person(name, age, pass, comPass, gmail, tel, role);  
+                if (role == "admin")
+                {
+                    string adminID = AdminPassIN.Text;
+                    if (adminID == "admin123")
+                    {
+                        Person p1 = new Person(name, age, pass, comPass, gmail, tel, role);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalide Admin ID!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    Person p1 = new Person(name, age, pass, comPass, gmail, tel, role);
+                }
             }
-            catch 
+            catch (Exception ex)  
             {
-                MessageBox.Show("Please Fill the Form!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Please Fill the Form!!\n{ex}", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

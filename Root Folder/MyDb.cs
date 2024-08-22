@@ -11,7 +11,7 @@ namespace Root_Folder
     internal class MyDb
     {
         private static string connectionstring = "server=localhost;database=event_management_system;user=root;password=;";
-        public static void RegisterPerson(string uname, string gmail, int age, int tel, string pass, string role)
+        public static void RegisterPerson(string uname, string gmail, int age, long tel, string pass, string role)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -54,6 +54,7 @@ namespace Root_Folder
                     cmd.Parameters.AddWithValue("@Prefix", idLable + "%");
 
                     string lastId = cmd.ExecuteScalar() as string;
+                    
 
                     string newId;
                     if (lastId == null)
