@@ -45,7 +45,11 @@
             TelIN = new MaskedTextBox();
             label8 = new Label();
             AdminPassIN = new TextBox();
+            ViewPass2 = new PictureBox();
+            ViewPass1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ViewPass2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ViewPass1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -163,7 +167,7 @@
             PassIN.Location = new Point(271, 318);
             PassIN.Name = "PassIN";
             PassIN.PasswordChar = '•';
-            PassIN.Size = new Size(190, 27);
+            PassIN.Size = new Size(159, 27);
             PassIN.TabIndex = 12;
             // 
             // ComPassIN
@@ -171,7 +175,7 @@
             ComPassIN.Location = new Point(271, 369);
             ComPassIN.Name = "ComPassIN";
             ComPassIN.PasswordChar = '•';
-            ComPassIN.Size = new Size(190, 27);
+            ComPassIN.Size = new Size(159, 27);
             ComPassIN.TabIndex = 13;
             // 
             // RegisterBtn
@@ -224,12 +228,40 @@
             AdminPassIN.Size = new Size(190, 27);
             AdminPassIN.TabIndex = 18;
             // 
+            // ViewPass2
+            // 
+            ViewPass2.BackColor = Color.Transparent;
+            ViewPass2.BackgroundImage = Properties.Resources.viewPassIcon;
+            ViewPass2.BackgroundImageLayout = ImageLayout.Stretch;
+            ViewPass2.BorderStyle = BorderStyle.Fixed3D;
+            ViewPass2.Location = new Point(434, 368);
+            ViewPass2.Name = "ViewPass2";
+            ViewPass2.Size = new Size(27, 27);
+            ViewPass2.TabIndex = 19;
+            ViewPass2.TabStop = false;
+            ViewPass2.Click += ViewPass2_Click;
+            // 
+            // ViewPass1
+            // 
+            ViewPass1.BackColor = Color.Transparent;
+            ViewPass1.BackgroundImage = Properties.Resources.viewPassIcon;
+            ViewPass1.BackgroundImageLayout = ImageLayout.Stretch;
+            ViewPass1.BorderStyle = BorderStyle.Fixed3D;
+            ViewPass1.Location = new Point(434, 317);
+            ViewPass1.Name = "ViewPass1";
+            ViewPass1.Size = new Size(27, 27);
+            ViewPass1.TabIndex = 20;
+            ViewPass1.TabStop = false;
+            ViewPass1.Click += ViewPass1_Click;
+            // 
             // RegisterPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.registerBg;
             ClientSize = new Size(555, 538);
+            Controls.Add(ViewPass1);
+            Controls.Add(ViewPass2);
             Controls.Add(AdminPassIN);
             Controls.Add(label8);
             Controls.Add(TelIN);
@@ -248,10 +280,14 @@
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             ForeColor = SystemColors.ButtonHighlight;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "RegisterPage";
             Text = "RegisterPage";
             Load += RegisterPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ViewPass2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ViewPass1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -275,5 +311,7 @@
         private MaskedTextBox TelIN;
         private Label label8;
         private TextBox AdminPassIN;
+        private PictureBox ViewPass2;
+        private PictureBox ViewPass1;
     }
 }

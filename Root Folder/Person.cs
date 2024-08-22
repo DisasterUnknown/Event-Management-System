@@ -24,7 +24,7 @@ namespace Root_Folder
         public long PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
         public string Role { get { return role; } set { role = value; } }
 
-        public Person(string name, int age, string password, string comPassword, string email, long phoneNo, string role) 
+        public Person(string name, int age, string password, string comPassword, string email, long phoneNo, string role, Form f1) 
         {
             // Checking for form validation!!
             if ((name.Replace(" ", string.Empty).Length < 2))
@@ -56,28 +56,32 @@ namespace Root_Folder
                 this.phoneNo = phoneNo;
                 this.role = role;
 
-                Register();
+                Register(f1);
             }
         }
 
+        // Fun to set discription
         public static void SetDiscription(string userDiscription)
         {
             discription = userDiscription;
         }
 
+        // Fun to return discription
         public static string GetDiscription() 
         { 
             return discription;
         }
 
+        // Debug function to print the user details
         public void PersonDetails()
         {
             MessageBox.Show($"Name: {Name}\nAge: {Age}\nPass: {Password}\nEmail: {Email}\nPhone: {PhoneNo}\n Role: {Role}");
         }
 
-        public void Register()
+        // Function used to register the user
+        public void Register(Form f1)
         {
-                MyDb.RegisterPerson(Name, Email, Age, PhoneNo, Password, Role);
+                MyDb.RegisterPerson(Name, Email, Age, PhoneNo, Password, Role, f1);
         }
 
     }

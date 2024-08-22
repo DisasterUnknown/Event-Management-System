@@ -203,6 +203,16 @@ namespace Root_Folder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap viewPassIcon {
+            get {
+                object obj = ResourceManager.GetObject("viewPassIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap viewUserProfileBg {
             get {
                 object obj = ResourceManager.GetObject("viewUserProfileBg", resourceCulture);

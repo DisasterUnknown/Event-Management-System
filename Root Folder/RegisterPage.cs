@@ -13,12 +13,16 @@ namespace Root_Folder
     public partial class RegisterPage : Form
     {
         private string role;
+        private bool isPassVisible = false;
+
         public RegisterPage(string role)
         {
             InitializeComponent();
             this.role = role;
         }
 
+
+        // Page Onload
         private void RegisterPage_Load(object sender, EventArgs e)
         {
             if (role == "admin")
@@ -33,6 +37,8 @@ namespace Root_Folder
             }
         }
 
+
+        // Back Btn
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             LoginPage l1 = new LoginPage(role);
@@ -40,6 +46,8 @@ namespace Root_Folder
             this.Hide();
         }
 
+
+        // Register Button function
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             try
@@ -56,7 +64,7 @@ namespace Root_Folder
                     string adminID = AdminPassIN.Text;
                     if (adminID == "admin123")
                     {
-                        Person p1 = new Person(name, age, pass, comPass, gmail, tel, role);
+                        Person p1 = new Person(name, age, pass, comPass, gmail, tel, role, this);
                     }
                     else
                     {
@@ -65,15 +73,17 @@ namespace Root_Folder
                 }
                 else
                 {
-                    Person p1 = new Person(name, age, pass, comPass, gmail, tel, role);
+                    Person p1 = new Person(name, age, pass, comPass, gmail, tel, role, this);
                 }
             }
-            catch (Exception ex)  
+            catch (Exception ex)
             {
                 MessageBox.Show($"Please Fill the Form!!\n{ex}", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
+
+        // Functions to empty the strin in the MaskInputBoxes (Styling)
         private void AgeIN_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             AgeIN.Text = string.Empty;
@@ -82,6 +92,36 @@ namespace Root_Folder
         private void TelIN_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             TelIN.Text = string.Empty;
+        }
+
+
+        // Functions to show the password (togle)
+        private void ViewPass1_Click(object sender, EventArgs e)
+        {
+            isPassVisible = !isPassVisible;
+
+            if (isPassVisible)
+            {
+                PassIN.PasswordChar = '\0';
+            }
+            else
+            {
+                PassIN.PasswordChar = '•';
+            }
+        }
+
+        private void ViewPass2_Click(object sender, EventArgs e)
+        {
+            isPassVisible = !isPassVisible;
+
+            if (isPassVisible)
+            {
+                ComPassIN.PasswordChar = '\0';
+            }
+            else
+            {
+                ComPassIN.PasswordChar = '•';
+            }
         }
     }
 }

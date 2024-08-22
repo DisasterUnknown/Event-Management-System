@@ -129,6 +129,8 @@
             Controls.Add(label1);
             Controls.Add(linkLabel1);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "LoginPage";
             Text = "LoginPage";
             Load += LoginPage_Load;

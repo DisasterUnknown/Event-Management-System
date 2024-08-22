@@ -136,6 +136,8 @@
             Controls.Add(linkLabel1);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "HomePage";
             Text = "Home Page";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

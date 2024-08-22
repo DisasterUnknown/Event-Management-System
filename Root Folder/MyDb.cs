@@ -11,7 +11,9 @@ namespace Root_Folder
     internal class MyDb
     {
         private static string connectionstring = "server=localhost;database=event_management_system;user=root;password=;";
-        public static void RegisterPerson(string uname, string gmail, int age, long tel, string pass, string role)
+
+        // Function to register the user
+        public static void RegisterPerson(string uname, string gmail, int age, long tel, string pass, string role, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -88,6 +90,31 @@ namespace Root_Folder
                     {
                         MessageBox.Show("Error Ocured During Registering!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         con.Close();
+                    }
+                    else
+                    {
+                        // Dirrecting the user to the dashbord according to there role
+                        if (role == "particepent")
+                        {
+                            CustemerDashbord cd1 = new CustemerDashbord();
+                            cd1.Show();
+                            f1.Hide();
+                            con.Close();
+                        }
+                        else if (role == "orgnizer")
+                        {
+                            OganizerDashbord od1 = new OganizerDashbord();
+                            od1.Show();
+                            f1.Hide();
+                            con.Close();
+                        }
+                        else
+                        {
+                            AdminDashbord ad1 = new AdminDashbord();
+                            ad1.Show();
+                            f1.Hide();
+                            con.Close();
+                        }
                     }
                 }
                 catch (Exception ex)
