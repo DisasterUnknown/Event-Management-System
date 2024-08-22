@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Crypto.Macs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,14 +24,40 @@ namespace Root_Folder
         public int PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
         public string Role { get { return role; } set { role = value; } }
 
-        public Person(string name, int age, string password, string email, int phoneNo, string role) 
+        public Person(string name, int age, string password, string comPassword, string email, int phoneNo, string role) 
         {
-            this.name = name;
-            this.age = age;
-            this.password = password;
-            this.email = email;
-            this.phoneNo = phoneNo;
-            this.role = role;
+            // Checking for form validation!!
+            if ((name.Replace(" ", string.Empty).Length < 2))
+            {
+                MessageBox.Show("Your Uname Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if ((!(email.Contains("@"))) || email.Length < 11)
+            {
+                MessageBox.Show("Your Gmail Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if ((($"{age}").Replace(" ", string.Empty).Length < 1))
+            {
+                MessageBox.Show("Please Enter Your Age!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if ((($"{phoneNo}").Replace(" ", string.Empty).Length < 10))
+            {
+                MessageBox.Show($"Your Tel. No. Entry's Invalid!! {($"{phoneNo}").Replace(" ", string.Empty).Length}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if ((password != comPassword))
+            {
+                MessageBox.Show("Your Password Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.name = name;
+                this.age = age;
+                this.password = password;
+                this.email = email;
+                this.phoneNo = phoneNo;
+                this.role = role;
+
+                Register();
+            }
         }
 
         public static void SetDiscription(string userDiscription)
@@ -50,7 +77,7 @@ namespace Root_Folder
 
         public void Register()
         {
-            MyDb.RegisterPerson(Name, Email, Age, PhoneNo, Password, Role);
+                MyDb.RegisterPerson(Name, Email, Age, PhoneNo, Password, Role);
         }
 
     }
