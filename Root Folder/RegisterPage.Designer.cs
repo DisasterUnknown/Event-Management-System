@@ -153,14 +153,14 @@
             UnameIN.Location = new Point(271, 109);
             UnameIN.Name = "UnameIN";
             UnameIN.Size = new Size(190, 27);
-            UnameIN.TabIndex = 8;
+            UnameIN.TabIndex = 0;
             // 
             // GmailIN
             // 
             GmailIN.Location = new Point(271, 160);
             GmailIN.Name = "GmailIN";
             GmailIN.Size = new Size(190, 27);
-            GmailIN.TabIndex = 9;
+            GmailIN.TabIndex = 1;
             // 
             // PassIN
             // 
@@ -168,7 +168,7 @@
             PassIN.Name = "PassIN";
             PassIN.PasswordChar = '•';
             PassIN.Size = new Size(159, 27);
-            PassIN.TabIndex = 12;
+            PassIN.TabIndex = 4;
             // 
             // ComPassIN
             // 
@@ -176,7 +176,7 @@
             ComPassIN.Name = "ComPassIN";
             ComPassIN.PasswordChar = '•';
             ComPassIN.Size = new Size(159, 27);
-            ComPassIN.TabIndex = 13;
+            ComPassIN.TabIndex = 5;
             // 
             // RegisterBtn
             // 
@@ -185,7 +185,7 @@
             RegisterBtn.Location = new Point(219, 473);
             RegisterBtn.Name = "RegisterBtn";
             RegisterBtn.Size = new Size(94, 29);
-            RegisterBtn.TabIndex = 14;
+            RegisterBtn.TabIndex = 7;
             RegisterBtn.Text = "Register";
             RegisterBtn.UseVisualStyleBackColor = true;
             RegisterBtn.Click += RegisterBtn_Click;
@@ -197,7 +197,7 @@
             AgeIN.Name = "AgeIN";
             AgeIN.PromptChar = ' ';
             AgeIN.Size = new Size(190, 27);
-            AgeIN.TabIndex = 15;
+            AgeIN.TabIndex = 2;
             AgeIN.MaskInputRejected += AgeIN_MaskInputRejected;
             // 
             // TelIN
@@ -207,7 +207,7 @@
             TelIN.Name = "TelIN";
             TelIN.PromptChar = ' ';
             TelIN.Size = new Size(190, 27);
-            TelIN.TabIndex = 16;
+            TelIN.TabIndex = 3;
             TelIN.MaskInputRejected += TelIN_MaskInputRejected;
             // 
             // label8
@@ -226,7 +226,7 @@
             AdminPassIN.Location = new Point(271, 420);
             AdminPassIN.Name = "AdminPassIN";
             AdminPassIN.Size = new Size(190, 27);
-            AdminPassIN.TabIndex = 18;
+            AdminPassIN.TabIndex = 6;
             // 
             // ViewPass2
             // 
