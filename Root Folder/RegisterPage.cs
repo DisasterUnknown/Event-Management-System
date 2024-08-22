@@ -28,7 +28,22 @@ namespace Root_Folder
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
+            string name = UnameIN.Text;
+            string gmail = GmailIN.Text;
+            int age = int.Parse(AgeIN.Text);
+            int tel = int.Parse((TelIN.Text).Replace(" ", string.Empty));
+            string pass = PassIN.Text;
+            string comPass = ComPassIN.Text;
 
+            if (pass != comPass)
+            { 
+                MessageBox.Show("Your Password Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Person p1 = new Person(name, age, pass, gmail, tel, role);
+                p1.Register();
+            }
         }
     }
 }

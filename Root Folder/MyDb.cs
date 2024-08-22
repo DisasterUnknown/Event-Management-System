@@ -34,7 +34,7 @@ namespace Root_Folder
                         idLable = "OR";
                     }
 
-                    string q1 = "SELECT Id FROM usertable WHERE Id LIKE @Prefix ORDER BY Id DESC LIMIT 1";
+                    string q1 = "SELECT Id FROM persondb WHERE Id LIKE @Prefix ORDER BY Id DESC LIMIT 1";
                     MySqlCommand cmd = new MySqlCommand(q1, con);
                     cmd.Parameters.AddWithValue("@Prefix", idLable + "%");
 
@@ -54,7 +54,7 @@ namespace Root_Folder
 
 
                     // Adding the user into the database
-                    string q2 = "INSERT INTO usertable (Uname, Gmail, Age, Tel, Pass, Id, Role) " +
+                    string q2 = "INSERT INTO persondb (Uname, Gmail, Age, Tel, Pass, Id, Role) " +
                                 "VALUES (@Uname, @Gmail, @Age, @Tel, @Pass, @Id, @Role)";
 
                     MySqlCommand cmd1 = new MySqlCommand(q2, con);
@@ -64,7 +64,7 @@ namespace Root_Folder
                     cmd1.Parameters.AddWithValue("@Tel", tel);
                     cmd1.Parameters.AddWithValue("@Pass", pass);
                     cmd1.Parameters.AddWithValue("@Id", newId);
-                    cmd1.Parameters.AddWithValue("@Role", role);
+                    cmd1.Parameters.AddWithValue("@Role", idLable);
 
                     int addedRowIndex = cmd1.ExecuteNonQuery();
 

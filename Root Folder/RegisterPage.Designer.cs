@@ -41,6 +41,8 @@
             PassIN = new TextBox();
             ComPassIN = new TextBox();
             RegisterBtn = new Button();
+            AgeIN = new MaskedTextBox();
+            TelIN = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -158,6 +160,7 @@
             // 
             PassIN.Location = new Point(271, 331);
             PassIN.Name = "PassIN";
+            PassIN.PasswordChar = '•';
             PassIN.Size = new Size(190, 27);
             PassIN.TabIndex = 12;
             // 
@@ -165,6 +168,7 @@
             // 
             ComPassIN.Location = new Point(271, 382);
             ComPassIN.Name = "ComPassIN";
+            ComPassIN.PasswordChar = '•';
             ComPassIN.Size = new Size(190, 27);
             ComPassIN.TabIndex = 13;
             // 
@@ -180,12 +184,30 @@
             RegisterBtn.UseVisualStyleBackColor = true;
             RegisterBtn.Click += RegisterBtn_Click;
             // 
+            // AgeIN
+            // 
+            AgeIN.Location = new Point(271, 221);
+            AgeIN.Mask = "000";
+            AgeIN.Name = "AgeIN";
+            AgeIN.Size = new Size(190, 27);
+            AgeIN.TabIndex = 15;
+            // 
+            // TelIN
+            // 
+            TelIN.Location = new Point(271, 277);
+            TelIN.Mask = "000 000 0000";
+            TelIN.Name = "TelIN";
+            TelIN.Size = new Size(190, 27);
+            TelIN.TabIndex = 16;
+            // 
             // RegisterPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.registerBg;
             ClientSize = new Size(555, 538);
+            Controls.Add(TelIN);
+            Controls.Add(AgeIN);
             Controls.Add(RegisterBtn);
             Controls.Add(ComPassIN);
             Controls.Add(PassIN);
@@ -222,5 +244,7 @@
         private TextBox PassIN;
         private TextBox ComPassIN;
         private Button RegisterBtn;
+        private MaskedTextBox AgeIN;
+        private MaskedTextBox TelIN;
     }
 }

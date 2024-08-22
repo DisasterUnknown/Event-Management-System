@@ -23,13 +23,14 @@ namespace Root_Folder
         public int PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
         public string Role { get { return role; } set { role = value; } }
 
-        public Person(string name, int age, string password, string email, int phoneNo) 
+        public Person(string name, int age, string password, string email, int phoneNo, string role) 
         {
             this.name = name;
             this.age = age;
             this.password = password;
             this.email = email;
             this.phoneNo = phoneNo;
+            this.role = role;
         }
 
         public static void SetDiscription(string userDiscription)
@@ -42,9 +43,9 @@ namespace Root_Folder
             return discription;
         }
 
-        public void PersonDetails(Person p)
+        public void PersonDetails()
         {
-            MessageBox.Show($"Name: {p.name}\nAge: {p.age}\nPass: {p.password}\nEmail: {p.email}\nPhone: {p.phoneNo}");
+            MessageBox.Show($"Name: {Name}\nAge: {Age}\nPass: {Password}\nEmail: {Email}\nPhone: {PhoneNo}\n Role: {Role}");
         }
 
         public void Register()
