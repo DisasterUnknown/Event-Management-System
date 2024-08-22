@@ -19,6 +19,21 @@ namespace Root_Folder
                 {
                     con.Open();
 
+
+                    // Checking if there are any user with the same Uname
+                    string q = "SELECT COUNT(*) FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd0 = new MySqlCommand(q, con);
+                    cmd0.Parameters.AddWithValue("@Uname", uname);
+                    
+                    int userCount = Convert.ToInt32(cmd0.ExecuteScalar());
+
+                    if (userCount > 0)
+                    {
+                        MessageBox.Show("User alredy exists!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                        return;
+                    }
+
                     // Creating The UserId
                     string idLable;
                     if (role == "admin")
