@@ -189,16 +189,20 @@
             AgeIN.Location = new Point(271, 221);
             AgeIN.Mask = "000";
             AgeIN.Name = "AgeIN";
+            AgeIN.PromptChar = ' ';
             AgeIN.Size = new Size(190, 27);
             AgeIN.TabIndex = 15;
+            AgeIN.MaskInputRejected += AgeIN_MaskInputRejected;
             // 
             // TelIN
             // 
             TelIN.Location = new Point(271, 277);
             TelIN.Mask = "000 000 0000";
             TelIN.Name = "TelIN";
+            TelIN.PromptChar = ' ';
             TelIN.Size = new Size(190, 27);
             TelIN.TabIndex = 16;
+            TelIN.MaskInputRejected += TelIN_MaskInputRejected;
             // 
             // RegisterPage
             // 
