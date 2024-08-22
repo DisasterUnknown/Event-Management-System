@@ -25,5 +25,10 @@ namespace Root_Folder
             l1.Show();
             this.Hide();
         }
+
+        private void RegisterBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

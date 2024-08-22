@@ -36,13 +36,11 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            button1 = new Button();
+            UnameIN = new TextBox();
+            GmailIN = new TextBox();
+            PassIN = new TextBox();
+            ComPassIN = new TextBox();
+            RegisterBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -142,58 +140,45 @@
             label7.TabIndex = 7;
             label7.Text = "Comferm Password:";
             // 
-            // textBox1
+            // UnameIN
             // 
-            textBox1.Location = new Point(271, 122);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(190, 27);
-            textBox1.TabIndex = 8;
+            UnameIN.Location = new Point(271, 122);
+            UnameIN.Name = "UnameIN";
+            UnameIN.Size = new Size(190, 27);
+            UnameIN.TabIndex = 8;
             // 
-            // textBox2
+            // GmailIN
             // 
-            textBox2.Location = new Point(271, 173);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(190, 27);
-            textBox2.TabIndex = 9;
+            GmailIN.Location = new Point(271, 173);
+            GmailIN.Name = "GmailIN";
+            GmailIN.Size = new Size(190, 27);
+            GmailIN.TabIndex = 9;
             // 
-            // textBox3
+            // PassIN
             // 
-            textBox3.Location = new Point(271, 222);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(190, 27);
-            textBox3.TabIndex = 10;
+            PassIN.Location = new Point(271, 331);
+            PassIN.Name = "PassIN";
+            PassIN.Size = new Size(190, 27);
+            PassIN.TabIndex = 12;
             // 
-            // textBox4
+            // ComPassIN
             // 
-            textBox4.Location = new Point(271, 278);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(190, 27);
-            textBox4.TabIndex = 11;
+            ComPassIN.Location = new Point(271, 382);
+            ComPassIN.Name = "ComPassIN";
+            ComPassIN.Size = new Size(190, 27);
+            ComPassIN.TabIndex = 13;
             // 
-            // textBox5
+            // RegisterBtn
             // 
-            textBox5.Location = new Point(271, 331);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(190, 27);
-            textBox5.TabIndex = 12;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(271, 382);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(190, 27);
-            textBox6.TabIndex = 13;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(219, 459);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 14;
-            button1.Text = "Register";
-            button1.UseVisualStyleBackColor = true;
+            RegisterBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            RegisterBtn.ForeColor = SystemColors.ActiveCaptionText;
+            RegisterBtn.Location = new Point(219, 459);
+            RegisterBtn.Name = "RegisterBtn";
+            RegisterBtn.Size = new Size(94, 29);
+            RegisterBtn.TabIndex = 14;
+            RegisterBtn.Text = "Register";
+            RegisterBtn.UseVisualStyleBackColor = true;
+            RegisterBtn.Click += RegisterBtn_Click;
             // 
             // RegisterPage
             // 
@@ -201,13 +186,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.registerBg;
             ClientSize = new Size(555, 538);
-            Controls.Add(button1);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(RegisterBtn);
+            Controls.Add(ComPassIN);
+            Controls.Add(PassIN);
+            Controls.Add(GmailIN);
+            Controls.Add(UnameIN);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -234,12 +217,10 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private Button button1;
+        private TextBox UnameIN;
+        private TextBox GmailIN;
+        private TextBox PassIN;
+        private TextBox ComPassIN;
+        private Button RegisterBtn;
     }
 }
