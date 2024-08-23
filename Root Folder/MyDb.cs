@@ -26,7 +26,7 @@ namespace Root_Folder
                     string q = "SELECT COUNT(*) FROM persondb WHERE Uname = @Uname";
                     MySqlCommand cmd0 = new MySqlCommand(q, con);
                     cmd0.Parameters.AddWithValue("@Uname", uname);
-                    
+
                     int userCount = Convert.ToInt32(cmd0.ExecuteScalar());
 
                     if (userCount > 0)
@@ -40,7 +40,7 @@ namespace Root_Folder
                     string idLable;
                     if (role == "admin")
                     {
-                        idLable = "AD"; 
+                        idLable = "AD";
                     }
                     else if (role == "particepent")
                     {
@@ -56,7 +56,7 @@ namespace Root_Folder
                     cmd.Parameters.AddWithValue("@Prefix", idLable + "%");
 
                     string lastId = cmd.ExecuteScalar() as string;
-                    
+
 
                     string newId;
                     if (lastId == null)
@@ -120,6 +120,87 @@ namespace Root_Folder
                 catch (Exception ex)
                 {
                     MessageBox.Show($"{ex}");
+                    con.Close();
+                }
+            }
+        }
+
+
+        // Login Function
+        public static void UserLogin(string uname, string pass, string role, Form f1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT COUNT(*) FROM persondb WHERE Uname = @Uname AND Pass = @Pass";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Uname", uname);
+                    cmd0.Parameters.AddWithValue("@Pass", pass);
+
+                    int noRow = Convert.ToInt32(cmd0.ExecuteScalar());
+
+                    if (noRow == 1)
+                    {
+                        string q1 = "SELECT Role FROM persondb WHERE Uname = @Uname";
+                        MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                        cmd1.Parameters.AddWithValue("@Uname", uname);
+
+                        string dbRole = $"{cmd1.ExecuteScalar()}";
+
+                        // Converting role into Database Role Format
+                        if (role == "admin")
+                        {
+                            role = "AD";
+                        }
+                        else if (role == "particepent")
+                        {
+                            role = "PA";
+                        }
+                        else
+                        {
+                            role = "OR";
+                        }
+
+                        // Directing the user to the dashbord
+                        if ((role == dbRole) && (role == "PA"))
+                        {
+                            CustemerDashbord cd1 = new CustemerDashbord();
+                            cd1.Show();
+                            f1.Hide();
+                            con.Close();
+                        }
+                        else if ((role == dbRole) && (role == "OR"))
+                        {
+                            OganizerDashbord od1 = new OganizerDashbord();
+                            od1.Show();
+                            f1.Hide();
+                            con.Close();
+                        }
+                        else if ((role == dbRole) && (role == "AD"))
+                        {
+                            AdminDashbord ad1 = new AdminDashbord();
+                            ad1.Show();
+                            f1.Hide();
+                            con.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"User can't login as other user roles!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            con.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("User name or Password are incurect!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erroe: {ex}");
                     con.Close();
                 }
             }

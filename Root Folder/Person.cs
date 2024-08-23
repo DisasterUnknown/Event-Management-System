@@ -84,5 +84,11 @@ namespace Root_Folder
                 MyDb.RegisterPerson(Name, Email, Age, PhoneNo, Password, Role, f1);
         }
 
+        // Function to login the user
+        public static void Login(string uname, string pass, string role, Form f1)
+        {
+            MyDb.UserLogin(uname, pass, role, f1);
+        }
+
     }
 }

@@ -108,7 +108,7 @@
             LoginBtn.TabIndex = 6;
             LoginBtn.Text = "LogIn";
             LoginBtn.UseVisualStyleBackColor = false;
-            LoginBtn.Click += button1_Click;
+            LoginBtn.Click += LoginBtn_Click;
             // 
             // ShowPassBtn
             // 

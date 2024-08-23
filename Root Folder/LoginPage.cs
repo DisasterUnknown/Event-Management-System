@@ -21,6 +21,11 @@ namespace Root_Folder
             this.role = role;
         }
 
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             // Back Btn to the home page
@@ -36,33 +41,6 @@ namespace Root_Folder
             this.Hide();
         }
 
-        private void LoginPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (role == "particepent")
-            {
-                CustemerDashbord c1 = new CustemerDashbord();
-                this.Hide();
-                c1.Show();
-            }
-            else if (role == "orgnizer")
-            {
-                OganizerDashbord o1 = new OganizerDashbord();
-                this.Hide();
-                o1.Show();
-            }
-            else
-            {
-                AdminDashbord a1 = new AdminDashbord();
-                this.Hide();
-                a1.Show();
-            }
-        }
-
         private void ShowPassBtn_Click(object sender, EventArgs e)
         {
             isPassVisible = !isPassVisible;
@@ -76,6 +54,21 @@ namespace Root_Folder
                 PassIN.PasswordChar = '•';
             }
 
+        }
+
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string uname = UnameIN.Text;
+                string pass = PassIN.Text;
+
+                Person.Login(uname, pass, role, this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Please Fill the Form!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

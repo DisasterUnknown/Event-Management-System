@@ -78,7 +78,7 @@ namespace Root_Folder
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Please Fill the Form!!\n{ex}", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Please Fill the Form!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
