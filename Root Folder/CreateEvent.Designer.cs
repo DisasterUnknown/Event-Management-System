@@ -39,7 +39,7 @@
             textBox2 = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             textBox3 = new TextBox();
-            button1 = new Button();
+            EventCreation = new Button();
             PriceIN = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -143,7 +143,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy h:mm tt";
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy hh:mm tt";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.Location = new Point(280, 232);
             dateTimePicker1.Name = "dateTimePicker1";
@@ -157,16 +157,17 @@
             textBox3.Size = new Size(187, 27);
             textBox3.TabIndex = 10;
             // 
-            // button1
+            // EventCreation
             // 
-            button1.BackColor = SystemColors.ControlDark;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(230, 409);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 12;
-            button1.Text = "Conform";
-            button1.UseVisualStyleBackColor = false;
+            EventCreation.BackColor = SystemColors.ControlDark;
+            EventCreation.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            EventCreation.Location = new Point(230, 409);
+            EventCreation.Name = "EventCreation";
+            EventCreation.Size = new Size(94, 29);
+            EventCreation.TabIndex = 12;
+            EventCreation.Text = "Conform";
+            EventCreation.UseVisualStyleBackColor = false;
+            EventCreation.Click += EventCreation_Click;
             // 
             // PriceIN
             // 
@@ -184,7 +185,7 @@
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(535, 450);
             Controls.Add(PriceIN);
-            Controls.Add(button1);
+            Controls.Add(EventCreation);
             Controls.Add(textBox3);
             Controls.Add(dateTimePicker1);
             Controls.Add(textBox2);
@@ -217,7 +218,7 @@
         private TextBox textBox2;
         private DateTimePicker dateTimePicker1;
         private TextBox textBox3;
-        private Button button1;
+        private Button EventCreation;
         private TextBox PriceIN;
     }
 }

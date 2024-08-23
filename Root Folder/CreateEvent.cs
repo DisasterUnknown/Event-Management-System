@@ -50,5 +50,12 @@ namespace Root_Folder
                 PriceIN.SelectionStart = PriceIN.Text.Length;
             }
         }
+
+
+        // Creating a new event
+        private void EventCreation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

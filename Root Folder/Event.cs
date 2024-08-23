@@ -8,31 +8,40 @@ namespace Root_Folder
 {
     internal class Event
     {
-        private string date;
         private string name;
-        private string time;
-        private string place;
-        private int amount;
         private int price;
-        private string orgnizer;
+        private string place;
+        private int patientCount;
+        private string time;
+        private string date;
+        private string organizerName;
 
-        public string Date { get { return date; } set { date = value; } }
         public string Name { get { return name; } set { name = value; } }
-        public string Time { get { return time; } set { time = value; } }
-        public string Place { get { return place; } set { place = value; } }
-        public int Amount { get { return amount; } set { amount = value; } }
         public int Price { get { return price; } set { price = value; } }
-        public string Orgnizer { get { return orgnizer; } set { orgnizer = value; } }
+        public string Place { get { return place; } set { place = value; } }
+        public int PatientCount { get { return patientCount; } set { patientCount = value; } }
+        public string Time { get { return time; } set { time = value; } }
+        public string Date { get { return date; } set { date = value; } }
+        public string OrganizerName { get { return organizerName; } set { organizerName = value; } }
 
-        public Event(string date, string name, string time, string place,int amount, int price, string orgnizer) 
+        public Event(string name, int price, string place, int patientCount, string time, string date, string organizerName) 
         {
-            this.date = date;
             this.name = name;
-            this.time = time;
-            this.place = place;
-            this.amount = amount;
             this.price = price;
-            this.orgnizer = orgnizer;
+            this.place = place;
+            this.patientCount = patientCount;
+            this.time = time;
+            this.date = date;
+            this.organizerName = organizerName;
+
+            AddEvent(name, price, place, patientCount, time, date, organizerName);
+        }
+
+
+        // Adding events to the data base
+        public void AddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName)
+        {
+            MyDb.EventAdd(name, price, place, patientCount, time, date, organizerName);
         }
     }
 }
