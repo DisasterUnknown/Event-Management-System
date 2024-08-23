@@ -13,6 +13,7 @@ namespace Root_Folder
     public partial class LoginPage : Form
     {
         private string role;
+        private bool isPassVisible = false;
 
         public LoginPage(string role)
         {
@@ -60,6 +61,21 @@ namespace Root_Folder
                 this.Hide();
                 a1.Show();
             }
+        }
+
+        private void ShowPassBtn_Click(object sender, EventArgs e)
+        {
+            isPassVisible = !isPassVisible;
+
+            if (isPassVisible)
+            {
+                PassIN.PasswordChar = '\0';
+            }
+            else
+            {
+                PassIN.PasswordChar = '•';
+            }
+
         }
     }
 }

@@ -32,10 +32,12 @@
             linkLabel1 = new LinkLabel();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            UnameIN = new TextBox();
+            LoginBtn = new Button();
+            ShowPassBtn = new PictureBox();
+            PassIN = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShowPassBtn).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -89,31 +91,45 @@
             label2.TabIndex = 3;
             label2.Text = "Password:";
             // 
-            // textBox1
+            // UnameIN
             // 
-            textBox1.Location = new Point(418, 132);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(240, 27);
-            textBox1.TabIndex = 4;
+            UnameIN.Location = new Point(418, 132);
+            UnameIN.Name = "UnameIN";
+            UnameIN.Size = new Size(240, 27);
+            UnameIN.TabIndex = 4;
             // 
-            // textBox2
+            // LoginBtn
             // 
-            textBox2.Location = new Point(418, 199);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(240, 27);
-            textBox2.TabIndex = 5;
+            LoginBtn.BackColor = SystemColors.ActiveBorder;
+            LoginBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            LoginBtn.Location = new Point(360, 304);
+            LoginBtn.Name = "LoginBtn";
+            LoginBtn.Size = new Size(94, 29);
+            LoginBtn.TabIndex = 6;
+            LoginBtn.Text = "LogIn";
+            LoginBtn.UseVisualStyleBackColor = false;
+            LoginBtn.Click += button1_Click;
             // 
-            // button1
+            // ShowPassBtn
             // 
-            button1.BackColor = SystemColors.ActiveBorder;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(360, 304);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 6;
-            button1.Text = "LogIn";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            ShowPassBtn.BackColor = Color.Transparent;
+            ShowPassBtn.BackgroundImage = Properties.Resources.viewPassIcon;
+            ShowPassBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            ShowPassBtn.BorderStyle = BorderStyle.Fixed3D;
+            ShowPassBtn.Location = new Point(631, 199);
+            ShowPassBtn.Name = "ShowPassBtn";
+            ShowPassBtn.Size = new Size(27, 27);
+            ShowPassBtn.TabIndex = 7;
+            ShowPassBtn.TabStop = false;
+            ShowPassBtn.Click += ShowPassBtn_Click;
+            // 
+            // PassIN
+            // 
+            PassIN.Location = new Point(418, 199);
+            PassIN.Name = "PassIN";
+            PassIN.PasswordChar = '•';
+            PassIN.Size = new Size(207, 27);
+            PassIN.TabIndex = 8;
             // 
             // LoginPage
             // 
@@ -122,9 +138,10 @@
             BackgroundImage = Properties.Resources.logInBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(PassIN);
+            Controls.Add(ShowPassBtn);
+            Controls.Add(LoginBtn);
+            Controls.Add(UnameIN);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(linkLabel1);
@@ -135,6 +152,7 @@
             Text = "LoginPage";
             Load += LoginPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShowPassBtn).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -145,8 +163,9 @@
         private LinkLabel linkLabel1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox UnameIN;
+        private Button LoginBtn;
+        private PictureBox ShowPassBtn;
+        private MaskedTextBox PassIN;
     }
 }
