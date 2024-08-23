@@ -39,8 +39,8 @@
             textBox2 = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             textBox3 = new TextBox();
-            textBox4 = new TextBox();
             button1 = new Button();
+            PriceIN = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -157,13 +157,6 @@
             textBox3.Size = new Size(187, 27);
             textBox3.TabIndex = 10;
             // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(280, 327);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(187, 27);
-            textBox4.TabIndex = 11;
-            // 
             // button1
             // 
             button1.BackColor = SystemColors.ControlDark;
@@ -175,6 +168,14 @@
             button1.Text = "Conform";
             button1.UseVisualStyleBackColor = false;
             // 
+            // PriceIN
+            // 
+            PriceIN.Location = new Point(280, 327);
+            PriceIN.Name = "PriceIN";
+            PriceIN.Size = new Size(187, 27);
+            PriceIN.TabIndex = 13;
+            PriceIN.TextChanged += PriceIN_TextChanged;
+            // 
             // CreateEvent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -182,8 +183,8 @@
             BackgroundImage = Properties.Resources.addEventBg;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(535, 450);
+            Controls.Add(PriceIN);
             Controls.Add(button1);
-            Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(dateTimePicker1);
             Controls.Add(textBox2);
@@ -197,6 +198,7 @@
             Controls.Add(pictureBox1);
             Name = "CreateEvent";
             Text = "CreateEvent";
+            Load += CreateEvent_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -215,7 +217,7 @@
         private TextBox textBox2;
         private DateTimePicker dateTimePicker1;
         private TextBox textBox3;
-        private TextBox textBox4;
         private Button button1;
+        private TextBox PriceIN;
     }
 }
