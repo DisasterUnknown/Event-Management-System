@@ -35,7 +35,7 @@
             pictureBox2 = new PictureBox();
             button2 = new Button();
             button3 = new Button();
-            button4 = new Button();
+            AddEventBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -114,16 +114,17 @@
             button3.Text = "Update";
             button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // AddEventBtn
             // 
-            button4.BackColor = SystemColors.ControlDark;
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button4.Location = new Point(583, 605);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 10;
-            button4.Text = "Add";
-            button4.UseVisualStyleBackColor = false;
+            AddEventBtn.BackColor = SystemColors.ControlDark;
+            AddEventBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            AddEventBtn.Location = new Point(583, 605);
+            AddEventBtn.Name = "AddEventBtn";
+            AddEventBtn.Size = new Size(94, 29);
+            AddEventBtn.TabIndex = 10;
+            AddEventBtn.Text = "Add";
+            AddEventBtn.UseVisualStyleBackColor = false;
+            AddEventBtn.Click += AddEventBtn_Click;
             // 
             // OganizerDashbord
             // 
@@ -132,7 +133,7 @@
             BackgroundImage = Properties.Resources.oganizerBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
-            Controls.Add(button4);
+            Controls.Add(AddEventBtn);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(pictureBox2);
@@ -140,6 +141,8 @@
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "OganizerDashbord";
             Text = "OganizerDashbord";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -158,6 +161,6 @@
         private PictureBox pictureBox2;
         private Button button2;
         private Button button3;
-        private Button button4;
+        private Button AddEventBtn;
     }
 }

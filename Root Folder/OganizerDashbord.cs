@@ -16,5 +16,12 @@ namespace Root_Folder
         {
             InitializeComponent();
         }
+
+        private void AddEventBtn_Click(object sender, EventArgs e)
+        {
+            CreateEvent c1 = new CreateEvent();
+            c1.Show();
+            this.Hide();
+        }
     }
 }

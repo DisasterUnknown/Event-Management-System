@@ -62,7 +62,7 @@
             linkLabel1.Location = new Point(715, 8);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(84, 25);
-            linkLabel1.TabIndex = 1;
+            linkLabel1.TabIndex = 3;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Register";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
@@ -96,7 +96,7 @@
             UnameIN.Location = new Point(418, 132);
             UnameIN.Name = "UnameIN";
             UnameIN.Size = new Size(240, 27);
-            UnameIN.TabIndex = 4;
+            UnameIN.TabIndex = 0;
             // 
             // LoginBtn
             // 
@@ -105,7 +105,7 @@
             LoginBtn.Location = new Point(360, 304);
             LoginBtn.Name = "LoginBtn";
             LoginBtn.Size = new Size(94, 29);
-            LoginBtn.TabIndex = 6;
+            LoginBtn.TabIndex = 2;
             LoginBtn.Text = "LogIn";
             LoginBtn.UseVisualStyleBackColor = false;
             LoginBtn.Click += LoginBtn_Click;
@@ -129,7 +129,7 @@
             PassIN.Name = "PassIN";
             PassIN.PasswordChar = '•';
             PassIN.Size = new Size(207, 27);
-            PassIN.TabIndex = 8;
+            PassIN.TabIndex = 1;
             // 
             // LoginPage
             // 

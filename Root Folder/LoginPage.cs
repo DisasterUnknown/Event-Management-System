@@ -26,6 +26,7 @@ namespace Root_Folder
 
         }
 
+        // Page Navigation
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             // Back Btn to the home page
@@ -41,6 +42,8 @@ namespace Root_Folder
             this.Hide();
         }
 
+
+        // View Password
         private void ShowPassBtn_Click(object sender, EventArgs e)
         {
             isPassVisible = !isPassVisible;
@@ -56,6 +59,8 @@ namespace Root_Folder
 
         }
 
+
+        // LKogin Btn
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             try
