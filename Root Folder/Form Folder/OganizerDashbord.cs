@@ -31,5 +31,10 @@ namespace Root_Folder
             Organizer o1 = new Organizer();
             o1.ViewEventDetails(EventTable);
         }
+
+        private void UpdateEvent_Click(object sender, EventArgs e)
+        {
+            MyDb.ViewUpdate(organizer, EventTable, this);
+        }
     }
 }

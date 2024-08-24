@@ -34,8 +34,9 @@
             button1 = new Button();
             pictureBox2 = new PictureBox();
             button2 = new Button();
-            button3 = new Button();
+            UpdateEvent = new Button();
             AddEventBtn = new Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EventTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -103,16 +104,17 @@
             button2.Text = "Remove";
             button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // UpdateEvent
             // 
-            button3.BackColor = SystemColors.ControlDark;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button3.Location = new Point(361, 605);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 9;
-            button3.Text = "Update";
-            button3.UseVisualStyleBackColor = false;
+            UpdateEvent.BackColor = SystemColors.ControlDark;
+            UpdateEvent.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            UpdateEvent.Location = new Point(361, 605);
+            UpdateEvent.Name = "UpdateEvent";
+            UpdateEvent.Size = new Size(94, 29);
+            UpdateEvent.TabIndex = 9;
+            UpdateEvent.Text = "Update";
+            UpdateEvent.UseVisualStyleBackColor = false;
+            UpdateEvent.Click += UpdateEvent_Click;
             // 
             // AddEventBtn
             // 
@@ -134,7 +136,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
             Controls.Add(AddEventBtn);
-            Controls.Add(button3);
+            Controls.Add(UpdateEvent);
             Controls.Add(button2);
             Controls.Add(pictureBox2);
             Controls.Add(button1);
@@ -161,7 +163,8 @@
         private Button button1;
         private PictureBox pictureBox2;
         private Button button2;
-        private Button button3;
+        private Button UpdateEvent;
         private Button AddEventBtn;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

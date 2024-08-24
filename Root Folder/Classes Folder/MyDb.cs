@@ -328,5 +328,30 @@ namespace Root_Folder
                 }
             }
         }
+
+
+        // Update Page navigation
+        public static void ViewUpdate(string organizer, DataGridView G1, Form f1)
+        {
+            if (G1.SelectedRows.Count > 0) 
+            {
+                string eventOrganizer = G1.SelectedRows[0].Cells["Organizer"].Value.ToString();
+
+                if (eventOrganizer == organizer)
+                {
+                    CreateEvent c1 = new CreateEvent(organizer);
+                    c1.Show();
+                    f1.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Permision denieled!!\nOnly the event owner can update the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select the event to be edited!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
