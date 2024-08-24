@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Crypto.Macs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace Root_Folder
 {
@@ -68,7 +71,21 @@ namespace Root_Folder
                 string uname = UnameIN.Text;
                 string pass = PassIN.Text;
 
-                Person.Login(uname, pass, role, this);
+                if (role == "admin")
+                {
+                    Person p1 = new Admin();
+                    p1.Login(uname, pass, role, this);
+                }
+                else if (role == "orgnizer")
+                {
+                    Person p1 = new Organizer();
+                    p1.Login(uname, pass, role, this);
+                }
+                else
+                {
+                    Person p1 = new Organizer();
+                    p1.Login(uname, pass, role, this);
+                }
             }
             catch (Exception ex)
             {

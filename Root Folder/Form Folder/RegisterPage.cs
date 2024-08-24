@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Root_Folder
 {
@@ -64,16 +65,23 @@ namespace Root_Folder
                     string adminID = AdminPassIN.Text;
                     if (adminID == "admin123")
                     {
-                        Person p1 = new Person(name, age, pass, comPass, gmail, tel, role, this);
+                        Person p1 = new Admin();
+                        p1.Register(name, age, pass, comPass, gmail, tel, role, this);
                     }
                     else
                     {
                         MessageBox.Show("Invalide Admin ID!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                else if (role == "orgnizer")
+                {
+                    Person p1 = new Organizer();
+                    p1.Register(name, age, pass, comPass, gmail, tel, role, this);
+                }
                 else
                 {
-                    Person p1 = new Person(name, age, pass, comPass, gmail, tel, role, this);
+                    Person p1 = new Organizer();
+                    p1.Register(name, age, pass, comPass, gmail, tel, role, this);
                 }
             }
             catch (Exception ex)
