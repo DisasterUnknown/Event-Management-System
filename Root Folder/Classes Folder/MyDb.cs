@@ -219,6 +219,7 @@ namespace Root_Folder
                 {
                     con.Open();
 
+                    // Creating the event function
                     string q0 = "SELECT Id FROM eventdb WHERE Id LIKE @Prifix ORDER BY Id DESC LIMIT 1";
                     MySqlCommand cmd0 = new MySqlCommand(q0, con);
                     cmd0.Parameters.AddWithValue("@Prifix", "EV%");
@@ -236,6 +237,7 @@ namespace Root_Folder
                         newId = $"EV{(lastNumber + 1):D4}";
                     }
 
+                    // Adding the data to the DataBase
                     string q1 = "INSERT INTO eventdb (Ename, Price, Place, Pamount, Time, Date, Id, Organizer) " +
                                 "VALUES (@Name, @Price, @Place, @Pcount, @Time, @Date, @NewId, @Organizer)";
 
