@@ -262,6 +262,20 @@ namespace Root_Folder
                 {
                     con.Open();
 
+                    // Checking if there are any event with the same name
+                    string q = "SELECT COUNT(*) FROM eventdb WHERE Ename = @Ename";
+                    MySqlCommand cmd = new MySqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@Ename", name);
+
+                    int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (userCount > 0)
+                    {
+                        MessageBox.Show("Sorry event alredy exists!!\nTry changing the event name!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        return;
+                    }
+
                     // Creating the event function
                     string q0 = "SELECT Id FROM eventdb WHERE Id LIKE @Prifix ORDER BY Id DESC LIMIT 1";
                     MySqlCommand cmd0 = new MySqlCommand(q0, con);
