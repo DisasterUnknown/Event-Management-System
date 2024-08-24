@@ -49,6 +49,11 @@ namespace Root_Folder
             MyDb.UserLogin(uname, pass, role, f1);
         }
 
+        public void ViewEventDetails(DataGridView G1)
+        {
+            MyDb.ViewEvents(G1);
+        }
+
 
         // Function to call the AddEvent method in Event.cs
         public void orgAddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName, Form f1)

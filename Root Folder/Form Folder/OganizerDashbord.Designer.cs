@@ -30,14 +30,14 @@
         {
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            EventTable = new DataGridView();
             button1 = new Button();
             pictureBox2 = new PictureBox();
             button2 = new Button();
             button3 = new Button();
             AddEventBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)EventTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -61,14 +61,14 @@
             label1.TabIndex = 4;
             label1.Text = "Organization";
             // 
-            // dataGridView1
+            // EventTable
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(72, 90);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(656, 509);
-            dataGridView1.TabIndex = 5;
+            EventTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            EventTable.Location = new Point(72, 90);
+            EventTable.Name = "EventTable";
+            EventTable.RowHeadersWidth = 51;
+            EventTable.Size = new Size(656, 509);
+            EventTable.TabIndex = 5;
             // 
             // button1
             // 
@@ -138,15 +138,16 @@
             Controls.Add(button2);
             Controls.Add(pictureBox2);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
+            Controls.Add(EventTable);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "OganizerDashbord";
             Text = "OganizerDashbord";
+            Load += OganizerDashbord_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)EventTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -156,7 +157,7 @@
 
         private PictureBox pictureBox1;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView EventTable;
         private Button button1;
         private PictureBox pictureBox2;
         private Button button2;

@@ -3,9 +3,12 @@ using Org.BouncyCastle.Crypto.Fpe;
 using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZstdSharp.Unsafe;
 
 namespace Root_Folder
 {
@@ -205,6 +208,46 @@ namespace Root_Folder
                 {
                     MessageBox.Show($"Erroe: {ex}");
                     con.Close();
+                }
+            }
+        }
+
+
+        // View Event function
+        public static void ViewEvents(DataGridView EventViewGrid)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT * FROM eventdb";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    MySqlDataAdapter bridge = new MySqlDataAdapter(cmd0);
+
+                    DataTable G1 = new DataTable();
+                    bridge.Fill(G1);
+
+                    EventViewGrid.DataSource = G1;
+
+                    // Formating the grid view
+                    EventViewGrid.Columns["Ename"].HeaderText = "Event";
+                    EventViewGrid.Columns["Pamount"].HeaderText = "Particepent Amount";
+                    EventViewGrid.Columns["Id"].HeaderText = "ID";
+
+                    EventViewGrid.Columns["Id"].DisplayIndex = 0;
+                    EventViewGrid.Columns["Ename"].DisplayIndex = 1;
+                    EventViewGrid.Columns["Place"].DisplayIndex = 2;
+                    EventViewGrid.Columns["Price"].DisplayIndex = 3;
+                    EventViewGrid.Columns["Date"].DisplayIndex = 4;
+                    EventViewGrid.Columns["Time"].DisplayIndex = 5;
+                    EventViewGrid.Columns["Pamount"].DisplayIndex = 6;
+                    EventViewGrid.Columns["Organizer"].DisplayIndex = 7;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex}");
                 }
             }
         }

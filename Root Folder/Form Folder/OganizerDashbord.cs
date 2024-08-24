@@ -25,5 +25,11 @@ namespace Root_Folder
             c1.Show();
             this.Hide();
         }
+
+        private void OganizerDashbord_Load(object sender, EventArgs e)
+        {
+            Organizer o1 = new Organizer();
+            o1.ViewEventDetails(EventTable);
+        }
     }
 }
