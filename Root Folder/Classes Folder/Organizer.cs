@@ -48,5 +48,31 @@ namespace Root_Folder
         {
             MyDb.UserLogin(uname, pass, role, f1);
         }
+
+        public void orgAddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName)
+        {
+            if ((name.Length < 5) || (name.Length > 20))
+            {
+                MessageBox.Show("Invalide Event Name!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if ((place.Length < 3) || (place.Length > 50))
+            {
+                MessageBox.Show("The place is invalide!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (patientCount < 5)
+            {
+                MessageBox.Show("Insuficent particepent count!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (price < 50)
+            {
+                MessageBox.Show("The price should be grater thn Rs. 50!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Debug MessageBox
+                //MessageBox.Show($"Name: {name}\nPrice: {price}\nPlace: {place}\nPcount: {patientCount}\nTime: {time}\nDate: {date}\nOrg: {organizerName}");
+                Event e1 = new Event(name, price, place, patientCount, time, date, organizerName);
+            }
+        }
     }
 }

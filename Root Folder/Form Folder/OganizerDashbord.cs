@@ -12,14 +12,16 @@ namespace Root_Folder
 {
     public partial class OganizerDashbord : Form
     {
-        public OganizerDashbord()
+        private string organizer;
+        public OganizerDashbord(string organizer)
         {
             InitializeComponent();
+            this.organizer = organizer;
         }
 
         private void AddEventBtn_Click(object sender, EventArgs e)
         {
-            CreateEvent c1 = new CreateEvent();
+            CreateEvent c1 = new CreateEvent(organizer);
             c1.Show();
             this.Hide();
         }

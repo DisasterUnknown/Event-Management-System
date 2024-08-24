@@ -35,12 +35,12 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox3 = new TextBox();
+            EventNameIN = new TextBox();
+            PlaceIN = new TextBox();
+            DateTimeIN = new DateTimePicker();
             EventCreation = new Button();
             PriceIN = new TextBox();
+            PamountIN = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -111,9 +111,9 @@
             label5.ForeColor = SystemColors.ButtonFace;
             label5.Location = new Point(92, 277);
             label5.Name = "label5";
-            label5.Size = new Size(93, 28);
+            label5.Size = new Size(157, 28);
             label5.TabIndex = 5;
-            label5.Text = "Amount:";
+            label5.Text = "Ticket Amount:";
             // 
             // label6
             // 
@@ -127,35 +127,28 @@
             label6.TabIndex = 6;
             label6.Text = "Price:";
             // 
-            // textBox1
+            // EventNameIN
             // 
-            textBox1.Location = new Point(280, 133);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(187, 27);
-            textBox1.TabIndex = 7;
+            EventNameIN.Location = new Point(280, 133);
+            EventNameIN.Name = "EventNameIN";
+            EventNameIN.Size = new Size(187, 27);
+            EventNameIN.TabIndex = 7;
             // 
-            // textBox2
+            // PlaceIN
             // 
-            textBox2.Location = new Point(280, 186);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(187, 27);
-            textBox2.TabIndex = 8;
+            PlaceIN.Location = new Point(280, 186);
+            PlaceIN.Name = "PlaceIN";
+            PlaceIN.Size = new Size(187, 27);
+            PlaceIN.TabIndex = 8;
             // 
-            // dateTimePicker1
+            // DateTimeIN
             // 
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy hh:mm tt";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(280, 232);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(187, 27);
-            dateTimePicker1.TabIndex = 9;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(280, 281);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(187, 27);
-            textBox3.TabIndex = 10;
+            DateTimeIN.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            DateTimeIN.Format = DateTimePickerFormat.Custom;
+            DateTimeIN.Location = new Point(280, 232);
+            DateTimeIN.Name = "DateTimeIN";
+            DateTimeIN.Size = new Size(187, 27);
+            DateTimeIN.TabIndex = 9;
             // 
             // EventCreation
             // 
@@ -177,6 +170,15 @@
             PriceIN.TabIndex = 13;
             PriceIN.TextChanged += PriceIN_TextChanged;
             // 
+            // PamountIN
+            // 
+            PamountIN.Location = new Point(280, 281);
+            PamountIN.Mask = "00000";
+            PamountIN.Name = "PamountIN";
+            PamountIN.PromptChar = ' ';
+            PamountIN.Size = new Size(187, 27);
+            PamountIN.TabIndex = 14;
+            // 
             // CreateEvent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -184,12 +186,12 @@
             BackgroundImage = Properties.Resources.addEventBg;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(535, 450);
+            Controls.Add(PamountIN);
             Controls.Add(PriceIN);
             Controls.Add(EventCreation);
-            Controls.Add(textBox3);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(DateTimeIN);
+            Controls.Add(PlaceIN);
+            Controls.Add(EventNameIN);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -214,11 +216,11 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox3;
+        private TextBox EventNameIN;
+        private TextBox PlaceIN;
+        private DateTimePicker DateTimeIN;
         private Button EventCreation;
         private TextBox PriceIN;
+        private MaskedTextBox PamountIN;
     }
 }

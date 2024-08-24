@@ -103,7 +103,7 @@ namespace Root_Folder
                         }
                         else if (role == "orgnizer")
                         {
-                            OganizerDashbord od1 = new OganizerDashbord();
+                            OganizerDashbord od1 = new OganizerDashbord(uname);
                             od1.Show();
                             f1.Hide();
                             con.Close();
@@ -174,7 +174,7 @@ namespace Root_Folder
                         }
                         else if ((role == dbRole) && (role == "OR"))
                         {
-                            OganizerDashbord od1 = new OganizerDashbord();
+                            OganizerDashbord od1 = new OganizerDashbord(uname);
                             od1.Show();
                             f1.Hide();
                             con.Close();
