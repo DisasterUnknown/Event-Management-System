@@ -330,27 +330,57 @@ namespace Root_Folder
         }
 
 
-        // Update Page navigation
-        public static void ViewUpdate(string organizer, DataGridView G1, Form f1)
+        // Display Content in Update Page
+        public static void Display(string eventId, TextBox NameIN, TextBox PlaceIN, DateTimePicker DateTimeIN, MaskedTextBox TicketCIN, TextBox PriceIN)
         {
-            if (G1.SelectedRows.Count > 0) 
+            // Displaying the data in the fields
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
-                string eventOrganizer = G1.SelectedRows[0].Cells["Organizer"].Value.ToString();
+                try
+                {
+                    con.Open();
 
-                if (eventOrganizer == organizer)
-                {
-                    CreateEvent c1 = new CreateEvent(organizer);
-                    c1.Show();
-                    f1.Hide();
+                    string q0 = "SELECT * FROM eventdb WHERE Id = @Id;";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Id", eventId);
+
+                    // Gets the data and displayes them
+                    using (MySqlDataReader read = cmd0.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            string Ename = read["Ename"].ToString();
+                            string Price = read["Price"].ToString();
+                            string Place = read["Place"].ToString();
+                            string Amount = read["Pamount"].ToString();
+                            string Time = read["Time"].ToString();
+                            string Date = read["Date"].ToString();
+
+                            // Fille the text boxes
+                            NameIN.Text = Ename;
+                            PlaceIN.Text = Place;
+                            TicketCIN.Text = Amount;
+                            PriceIN.Text = Price;
+
+                            // Formating the time
+                            DateTime eventDate = DateTime.Parse(Date);
+                            TimeSpan eventTime = TimeSpan.Parse(Time.Substring(0, 8));
+                            
+                            // Adding the time
+                            DateTimeIN.Value = eventDate.Add(eventTime);
+
+                            // Debug Message
+                            // MessageBox.Show($"Name: {Ename}\nPrice: {Price}\nPlace: {Place}\nAmount: {Amount}\nTime: {Time}\nDate: {Date}");
+                        }
+                    }
+
+                    con.Close();
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Permision denieled!!\nOnly the event owner can update the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"{ex}");
+                    con.Close();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please select the event to be edited!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

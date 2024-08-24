@@ -82,5 +82,32 @@ namespace Root_Folder
                 Event e1 = new Event(name, price, place, patientCount, time, date, organizerName, f1);
             }
         }
+
+
+        // Update Page navigation (Display the ubdate page by checking the permision)
+        public void ViewUpdate(string organizer, DataGridView G1, Form f1)
+        {
+            if (G1.SelectedRows.Count > 0)
+            {
+                string eventOrganizer = G1.SelectedRows[0].Cells["Organizer"].Value.ToString();
+                string eventId = G1.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                if (eventOrganizer == organizer)
+                {
+                    CreateEvent c1 = new CreateEvent(organizer, eventId, "Update");
+                    c1.Show();
+                    f1.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Permision denieled!!\nOnly the event owner can update the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select the event to be edited!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

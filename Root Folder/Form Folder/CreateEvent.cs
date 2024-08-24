@@ -13,34 +13,58 @@ namespace Root_Folder
 {
     public partial class CreateEvent : Form
     {
+        // CreateEvent(organizer, eventId, "Update")
         private string organizer;
-        public CreateEvent(string organizer)
+        private string eventId;
+        private string FunctionType;
+
+        public CreateEvent(string organizer, string eventId, string functionType)
         {
             InitializeComponent();
             this.organizer = organizer;
+            this.eventId = eventId;
+            FunctionType = functionType;
         }
 
+        // Functions to happen when on load
         private void CreateEvent_Load(object sender, EventArgs e)
         {
             PriceIN.Text = "Rs. ";
             PriceIN.Click += PriceIN_Clicked;
             PamountIN.Click += PamountIN_Clicked;
+            EventNameIN.Click += EventNameIN_Clicked;
+            PlaceIN.Click += PlaceIN_Clicked;
+
+            if (FunctionType == "Update")
+            {
+                MyDb.Display(eventId, EventNameIN, PlaceIN, DateTimeIN, PamountIN, PriceIN);
+            }
         }
 
 
-        // Particepent amount Styling
+        // Emptying the text in the boxes
         private void PamountIN_Clicked(object sender, EventArgs e)
         {
             PamountIN.Text = string.Empty;
         }
 
-
-        // Form Price box styling
         private void PriceIN_Clicked(object sender, EventArgs e)
         {
             PriceIN.Text = string.Empty;
         }
 
+        private void EventNameIN_Clicked(object sender, EventArgs e)
+        {
+            EventNameIN.Text = string.Empty;
+        }
+
+        private void PlaceIN_Clicked(object sender, EventArgs e)
+        {
+            PlaceIN.Text = string.Empty;
+        }
+
+
+        // Price Box Styling
         private void PriceIN_TextChanged(object sender, EventArgs e)
         {
             string userInput = PriceIN.Text;
@@ -62,21 +86,35 @@ namespace Root_Folder
             }
         }
 
+        // Page Back Btn
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            OganizerDashbord o1 = new OganizerDashbord(organizer);
+            o1.Show();
+            this.Hide();
+        }
 
-        // Creating a new event
+        // Creating & Updating events
         private void EventCreation_Click(object sender, EventArgs e)
         {
-            string name = EventNameIN.Text;
-            string place = PlaceIN.Text;
-            DateTime dateTime = DateTimeIN.Value;
-            int pAmount = int.Parse(PamountIN.Text);
-            string price = PriceIN.Text;
+            if (FunctionType == "Add")
+            {
+                string name = EventNameIN.Text;
+                string place = PlaceIN.Text;
+                DateTime dateTime = DateTimeIN.Value;
+                int pAmount = int.Parse(PamountIN.Text);
+                string price = PriceIN.Text;
 
-            string date = (dateTime.Date).ToString("yyyy-MM-dd");
-            string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");
+                string date = (dateTime.Date).ToString("yyyy-MM-dd");
+                string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");
 
-            Organizer o1 = new Organizer();
-            o1.orgAddEvent(name, price, place, pAmount, time, date, organizer, this);
+                Organizer o1 = new Organizer();
+                o1.orgAddEvent(name, price, place, pAmount, time, date, organizer, this);
+            }
+            else if (FunctionType == "Update")
+            {
+                MessageBox.Show("HelloWorld");
+            }
         }
     }
 }

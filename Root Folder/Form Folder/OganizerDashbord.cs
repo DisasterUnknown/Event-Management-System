@@ -19,22 +19,29 @@ namespace Root_Folder
             this.organizer = organizer;
         }
 
+
+        // Caling the add event form
         private void AddEventBtn_Click(object sender, EventArgs e)
         {
-            CreateEvent c1 = new CreateEvent(organizer);
+            CreateEvent c1 = new CreateEvent(organizer, null, "Add"); 
             c1.Show();
             this.Hide();
         }
 
+
+        // Loading the events
         private void OganizerDashbord_Load(object sender, EventArgs e)
         {
             Organizer o1 = new Organizer();
             o1.ViewEventDetails(EventTable);
         }
 
+
+        // Calling the Update Event Form
         private void UpdateEvent_Click(object sender, EventArgs e)
         {
-            MyDb.ViewUpdate(organizer, EventTable, this);
+            Organizer o1 = new Organizer();
+            o1.ViewUpdate(organizer, EventTable, this);
         }
     }
 }

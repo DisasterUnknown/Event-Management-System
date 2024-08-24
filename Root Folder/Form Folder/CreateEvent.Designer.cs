@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            BackBtn = new PictureBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -41,19 +41,20 @@
             EventCreation = new Button();
             PriceIN = new TextBox();
             PamountIN = new MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // BackBtn
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.backGlowBtn1;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(-5, -5);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 60);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            BackBtn.BackColor = Color.Transparent;
+            BackBtn.BackgroundImage = Properties.Resources.backGlowBtn1;
+            BackBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            BackBtn.Location = new Point(-5, -5);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new Size(63, 60);
+            BackBtn.TabIndex = 0;
+            BackBtn.TabStop = false;
+            BackBtn.Click += BackBtn_Click;
             // 
             // label1
             // 
@@ -198,18 +199,18 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Controls.Add(BackBtn);
             Name = "CreateEvent";
             Text = "CreateEvent";
             Load += CreateEvent_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BackBtn).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox BackBtn;
         private Label label1;
         private Label label2;
         private Label label3;
