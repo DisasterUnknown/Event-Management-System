@@ -70,7 +70,7 @@ namespace Root_Folder
             string place = PlaceIN.Text;
             DateTime dateTime = DateTimeIN.Value;
             int pAmount = int.Parse(PamountIN.Text);
-            int price = int.Parse((PriceIN.Text).Replace("Rs. ", "").Replace(",", ""));
+            string price = PriceIN.Text;
 
             string date = (dateTime.Date).ToString("yyyy-MM-dd");
             string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");

@@ -56,7 +56,7 @@ namespace Root_Folder
 
 
         // Function to call the AddEvent method in Event.cs
-        public void orgAddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName, Form f1)
+        public void orgAddEvent(string name, string price, string place, int patientCount, string time, string date, string organizerName, Form f1)
         {
             if ((name.Length < 5) || (name.Length > 20))
             {
@@ -70,7 +70,7 @@ namespace Root_Folder
             {
                 MessageBox.Show("Insuficent particepent count!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (price < 50)
+            else if (price.Length < 2)
             {
                 MessageBox.Show("The price should be grater thn Rs. 50!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

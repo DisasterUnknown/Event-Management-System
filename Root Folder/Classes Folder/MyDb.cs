@@ -254,7 +254,7 @@ namespace Root_Folder
 
 
         // Event add function
-        public static void EventAdd(string name, int price, string place, int pCount, string time, string date, string orgnizer, Form f1)
+        public static void EventAdd(string name, string price, string place, int pCount, string time, string date, string orgnizer, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
