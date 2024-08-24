@@ -111,9 +111,9 @@
             label5.ForeColor = SystemColors.ButtonFace;
             label5.Location = new Point(92, 277);
             label5.Name = "label5";
-            label5.Size = new Size(157, 28);
+            label5.Size = new Size(137, 28);
             label5.TabIndex = 5;
-            label5.Text = "Ticket Amount:";
+            label5.Text = "Ticket Count:";
             // 
             // label6
             // 

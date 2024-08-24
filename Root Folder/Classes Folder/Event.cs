@@ -24,7 +24,7 @@ namespace Root_Folder
         public string Date { get { return date; } set { date = value; } }
         public string OrganizerName { get { return organizerName; } set { organizerName = value; } }
 
-        public Event(string name, int price, string place, int patientCount, string time, string date, string organizerName) 
+        public Event(string name, int price, string place, int patientCount, string time, string date, string organizerName, Form f1) 
         {
             this.name = name;
             this.price = price;
@@ -34,14 +34,14 @@ namespace Root_Folder
             this.date = date;
             this.organizerName = organizerName;
 
-            AddEvent(name, price, place, patientCount, time, date, organizerName);
+            AddEvent(name, price, place, patientCount, time, date, organizerName, f1);
         }
 
 
         // Adding events to the data base
-        public void AddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName)
+        public void AddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName, Form f1)
         {
-            MyDb.EventAdd(name, price, place, patientCount, time, date, organizerName);
+            MyDb.EventAdd(name, price, place, patientCount, time, date, organizerName, f1);
         }
     }
 }

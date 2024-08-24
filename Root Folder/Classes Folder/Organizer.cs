@@ -49,7 +49,7 @@ namespace Root_Folder
             MyDb.UserLogin(uname, pass, role, f1);
         }
 
-        public void orgAddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName)
+        public void orgAddEvent(string name, int price, string place, int patientCount, string time, string date, string organizerName, Form f1)
         {
             if ((name.Length < 5) || (name.Length > 20))
             {
@@ -71,7 +71,7 @@ namespace Root_Folder
             {
                 // Debug MessageBox
                 //MessageBox.Show($"Name: {name}\nPrice: {price}\nPlace: {place}\nPcount: {patientCount}\nTime: {time}\nDate: {date}\nOrg: {organizerName}");
-                Event e1 = new Event(name, price, place, patientCount, time, date, organizerName);
+                Event e1 = new Event(name, price, place, patientCount, time, date, organizerName, f1);
             }
         }
     }

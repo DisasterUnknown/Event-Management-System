@@ -76,7 +76,7 @@ namespace Root_Folder
             string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");
 
             Organizer o1 = new Organizer();
-            o1.orgAddEvent(name, price, place, pAmount, time, date, organizer);
+            o1.orgAddEvent(name, price, place, pAmount, time, date, organizer, this);
         }
     }
 }

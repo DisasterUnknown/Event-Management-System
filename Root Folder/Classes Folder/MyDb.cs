@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Fpe;
 using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,8 @@ namespace Root_Folder
                         idLable = "OR";
                     }
 
+
+                    // Creating the user id
                     string q1 = "SELECT Id FROM persondb WHERE Id LIKE @Prefix ORDER BY Id DESC LIMIT 1";
                     MySqlCommand cmd = new MySqlCommand(q1, con);
                     cmd.Parameters.AddWithValue("@Prefix", idLable + "%");
@@ -208,9 +211,63 @@ namespace Root_Folder
 
 
         // Event add function
-        public static void EventAdd(string name, int price, string place, int pCount, string time, string date, string orgnizer)
+        public static void EventAdd(string name, int price, string place, int pCount, string time, string date, string orgnizer, Form f1)
         {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
 
+                    string q0 = "SELECT Id FROM eventdb WHERE Id LIKE @Prifix ORDER BY Id DESC LIMIT 1";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Prifix", "EV%");
+
+                    string lastId = cmd0.ExecuteScalar() as string;
+
+                    string newId;
+                    if (lastId == null)
+                    {
+                        newId = "EV0001";
+                    }
+                    else
+                    {
+                        int lastNumber = int.Parse(lastId.Substring(2));
+                        newId = $"EV{(lastNumber + 1):D4}";
+                    }
+
+                    string q1 = "INSERT INTO eventdb (Ename, Price, Place, Pamount, Time, Date, Id, Organizer) " +
+                                "VALUES (@Name, @Price, @Place, @Pcount, @Time, @Date, @NewId, @Organizer)";
+
+                    MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                    cmd1.Parameters.AddWithValue("@Name", name);
+                    cmd1.Parameters.AddWithValue("@Price", price);
+                    cmd1.Parameters.AddWithValue("@Place", place);
+                    cmd1.Parameters.AddWithValue("@Pcount", pCount);
+                    cmd1.Parameters.AddWithValue("@Time", time);
+                    cmd1.Parameters.AddWithValue("@Date", date);
+                    cmd1.Parameters.AddWithValue("@NewId", newId);
+                    cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
+
+                    int addedRowCount = cmd1.ExecuteNonQuery();
+
+                    if (addedRowCount != 1)
+                    {
+                        MessageBox.Show("SomeThing went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                    }
+                    else
+                    {
+                        OganizerDashbord o1 = new OganizerDashbord(orgnizer);
+                        o1.Show();
+                        f1.Hide();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex}");
+                }
+            }
         }
     }
 }
