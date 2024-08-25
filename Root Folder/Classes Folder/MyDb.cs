@@ -1,14 +1,18 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using Org.BouncyCastle.Crypto.Fpe;
 using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using ZstdSharp.Unsafe;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Root_Folder
 {
@@ -254,7 +258,7 @@ namespace Root_Folder
 
 
         // Event add function
-        public static void EventAdd(string name, string price, string place, int pCount, string time, string date, string orgnizer, Form f1)
+        public static void EventAdd(string name, string price, string place, int pCount, string time, string date, string orgnizer, string eventID, Form f1, string fnctionType)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -294,21 +298,54 @@ namespace Root_Folder
                         newId = $"EV{(lastNumber + 1):D4}";
                     }
 
-                    // Adding the data to the DataBase
-                    string q1 = "INSERT INTO eventdb (Ename, Price, Place, Pamount, Time, Date, Id, Organizer) " +
-                                "VALUES (@Name, @Price, @Place, @Pcount, @Time, @Date, @NewId, @Organizer)";
+                    // SQL Quary Select Add or Update
+                    string q1;
+                    int addedRowCount;
+                    if (fnctionType == "Add")
+                    {
+                        // Add Event
+                        q1 = "INSERT INTO eventdb (Ename, Price, Place, Pamount, Time, Date, Id, Organizer) " +
+                                    "VALUES (@Name, @Price, @Place, @Pcount, @Time, @Date, @NewId, @Organizer)";
 
-                    MySqlCommand cmd1 = new MySqlCommand(q1, con);
-                    cmd1.Parameters.AddWithValue("@Name", name);
-                    cmd1.Parameters.AddWithValue("@Price", price);
-                    cmd1.Parameters.AddWithValue("@Place", place);
-                    cmd1.Parameters.AddWithValue("@Pcount", pCount);
-                    cmd1.Parameters.AddWithValue("@Time", time);
-                    cmd1.Parameters.AddWithValue("@Date", date);
-                    cmd1.Parameters.AddWithValue("@NewId", newId);
-                    cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
+                        MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                        cmd1.Parameters.AddWithValue("@Name", name);
+                        cmd1.Parameters.AddWithValue("@Price", price);
+                        cmd1.Parameters.AddWithValue("@Place", place);
+                        cmd1.Parameters.AddWithValue("@Pcount", pCount);
+                        cmd1.Parameters.AddWithValue("@Time", time);
+                        cmd1.Parameters.AddWithValue("@Date", date);
+                        cmd1.Parameters.AddWithValue("@NewId", newId);
+                        cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
 
-                    int addedRowCount = cmd1.ExecuteNonQuery();
+                        addedRowCount = cmd1.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        // Update Event
+                        q1 = "UPDATE eventdb " +
+                            "SET Ename = @Name, " +
+                            "Price = @Price, " +
+                            "Place = @Place, " +
+                            "Pamount = @Pcount, " +
+                            "Time = @Time, " +
+                            "Date = @Date, " +
+                            "Organizer = @Organizer " +
+                            "WHERE Id = @Id";
+
+                        MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                        cmd1.Parameters.AddWithValue("@Name", name);
+                        cmd1.Parameters.AddWithValue("@Price", price);
+                        cmd1.Parameters.AddWithValue("@Place", place);
+                        cmd1.Parameters.AddWithValue("@Pcount", pCount);
+                        cmd1.Parameters.AddWithValue("@Time", time);
+                        cmd1.Parameters.AddWithValue("@Date", date);
+                        cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
+                        cmd1.Parameters.AddWithValue("@Id", eventID);
+
+                        addedRowCount = cmd1.ExecuteNonQuery();
+                    }
+
+                    
 
                     if (addedRowCount != 1)
                     {

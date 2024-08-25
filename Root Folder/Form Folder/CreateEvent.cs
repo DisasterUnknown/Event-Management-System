@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Root_Folder
@@ -97,23 +98,25 @@ namespace Root_Folder
         // Creating & Updating events
         private void EventCreation_Click(object sender, EventArgs e)
         {
+
+            string name = EventNameIN.Text;
+            string place = PlaceIN.Text;
+            DateTime dateTime = DateTimeIN.Value;
+            int pAmount = int.Parse(PamountIN.Text);
+            string price = PriceIN.Text;
+
+            string date = (dateTime.Date).ToString("yyyy-MM-dd");
+            string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");
+
             if (FunctionType == "Add")
             {
-                string name = EventNameIN.Text;
-                string place = PlaceIN.Text;
-                DateTime dateTime = DateTimeIN.Value;
-                int pAmount = int.Parse(PamountIN.Text);
-                string price = PriceIN.Text;
-
-                string date = (dateTime.Date).ToString("yyyy-MM-dd");
-                string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");
-
                 Organizer o1 = new Organizer();
-                o1.orgAddEvent(name, price, place, pAmount, time, date, organizer, this);
+                o1.orgAddAndUpdateEvent(name, price, place, pAmount, time, date, organizer, null, this, "Add");
             }
             else if (FunctionType == "Update")
             {
-                MessageBox.Show("HelloWorld");
+                Organizer o1 = new Organizer();
+                o1.orgAddAndUpdateEvent(name, price, place, pAmount, time, date, organizer, eventId, this, "Update");
             }
         }
     }
