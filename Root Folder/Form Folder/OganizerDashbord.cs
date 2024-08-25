@@ -44,6 +44,16 @@ namespace Root_Folder
             o1.ViewUpdate(organizer, EventTable, this);
         }
 
+
+        // Remove Event Btn Click
+        private void EventRemoveBtn_Click(object sender, EventArgs e)
+        {
+            Organizer o1 = new Organizer();
+            o1.RemoveEvent(organizer, EventTable);
+        }
+
+
+        // LogOut Button
         private void LogOutBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to LogOut!!", "Imformation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

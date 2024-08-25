@@ -391,11 +391,42 @@ namespace Root_Folder
                         OganizerDashbord o1 = new OganizerDashbord(orgnizer);
                         o1.Show();
                         f1.Hide();
+
+                        con.Close();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error: {ex}");
+                }
+            }
+        }
+
+
+        // Remove Event
+        public static void EventRemove(string eventID, DataGridView G1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "DELETE FROM eventdb WHERE Id = @Id;";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Id", eventID);
+
+                    int deletedRows = Convert.ToInt32(cmd0.ExecuteNonQuery());
+                    ViewEvents(G1);
+
+                    if (deletedRows != 1)
+                    {
+                        MessageBox.Show("Event didn't get deleted!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
                 }
             }
         }

@@ -24,6 +24,8 @@ namespace Root_Folder
         public string Date { get { return date; } set { date = value; } }
         public string OrganizerName { get { return organizerName; } set { organizerName = value; } }
 
+        public Event() { }
+
         public Event(string name, string eventName, string price, string place, int patientCount, string time, string date, string organizerName, string eventID, Form f1, string functionType) 
         {
             this.name = name;
@@ -55,6 +57,11 @@ namespace Root_Folder
         public void UpdateEvent(string name, string eventName, string price, string place, int patientCount, string time, string date, string organizerName, string eventID,Form f1)
         {
             MyDb.EventUpdate(name, eventName, price, place, patientCount, time, date, organizerName, eventID, f1);
+        }
+
+        public void RemoveEvent(string eventID, DataGridView G1)
+        {
+            MyDb.EventRemove(eventID, G1);
         }
     }
 }

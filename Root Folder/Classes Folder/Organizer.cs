@@ -110,5 +110,30 @@ namespace Root_Folder
                 MessageBox.Show("Please select the event to be edited!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        // Remove Event
+        public void RemoveEvent(string organizer, DataGridView G1)
+        {
+            if (G1.SelectedRows.Count > 0)
+            {
+                string eventOrganizer = G1.SelectedRows[0].Cells["Organizer"].Value.ToString();
+                string eventId = G1.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                if (organizer == eventOrganizer)
+                {
+                    Event e1 = new Event();
+                    e1.RemoveEvent(eventId, G1);
+                }
+                else
+                {
+                    MessageBox.Show("Permision denieled!!\nOnly the event owner can remove the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select the event to be removed!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -33,7 +33,7 @@
             EventTable = new DataGridView();
             LogOutBtn = new Button();
             pictureBox2 = new PictureBox();
-            button2 = new Button();
+            EventRemoveBtn = new Button();
             UpdateEvent = new Button();
             AddEventBtn = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -94,16 +94,17 @@
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
             // 
-            // button2
+            // EventRemoveBtn
             // 
-            button2.BackColor = SystemColors.ControlDark;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(125, 605);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 8;
-            button2.Text = "Remove";
-            button2.UseVisualStyleBackColor = false;
+            EventRemoveBtn.BackColor = SystemColors.ControlDark;
+            EventRemoveBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            EventRemoveBtn.Location = new Point(125, 605);
+            EventRemoveBtn.Name = "EventRemoveBtn";
+            EventRemoveBtn.Size = new Size(94, 29);
+            EventRemoveBtn.TabIndex = 8;
+            EventRemoveBtn.Text = "Remove";
+            EventRemoveBtn.UseVisualStyleBackColor = false;
+            EventRemoveBtn.Click += EventRemoveBtn_Click;
             // 
             // UpdateEvent
             // 
@@ -138,7 +139,7 @@
             ClientSize = new Size(800, 691);
             Controls.Add(AddEventBtn);
             Controls.Add(UpdateEvent);
-            Controls.Add(button2);
+            Controls.Add(EventRemoveBtn);
             Controls.Add(pictureBox2);
             Controls.Add(LogOutBtn);
             Controls.Add(EventTable);
@@ -163,7 +164,7 @@
         private DataGridView EventTable;
         private Button LogOutBtn;
         private PictureBox pictureBox2;
-        private Button button2;
+        private Button EventRemoveBtn;
         private Button UpdateEvent;
         private Button AddEventBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
