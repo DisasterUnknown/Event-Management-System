@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Bcpg;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,30 @@ namespace Root_Folder
 {
     public partial class JoinEvent : Form
     {
-        public JoinEvent()
+        private string UserId;
+        private string EventId;
+        private string Uname;
+
+        public JoinEvent(string UserId, string EventId, string Uname)
         {
             InitializeComponent();
+            this.UserId = UserId;
+            this.EventId = EventId;
+            this.Uname = Uname;
+        }
+
+        // Page onload Function
+        private void JoinEvent_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        // Page Back Btn
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            CustemerDashbord c1 = new CustemerDashbord(Uname);
+            c1.Show();
+            this.Hide();
         }
     }
 }

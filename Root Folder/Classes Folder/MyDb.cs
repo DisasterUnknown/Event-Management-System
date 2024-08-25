@@ -106,7 +106,7 @@ namespace Root_Folder
                         // Dirrecting the user to the dashbord according to there role
                         if (role == "particepent")
                         {
-                            CustemerDashbord cd1 = new CustemerDashbord();
+                            CustemerDashbord cd1 = new CustemerDashbord(uname);
                             cd1.Show();
                             f1.Hide();
                             con.Close();
@@ -177,7 +177,7 @@ namespace Root_Folder
                         // Directing the user to the dashbord
                         if ((role == dbRole) && (role == "PA"))
                         {
-                            CustemerDashbord cd1 = new CustemerDashbord();
+                            CustemerDashbord cd1 = new CustemerDashbord(uname);
                             cd1.Show();
                             f1.Hide();
                             con.Close();
@@ -237,6 +237,8 @@ namespace Root_Folder
                     EventViewGrid.DataSource = G1;
 
                     // Formating the grid view
+                    EventViewGrid.Columns["Participants"].Visible = false;
+
                     EventViewGrid.Columns["Ename"].HeaderText = "Event";
                     EventViewGrid.Columns["Pamount"].HeaderText = "Particepent Amount";
                     EventViewGrid.Columns["Id"].HeaderText = "ID";
@@ -482,6 +484,36 @@ namespace Root_Folder
                 {
                     MessageBox.Show($"{ex}");
                     con.Close();
+                }
+            }
+        }
+
+
+        // --------------------------------------------------------------------------------------------------------------------------------------------
+        //Particepent Join Page Navigation
+        public static void EventJoinPageView(string Uname, string eventID, Form F1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT Id FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Uname", Uname);
+
+                    string userID = $"{cmd0.ExecuteScalar()}";
+
+                    JoinEvent j1 = new JoinEvent(userID, eventID, Uname);
+                    j1.Show();
+                    F1.Hide();
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
                 }
             }
         }

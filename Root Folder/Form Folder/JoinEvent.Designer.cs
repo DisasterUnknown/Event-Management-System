@@ -37,8 +37,8 @@
             dateTimePicker1 = new DateTimePicker();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            BackBtn = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -136,16 +136,17 @@
             textBox2.Size = new Size(165, 27);
             textBox2.TabIndex = 8;
             // 
-            // pictureBox1
+            // BackBtn
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.backGlowBtn1;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(-5, -5);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 60);
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
+            BackBtn.BackColor = Color.Transparent;
+            BackBtn.BackgroundImage = Properties.Resources.backGlowBtn1;
+            BackBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            BackBtn.Location = new Point(-5, -5);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new Size(63, 60);
+            BackBtn.TabIndex = 9;
+            BackBtn.TabStop = false;
+            BackBtn.Click += BackBtn_Click;
             // 
             // JoinEvent
             // 
@@ -154,7 +155,7 @@
             BackgroundImage = Properties.Resources.joinEventBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(603, 362);
-            Controls.Add(pictureBox1);
+            Controls.Add(BackBtn);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(dateTimePicker1);
@@ -166,7 +167,8 @@
             Controls.Add(label1);
             Name = "JoinEvent";
             Text = "JoinEvent";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += JoinEvent_Load;
+            ((System.ComponentModel.ISupportInitialize)BackBtn).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,6 +184,6 @@
         private DateTimePicker dateTimePicker1;
         private TextBox textBox1;
         private TextBox textBox2;
-        private PictureBox pictureBox1;
+        private PictureBox BackBtn;
     }
 }

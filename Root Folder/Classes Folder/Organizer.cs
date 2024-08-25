@@ -51,6 +51,8 @@ namespace Root_Folder
             MyDb.UserLogin(uname, pass, role, f1);
         }
 
+
+        // View events
         public void ViewEventDetails(DataGridView G1)
         {
             MyDb.ViewEvents(G1);

@@ -12,9 +12,25 @@ namespace Root_Folder
 {
     public partial class CustemerDashbord : Form
     {
-        public CustemerDashbord()
+        private string Uname;
+        public CustemerDashbord(string Uname)
         {
             InitializeComponent();
+            this.Uname = Uname;
+        }
+
+        // Page Onlaod Function
+        private void CustemerDashbord_Load(object sender, EventArgs e)
+        {
+            Particepent p1 = new Particepent();
+            p1.ViewEventDetails(EventDashBord);
+        }
+
+        // Navigate to JoinPage
+        private void ViewJoinPageBtn_Click(object sender, EventArgs e)
+        {
+            Particepent p1 = new Particepent();
+            p1.ViewEventJoinPage(Uname, EventDashBord, this);
         }
     }
 }

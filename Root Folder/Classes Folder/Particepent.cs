@@ -39,9 +39,33 @@ namespace Root_Folder
             }
         }
 
+        // Login
         public override void Login(string uname, string pass, string role, Form f1)
         {
             MyDb.UserLogin(uname, pass, role, f1);
+        }
+
+
+        // View Events
+        public void ViewEventDetails(DataGridView G1)
+        {
+            MyDb.ViewEvents(G1);
+        }
+
+
+        // Display Join Event Page
+        public void ViewEventJoinPage(string Uname, DataGridView G1, Form F1)
+        {
+            if (G1.SelectedRows.Count > 0)
+            {
+                string eventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                MyDb.EventJoinPageView(Uname, eventID, F1);
+            }
+            else
+            {
+                MessageBox.Show("Please select the event first!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

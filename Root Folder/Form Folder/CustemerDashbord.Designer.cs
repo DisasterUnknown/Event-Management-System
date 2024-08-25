@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            EventDashBord = new DataGridView();
             button1 = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ViewJoinPageBtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)EventDashBord).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -48,14 +49,14 @@
             label1.TabIndex = 0;
             label1.Text = "Events";
             // 
-            // dataGridView1
+            // EventDashBord
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(72, 90);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(656, 509);
-            dataGridView1.TabIndex = 3;
+            EventDashBord.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            EventDashBord.Location = new Point(72, 90);
+            EventDashBord.Name = "EventDashBord";
+            EventDashBord.RowHeadersWidth = 51;
+            EventDashBord.Size = new Size(656, 509);
+            EventDashBord.TabIndex = 3;
             // 
             // button1
             // 
@@ -79,6 +80,18 @@
             button2.Text = "View Joined";
             button2.UseVisualStyleBackColor = false;
             // 
+            // ViewJoinPageBtn
+            // 
+            ViewJoinPageBtn.BackColor = SystemColors.ControlDark;
+            ViewJoinPageBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ViewJoinPageBtn.Location = new Point(356, 605);
+            ViewJoinPageBtn.Name = "ViewJoinPageBtn";
+            ViewJoinPageBtn.Size = new Size(94, 29);
+            ViewJoinPageBtn.TabIndex = 6;
+            ViewJoinPageBtn.Text = "Join Event";
+            ViewJoinPageBtn.UseVisualStyleBackColor = false;
+            ViewJoinPageBtn.Click += ViewJoinPageBtn_Click;
+            // 
             // CustemerDashbord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -86,13 +99,15 @@
             BackgroundImage = Properties.Resources.customerBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
+            Controls.Add(ViewJoinPageBtn);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
+            Controls.Add(EventDashBord);
             Controls.Add(label1);
             Name = "CustemerDashbord";
             Text = "Custemer Dashbord";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += CustemerDashbord_Load;
+            ((System.ComponentModel.ISupportInitialize)EventDashBord).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -100,9 +115,10 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView EventDashBord;
         private Button button1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button button2;
+        private Button ViewJoinPageBtn;
     }
 }
