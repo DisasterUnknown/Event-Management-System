@@ -32,14 +32,12 @@
             label1 = new Label();
             EventTable = new DataGridView();
             LogOutBtn = new Button();
-            pictureBox2 = new PictureBox();
             EventRemoveBtn = new Button();
             UpdateEvent = new Button();
             AddEventBtn = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EventTable).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -82,17 +80,6 @@
             LogOutBtn.Text = "LogOut";
             LogOutBtn.UseVisualStyleBackColor = false;
             LogOutBtn.Click += LogOutBtn_Click;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.BackgroundImage = Properties.Resources.loginLogo3;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Location = new Point(12, 630);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(48, 48);
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
             // 
             // EventRemoveBtn
             // 
@@ -140,7 +127,6 @@
             Controls.Add(AddEventBtn);
             Controls.Add(UpdateEvent);
             Controls.Add(EventRemoveBtn);
-            Controls.Add(pictureBox2);
             Controls.Add(LogOutBtn);
             Controls.Add(EventTable);
             Controls.Add(label1);
@@ -152,7 +138,6 @@
             Load += OganizerDashbord_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)EventTable).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -163,7 +148,6 @@
         private Label label1;
         private DataGridView EventTable;
         private Button LogOutBtn;
-        private PictureBox pictureBox2;
         private Button EventRemoveBtn;
         private Button UpdateEvent;
         private Button AddEventBtn;

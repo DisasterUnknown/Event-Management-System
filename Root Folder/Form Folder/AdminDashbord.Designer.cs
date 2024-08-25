@@ -28,25 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
             button1 = new Button();
             label1 = new Label();
             dataGridView1 = new DataGridView();
             button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.loginLogo3;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(12, 630);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(48, 48);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -102,18 +89,14 @@
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(button1);
-            Controls.Add(pictureBox1);
             Name = "AdminDashbord";
             Text = "Admin Dashbord";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private Button button1;
         private Label label1;
         private DataGridView dataGridView1;

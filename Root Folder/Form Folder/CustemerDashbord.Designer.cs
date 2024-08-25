@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
             button1 = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -49,17 +47,6 @@
             label1.Size = new Size(140, 39);
             label1.TabIndex = 0;
             label1.Text = "Events";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.loginLogo3;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(12, 630);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(48, 48);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -102,11 +89,9 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
-            Controls.Add(pictureBox1);
             Controls.Add(label1);
             Name = "CustemerDashbord";
             Text = "Custemer Dashbord";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -115,7 +100,6 @@
         #endregion
 
         private Label label1;
-        private PictureBox pictureBox1;
         private DataGridView dataGridView1;
         private Button button1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
