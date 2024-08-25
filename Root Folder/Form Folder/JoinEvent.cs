@@ -38,5 +38,17 @@ namespace Root_Folder
             c1.Show();
             this.Hide();
         }
+
+        private void CancleBtn_Click(object sender, EventArgs e)
+        {
+            CustemerDashbord c1 = new CustemerDashbord(Uname);
+            c1.Show();
+            this.Hide();
+        }
+
+        private void JoinBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,8 +32,8 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            JoinBtn = new Button();
+            CancleBtn = new Button();
             BackBtn = new PictureBox();
             DateTimeIN = new Label();
             PriceIN = new Label();
@@ -92,27 +92,29 @@
             label4.TabIndex = 3;
             label4.Text = "Price: ";
             // 
-            // button1
+            // JoinBtn
             // 
-            button1.BackColor = SystemColors.ControlDark;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(497, 350);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 4;
-            button1.Text = "Join";
-            button1.UseVisualStyleBackColor = false;
+            JoinBtn.BackColor = SystemColors.ControlDark;
+            JoinBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            JoinBtn.Location = new Point(497, 350);
+            JoinBtn.Name = "JoinBtn";
+            JoinBtn.Size = new Size(94, 29);
+            JoinBtn.TabIndex = 4;
+            JoinBtn.Text = "Join";
+            JoinBtn.UseVisualStyleBackColor = false;
+            JoinBtn.Click += JoinBtn_Click;
             // 
-            // button2
+            // CancleBtn
             // 
-            button2.BackColor = SystemColors.ControlDark;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(12, 350);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 5;
-            button2.Text = "Cancle";
-            button2.UseVisualStyleBackColor = false;
+            CancleBtn.BackColor = SystemColors.ControlDark;
+            CancleBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            CancleBtn.Location = new Point(12, 350);
+            CancleBtn.Name = "CancleBtn";
+            CancleBtn.Size = new Size(94, 29);
+            CancleBtn.TabIndex = 5;
+            CancleBtn.Text = "Cancle";
+            CancleBtn.UseVisualStyleBackColor = false;
+            CancleBtn.Click += CancleBtn_Click;
             // 
             // BackBtn
             // 
@@ -195,8 +197,8 @@
             Controls.Add(PriceIN);
             Controls.Add(DateTimeIN);
             Controls.Add(BackBtn);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(CancleBtn);
+            Controls.Add(JoinBtn);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -215,8 +217,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Button button1;
-        private Button button2;
+        private Button JoinBtn;
+        private Button CancleBtn;
         private DateTimePicker dateTimePicker1;
         private TextBox textBox2;
         private PictureBox BackBtn;
