@@ -217,6 +217,10 @@ namespace Root_Folder
         }
 
 
+
+
+
+
         // View Event function
         public static void ViewEvents(DataGridView EventViewGrid)
         {
@@ -258,7 +262,7 @@ namespace Root_Folder
 
 
         // Event add function
-        public static void EventAdd(string name, string price, string place, int pCount, string time, string date, string orgnizer, string eventID, Form f1, string fnctionType)
+        public static void EventAdd(string name, string price, string place, int pCount, string time, string date, string orgnizer, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -280,7 +284,7 @@ namespace Root_Folder
                         return;
                     }
 
-                    // Creating the event function
+                    // Creating the event ID
                     string q0 = "SELECT Id FROM eventdb WHERE Id LIKE @Prifix ORDER BY Id DESC LIMIT 1";
                     MySqlCommand cmd0 = new MySqlCommand(q0, con);
                     cmd0.Parameters.AddWithValue("@Prifix", "EV%");
@@ -298,55 +302,88 @@ namespace Root_Folder
                         newId = $"EV{(lastNumber + 1):D4}";
                     }
 
-                    // SQL Quary Select Add or Update
-                    string q1;
-                    int addedRowCount;
-                    if (fnctionType == "Add")
+                    // Add Event
+                    string q1 = "INSERT INTO eventdb (Ename, Price, Place, Pamount, Time, Date, Id, Organizer) " +
+                                "VALUES (@Name, @Price, @Place, @Pcount, @Time, @Date, @NewId, @Organizer)";
+
+                    MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                    cmd1.Parameters.AddWithValue("@Name", name);
+                    cmd1.Parameters.AddWithValue("@Price", price);
+                    cmd1.Parameters.AddWithValue("@Place", place);
+                    cmd1.Parameters.AddWithValue("@Pcount", pCount);
+                    cmd1.Parameters.AddWithValue("@Time", time);
+                    cmd1.Parameters.AddWithValue("@Date", date);
+                    cmd1.Parameters.AddWithValue("@NewId", newId);
+                    cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
+
+                    int addedRowCount = cmd1.ExecuteNonQuery();
+
+                    if (addedRowCount != 1)
                     {
-                        // Add Event
-                        q1 = "INSERT INTO eventdb (Ename, Price, Place, Pamount, Time, Date, Id, Organizer) " +
-                                    "VALUES (@Name, @Price, @Place, @Pcount, @Time, @Date, @NewId, @Organizer)";
-
-                        MySqlCommand cmd1 = new MySqlCommand(q1, con);
-                        cmd1.Parameters.AddWithValue("@Name", name);
-                        cmd1.Parameters.AddWithValue("@Price", price);
-                        cmd1.Parameters.AddWithValue("@Place", place);
-                        cmd1.Parameters.AddWithValue("@Pcount", pCount);
-                        cmd1.Parameters.AddWithValue("@Time", time);
-                        cmd1.Parameters.AddWithValue("@Date", date);
-                        cmd1.Parameters.AddWithValue("@NewId", newId);
-                        cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
-
-                        addedRowCount = cmd1.ExecuteNonQuery();
+                        MessageBox.Show("SomeThing went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
                     }
                     else
                     {
-                        // Update Event
-                        q1 = "UPDATE eventdb " +
-                            "SET Ename = @Name, " +
-                            "Price = @Price, " +
-                            "Place = @Place, " +
-                            "Pamount = @Pcount, " +
-                            "Time = @Time, " +
-                            "Date = @Date, " +
-                            "Organizer = @Organizer " +
-                            "WHERE Id = @Id";
+                        OganizerDashbord o1 = new OganizerDashbord(orgnizer);
+                        o1.Show();
+                        f1.Hide();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex}");
+                }
+            }
+        }
 
-                        MySqlCommand cmd1 = new MySqlCommand(q1, con);
-                        cmd1.Parameters.AddWithValue("@Name", name);
-                        cmd1.Parameters.AddWithValue("@Price", price);
-                        cmd1.Parameters.AddWithValue("@Place", place);
-                        cmd1.Parameters.AddWithValue("@Pcount", pCount);
-                        cmd1.Parameters.AddWithValue("@Time", time);
-                        cmd1.Parameters.AddWithValue("@Date", date);
-                        cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
-                        cmd1.Parameters.AddWithValue("@Id", eventID);
 
-                        addedRowCount = cmd1.ExecuteNonQuery();
+        // Update Event
+        public static void EventUpdate(string name, string eventName, string price, string place, int pCount, string time, string date, string orgnizer, string eventID, Form f1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    // Checking if there are any event with the same name
+                    string q = "SELECT COUNT(*) FROM eventdb WHERE Ename = @Ename";
+                    MySqlCommand cmd = new MySqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@Ename", name);
+
+                    int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if ((userCount > 0) && (name != eventName))
+                    {
+                        MessageBox.Show("Sorry event alredy exists!!\nTry changing the event name!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        return;
                     }
 
-                    
+                    // Update Event
+                    string q1 = "UPDATE eventdb " +
+                        "SET Ename = @Name, " +
+                        "Price = @Price, " +
+                        "Place = @Place, " +
+                        "Pamount = @Pcount, " +
+                        "Time = @Time, " +
+                        "Date = @Date, " +
+                        "Organizer = @Organizer " +
+                        "WHERE Id = @Id";
 
+                    MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                    cmd1.Parameters.AddWithValue("@Name", name);
+                    cmd1.Parameters.AddWithValue("@Price", price);
+                    cmd1.Parameters.AddWithValue("@Place", place);
+                    cmd1.Parameters.AddWithValue("@Pcount", pCount);
+                    cmd1.Parameters.AddWithValue("@Time", time);
+                    cmd1.Parameters.AddWithValue("@Date", date);
+                    cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
+                    cmd1.Parameters.AddWithValue("@Id", eventID);
+
+                    int addedRowCount = cmd1.ExecuteNonQuery();
+                    
                     if (addedRowCount != 1)
                     {
                         MessageBox.Show("SomeThing went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -23,7 +23,7 @@ namespace Root_Folder
         // Caling the add event form
         private void AddEventBtn_Click(object sender, EventArgs e)
         {
-            CreateEvent c1 = new CreateEvent(organizer, null, "Add"); 
+            CreateEvent c1 = new CreateEvent(organizer, null, "Add");
             c1.Show();
             this.Hide();
         }
@@ -42,6 +42,18 @@ namespace Root_Folder
         {
             Organizer o1 = new Organizer();
             o1.ViewUpdate(organizer, EventTable, this);
+        }
+
+        private void LogOutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to LogOut!!", "Imformation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                HomePage h1 = new HomePage();
+                h1.Show();
+                this.Hide();
+            }
         }
     }
 }

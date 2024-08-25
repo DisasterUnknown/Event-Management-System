@@ -24,7 +24,7 @@ namespace Root_Folder
         public string Date { get { return date; } set { date = value; } }
         public string OrganizerName { get { return organizerName; } set { organizerName = value; } }
 
-        public Event(string name, string price, string place, int patientCount, string time, string date, string organizerName, string eventID, Form f1, string functionType) 
+        public Event(string name, string eventName, string price, string place, int patientCount, string time, string date, string organizerName, string eventID, Form f1, string functionType) 
         {
             this.name = name;
             this.price = price;
@@ -40,7 +40,7 @@ namespace Root_Folder
             }
             else
             {
-                UpdateEvent(name, price, place, patientCount, time, date, organizerName, eventID, f1);
+                UpdateEvent(name, eventName, price, place, patientCount, time, date, organizerName, eventID, f1);
             }
         }
 
@@ -48,13 +48,13 @@ namespace Root_Folder
         // Adding events to the data base
         public void AddEvent(string name, string price, string place, int patientCount, string time, string date, string organizerName, Form f1)
         {
-            MyDb.EventAdd(name, price, place, patientCount, time, date, organizerName, null, f1, "Add");
+            MyDb.EventAdd(name, price, place, patientCount, time, date, organizerName, f1);
         }
 
         // Update Event
-        public void UpdateEvent(string name, string price, string place, int patientCount, string time, string date, string organizerName, string eventID,Form f1)
+        public void UpdateEvent(string name, string eventName, string price, string place, int patientCount, string time, string date, string organizerName, string eventID,Form f1)
         {
-            MyDb.EventAdd(name, price, place, patientCount, time, date, organizerName, eventID, f1, "Update");
+            MyDb.EventUpdate(name, eventName, price, place, patientCount, time, date, organizerName, eventID, f1);
         }
     }
 }

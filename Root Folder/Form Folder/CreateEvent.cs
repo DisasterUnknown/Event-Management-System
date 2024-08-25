@@ -18,6 +18,7 @@ namespace Root_Folder
         private string organizer;
         private string eventId;
         private string FunctionType;
+        private static string eventName;
 
         public CreateEvent(string organizer, string eventId, string functionType)
         {
@@ -31,14 +32,17 @@ namespace Root_Folder
         private void CreateEvent_Load(object sender, EventArgs e)
         {
             PriceIN.Text = "Rs. ";
-            PriceIN.Click += PriceIN_Clicked;
-            PamountIN.Click += PamountIN_Clicked;
-            EventNameIN.Click += EventNameIN_Clicked;
-            PlaceIN.Click += PlaceIN_Clicked;
-
-            if (FunctionType == "Update")
+            if (FunctionType != "Update")
+            {
+                PriceIN.Click += PriceIN_Clicked;
+                PamountIN.Click += PamountIN_Clicked;
+                EventNameIN.Click += EventNameIN_Clicked;
+                PlaceIN.Click += PlaceIN_Clicked;
+            }
+            else if (FunctionType == "Update")
             {
                 MyDb.Display(eventId, EventNameIN, PlaceIN, DateTimeIN, PamountIN, PriceIN);
+                eventName = EventNameIN.Text;
             }
         }
 
@@ -111,12 +115,12 @@ namespace Root_Folder
             if (FunctionType == "Add")
             {
                 Organizer o1 = new Organizer();
-                o1.orgAddAndUpdateEvent(name, price, place, pAmount, time, date, organizer, null, this, "Add");
+                o1.orgAddAndUpdateEvent(name, null, price, place, pAmount, time, date, organizer, null, this, "Add");
             }
             else if (FunctionType == "Update")
             {
                 Organizer o1 = new Organizer();
-                o1.orgAddAndUpdateEvent(name, price, place, pAmount, time, date, organizer, eventId, this, "Update");
+                o1.orgAddAndUpdateEvent(name, eventName, price, place, pAmount, time, date, organizer, eventId, this, "Update");
             }
         }
     }

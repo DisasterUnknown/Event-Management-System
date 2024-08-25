@@ -31,7 +31,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             EventTable = new DataGridView();
-            button1 = new Button();
+            LogOutBtn = new Button();
             pictureBox2 = new PictureBox();
             button2 = new Button();
             UpdateEvent = new Button();
@@ -71,16 +71,17 @@
             EventTable.Size = new Size(656, 509);
             EventTable.TabIndex = 5;
             // 
-            // button1
+            // LogOutBtn
             // 
-            button1.BackColor = SystemColors.ControlDark;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(694, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 6;
-            button1.Text = "LogOut";
-            button1.UseVisualStyleBackColor = false;
+            LogOutBtn.BackColor = SystemColors.ControlDark;
+            LogOutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            LogOutBtn.Location = new Point(694, 12);
+            LogOutBtn.Name = "LogOutBtn";
+            LogOutBtn.Size = new Size(94, 29);
+            LogOutBtn.TabIndex = 6;
+            LogOutBtn.Text = "LogOut";
+            LogOutBtn.UseVisualStyleBackColor = false;
+            LogOutBtn.Click += LogOutBtn_Click;
             // 
             // pictureBox2
             // 
@@ -139,7 +140,7 @@
             Controls.Add(UpdateEvent);
             Controls.Add(button2);
             Controls.Add(pictureBox2);
-            Controls.Add(button1);
+            Controls.Add(LogOutBtn);
             Controls.Add(EventTable);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -160,7 +161,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private DataGridView EventTable;
-        private Button button1;
+        private Button LogOutBtn;
         private PictureBox pictureBox2;
         private Button button2;
         private Button UpdateEvent;
