@@ -217,10 +217,7 @@ namespace Root_Folder
         }
 
 
-
-
-
-
+        // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         // View Event function
         public static void ViewEvents(DataGridView EventViewGrid)
         {
@@ -338,7 +335,7 @@ namespace Root_Folder
         }
 
 
-        // Update Event
+        // Update Event Function
         public static void EventUpdate(string name, string eventName, string price, string place, int pCount, string time, string date, string orgnizer, string eventID, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))

@@ -18,7 +18,7 @@ namespace Root_Folder
         private string organizer;
         private string eventId;
         private string FunctionType;
-        private static string eventName;
+        private static string eventName; // For the update Function
 
         public CreateEvent(string organizer, string eventId, string functionType)
         {
@@ -113,12 +113,12 @@ namespace Root_Folder
             string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");
 
             if (FunctionType == "Add")
-            {
+            {   // Calling the Create Event Function
                 Organizer o1 = new Organizer();
                 o1.orgAddAndUpdateEvent(name, null, price, place, pAmount, time, date, organizer, null, this, "Add");
             }
             else if (FunctionType == "Update")
-            {
+            {   // Calling the Update Event Function
                 Organizer o1 = new Organizer();
                 o1.orgAddAndUpdateEvent(name, eventName, price, place, pAmount, time, date, organizer, eventId, this, "Update");
             }
