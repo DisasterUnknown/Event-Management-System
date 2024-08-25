@@ -49,7 +49,7 @@ namespace Root_Folder
         private void JoinBtn_Click(object sender, EventArgs e)
         {
             Particepent p1 =new Particepent();
-            p1.JoinEvent(UserId, EventId, this);
+            p1.JoinEvent(Uname, UserId, EventId, this);
         }
     }
 }

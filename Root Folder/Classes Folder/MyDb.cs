@@ -562,9 +562,110 @@ namespace Root_Folder
 
 
         // Join event
-        public static void EventJoin(string UserId, string EventId, Form f1)
+        public static void EventJoin(string Uname, string UserId, string EventId, Form f1)
         {
-            
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    // Getting the particepents joined in the event
+                    string q0 = "SELECT Participants, Pamount FROM eventdb WHERE Id = @Id";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Id", EventId);
+
+                    string particepents = "";
+                    int particepentsAmount = 0;
+                    using (MySqlDataReader reader = cmd0.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            particepents = reader["Participants"].ToString();
+                            particepentsAmount = Convert.ToInt32(reader["Pamount"]);
+                        }
+                    }
+
+                    string[] particepentsArray = particepents.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToArray(); 
+                    int numberOfparticepents = particepentsArray.Length;
+
+                    // Checking if already joined
+                    if (numberOfparticepents >= particepentsAmount)
+                    {
+                        MessageBox.Show("Sorry but the booking are full!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        return;
+                    }
+                    else if (particepentsArray.Contains(UserId))
+                    {
+                        MessageBox.Show("The user has already joined the event!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        return;
+                    }
+                    else
+                    {
+                        string joinedParticepents = $"{particepents}, {UserId}";
+
+                        // Add the participent to the event
+                        string q1 = "UPDATE eventdb SET Participants = @Participants WHERE Id = @Id";
+                        MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                        cmd1.Parameters.AddWithValue("@Participants", joinedParticepents);
+                        cmd1.Parameters.AddWithValue("@Id", EventId);
+
+                        int changedRows = cmd1.ExecuteNonQuery();
+
+                        if (changedRows != 1) 
+                        {
+                            MessageBox.Show("Something went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            con.Close();
+                        }
+                        else
+                        {
+                            // Getting the joined event list
+                            string q2 = "SELECT JoinedEvents FROM persondb WHERE Id = @Id";
+                            MySqlCommand cmd2 = new MySqlCommand(q2, con);
+                            cmd2.Parameters.AddWithValue("@Id", UserId);
+
+                            string joinedEvents = "";
+                            using (MySqlDataReader reader = cmd2.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    joinedEvents = reader["JoinedEvents"].ToString();
+                                }
+                            }
+
+                            string updatedJoinedEvents = $"{joinedEvents}, {EventId}";
+
+                            // Adding the new event to the event list
+                            string q3 = "UPDATE persondb SET JoinedEvents = @updatedJoinedEvents WHERE Id = @Id";
+                            MySqlCommand cmd3 = new MySqlCommand(q3, con);
+                            cmd3.Parameters.AddWithValue("@updatedJoinedEvents", updatedJoinedEvents);
+                            cmd3.Parameters.AddWithValue("@Id", UserId);
+
+                            int changedRows1 = cmd3.ExecuteNonQuery();
+
+                            if (changedRows1 != 1)
+                            {
+                                MessageBox.Show("Something went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                con.Close();
+                            }
+                            else
+                            {
+                                CustemerDashbord c1 = new CustemerDashbord(Uname);
+                                c1.Show();
+                                f1.Hide();
+
+                                con.Close();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex1)
+                {
+                    MessageBox.Show($"{ex1}");
+                }
+            }
         }
     }
 }
