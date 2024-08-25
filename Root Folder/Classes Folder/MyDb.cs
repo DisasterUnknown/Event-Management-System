@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using ZstdSharp.Unsafe;
+using static Google.Protobuf.Reflection.SourceCodeInfo.Types;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Root_Folder
@@ -508,6 +509,46 @@ namespace Root_Folder
                     JoinEvent j1 = new JoinEvent(userID, eventID, Uname);
                     j1.Show();
                     F1.Hide();
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
+        }
+
+
+        // Join event page onload
+        public static void EventJoinPageOnLoad(string EventId, Label NameIN, Label LocationIN, Label DateTimeIN, Label PriceIN)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT Ename, Place, Time, Date, Price FROM eventdb WHERE Id = @Id;";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Id", EventId);
+
+                    using (MySqlDataReader reader = cmd0.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader["Ename"].ToString();
+                            string time = reader["Time"].ToString();
+                            string date = reader["Date"].ToString();
+                            string price = reader["Price"].ToString();
+                            string location = reader["Place"].ToString();
+
+                            NameIN.Text = name;
+                            LocationIN.Text = location;
+                            PriceIN.Text = price;
+                            DateTimeIN.Text = $"{date} {time}";
+                        }
+                    }
 
                     con.Close();
                 }

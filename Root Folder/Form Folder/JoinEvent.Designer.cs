@@ -34,10 +34,12 @@
             label4 = new Label();
             button1 = new Button();
             button2 = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
             BackBtn = new PictureBox();
+            DateTimeIN = new Label();
+            PriceIN = new Label();
+            LocationIN = new Label();
+            label6 = new Label();
+            NameIN = new Label();
             ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             SuspendLayout();
             // 
@@ -47,11 +49,11 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Rockwell Extra Bold", 20F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(177, 34);
+            label1.Location = new Point(191, 29);
             label1.Name = "label1";
-            label1.Size = new Size(262, 40);
+            label1.Size = new Size(224, 40);
             label1.TabIndex = 0;
-            label1.Text = "Event Name";
+            label1.Text = "Join Event";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -60,7 +62,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(79, 122);
+            label2.Location = new Point(79, 154);
             label2.Name = "label2";
             label2.Size = new Size(67, 28);
             label2.TabIndex = 1;
@@ -72,7 +74,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(79, 181);
+            label3.Location = new Point(79, 209);
             label3.Name = "label3";
             label3.Size = new Size(64, 28);
             label3.TabIndex = 2;
@@ -84,7 +86,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(79, 235);
+            label4.Location = new Point(79, 263);
             label4.Name = "label4";
             label4.Size = new Size(70, 28);
             label4.TabIndex = 3;
@@ -94,7 +96,7 @@
             // 
             button1.BackColor = SystemColors.ControlDark;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(497, 322);
+            button1.Location = new Point(497, 350);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 4;
@@ -105,36 +107,12 @@
             // 
             button2.BackColor = SystemColors.ControlDark;
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(12, 322);
+            button2.Location = new Point(12, 350);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 5;
             button2.Text = "Cancle";
             button2.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CustomFormat = "d/MM/yyyy h:mm tt";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(352, 181);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(165, 27);
-            dateTimePicker1.TabIndex = 6;
-            dateTimePicker1.Value = new DateTime(2024, 8, 18, 10, 43, 53, 0);
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(352, 122);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(165, 27);
-            textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(352, 235);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(165, 27);
-            textBox2.TabIndex = 8;
             // 
             // BackBtn
             // 
@@ -148,17 +126,75 @@
             BackBtn.TabStop = false;
             BackBtn.Click += BackBtn_Click;
             // 
+            // DateTimeIN
+            // 
+            DateTimeIN.BackColor = SystemColors.Window;
+            DateTimeIN.BorderStyle = BorderStyle.FixedSingle;
+            DateTimeIN.Location = new Point(352, 209);
+            DateTimeIN.Name = "DateTimeIN";
+            DateTimeIN.Padding = new Padding(0, 2, 0, 2);
+            DateTimeIN.Size = new Size(165, 27);
+            DateTimeIN.TabIndex = 11;
+            DateTimeIN.Text = " ";
+            // 
+            // PriceIN
+            // 
+            PriceIN.BackColor = SystemColors.Window;
+            PriceIN.BorderStyle = BorderStyle.FixedSingle;
+            PriceIN.Location = new Point(352, 265);
+            PriceIN.Name = "PriceIN";
+            PriceIN.Padding = new Padding(0, 2, 0, 2);
+            PriceIN.Size = new Size(165, 27);
+            PriceIN.TabIndex = 12;
+            PriceIN.Text = " ";
+            // 
+            // LocationIN
+            // 
+            LocationIN.BackColor = SystemColors.Window;
+            LocationIN.BorderStyle = BorderStyle.FixedSingle;
+            LocationIN.Location = new Point(352, 157);
+            LocationIN.Name = "LocationIN";
+            LocationIN.Padding = new Padding(0, 2, 0, 2);
+            LocationIN.Size = new Size(165, 27);
+            LocationIN.TabIndex = 13;
+            LocationIN.Text = " ";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.Control;
+            label6.Location = new Point(79, 104);
+            label6.Name = "label6";
+            label6.Size = new Size(73, 28);
+            label6.TabIndex = 14;
+            label6.Text = "Name:";
+            // 
+            // NameIN
+            // 
+            NameIN.BackColor = SystemColors.Window;
+            NameIN.BorderStyle = BorderStyle.FixedSingle;
+            NameIN.Location = new Point(352, 110);
+            NameIN.Name = "NameIN";
+            NameIN.Padding = new Padding(0, 2, 0, 2);
+            NameIN.Size = new Size(165, 27);
+            NameIN.TabIndex = 15;
+            NameIN.Text = " ";
+            // 
             // JoinEvent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.joinEventBg;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(603, 362);
+            ClientSize = new Size(603, 386);
+            Controls.Add(NameIN);
+            Controls.Add(label6);
+            Controls.Add(LocationIN);
+            Controls.Add(PriceIN);
+            Controls.Add(DateTimeIN);
             Controls.Add(BackBtn);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(dateTimePicker1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label4);
@@ -182,8 +218,13 @@
         private Button button1;
         private Button button2;
         private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
         private TextBox textBox2;
         private PictureBox BackBtn;
+        private Label label5;
+        private Label DateTimeIN;
+        private Label PriceIN;
+        private Label LocationIN;
+        private Label label6;
+        private Label NameIN;
     }
 }
