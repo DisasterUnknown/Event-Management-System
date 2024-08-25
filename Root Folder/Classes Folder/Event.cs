@@ -59,9 +59,16 @@ namespace Root_Folder
             MyDb.EventUpdate(name, eventName, price, place, patientCount, time, date, organizerName, eventID, f1);
         }
 
+        // Remove Event
         public void RemoveEvent(string eventID, DataGridView G1)
         {
             MyDb.EventRemove(eventID, G1);
+        }
+
+        // Join Event
+        public void JoinEvent(string UserId, string EventId, Form f1)
+        {
+            MyDb.EventJoin(UserId, EventId, f1);
         }
     }
 }

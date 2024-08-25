@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,6 +67,14 @@ namespace Root_Folder
             {
                 MessageBox.Show("Please select the event first!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        // Join Event
+        public void JoinEvent(string UserId, string EventId, Form f1)
+        {
+            Event e1 = new Event();
+            e1.JoinEvent(UserId, EventId, f1);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using Org.BouncyCastle.Crypto.Fpe;
 using Org.BouncyCastle.Tls;
@@ -557,6 +558,13 @@ namespace Root_Folder
                     MessageBox.Show($"{ex}");
                 }
             }
+        }
+
+
+        // Join event
+        public static void EventJoin(string UserId, string EventId, Form f1)
+        {
+            
         }
     }
 }
