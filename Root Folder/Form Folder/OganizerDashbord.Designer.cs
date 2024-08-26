@@ -36,6 +36,7 @@
             UpdateEvent = new Button();
             AddEventBtn = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            ViewDetailsBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EventTable).BeginInit();
             SuspendLayout();
@@ -97,7 +98,7 @@
             // 
             UpdateEvent.BackColor = SystemColors.ControlDark;
             UpdateEvent.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            UpdateEvent.Location = new Point(361, 605);
+            UpdateEvent.Location = new Point(296, 605);
             UpdateEvent.Name = "UpdateEvent";
             UpdateEvent.Size = new Size(94, 29);
             UpdateEvent.TabIndex = 9;
@@ -117,6 +118,18 @@
             AddEventBtn.UseVisualStyleBackColor = false;
             AddEventBtn.Click += AddEventBtn_Click;
             // 
+            // ViewDetailsBtn
+            // 
+            ViewDetailsBtn.BackColor = SystemColors.ControlDark;
+            ViewDetailsBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ViewDetailsBtn.Location = new Point(431, 605);
+            ViewDetailsBtn.Name = "ViewDetailsBtn";
+            ViewDetailsBtn.Size = new Size(109, 29);
+            ViewDetailsBtn.TabIndex = 11;
+            ViewDetailsBtn.Text = "View Details";
+            ViewDetailsBtn.UseVisualStyleBackColor = false;
+            ViewDetailsBtn.Click += ViewDetailsBtn_Click;
+            // 
             // OganizerDashbord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -124,6 +137,7 @@
             BackgroundImage = Properties.Resources.oganizerBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
+            Controls.Add(ViewDetailsBtn);
             Controls.Add(AddEventBtn);
             Controls.Add(UpdateEvent);
             Controls.Add(EventRemoveBtn);
@@ -152,5 +166,6 @@
         private Button UpdateEvent;
         private Button AddEventBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button ViewDetailsBtn;
     }
 }

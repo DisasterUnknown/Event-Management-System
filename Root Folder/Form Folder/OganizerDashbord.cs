@@ -65,5 +65,13 @@ namespace Root_Folder
                 this.Hide();
             }
         }
+
+
+        // View Event Details
+        private void ViewDetailsBtn_Click(object sender, EventArgs e)
+        {
+            Organizer o1 = new Organizer();
+            o1.OrgViewEventDetails(organizer, EventTable, this);
+        }
     }
 }

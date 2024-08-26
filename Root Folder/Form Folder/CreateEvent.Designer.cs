@@ -133,14 +133,14 @@
             EventNameIN.Location = new Point(280, 133);
             EventNameIN.Name = "EventNameIN";
             EventNameIN.Size = new Size(187, 27);
-            EventNameIN.TabIndex = 7;
+            EventNameIN.TabIndex = 1;
             // 
             // PlaceIN
             // 
             PlaceIN.Location = new Point(280, 186);
             PlaceIN.Name = "PlaceIN";
             PlaceIN.Size = new Size(187, 27);
-            PlaceIN.TabIndex = 8;
+            PlaceIN.TabIndex = 2;
             // 
             // DateTimeIN
             // 
@@ -149,7 +149,7 @@
             DateTimeIN.Location = new Point(280, 232);
             DateTimeIN.Name = "DateTimeIN";
             DateTimeIN.Size = new Size(187, 27);
-            DateTimeIN.TabIndex = 9;
+            DateTimeIN.TabIndex = 3;
             // 
             // EventCreation
             // 
@@ -158,7 +158,7 @@
             EventCreation.Location = new Point(230, 409);
             EventCreation.Name = "EventCreation";
             EventCreation.Size = new Size(94, 29);
-            EventCreation.TabIndex = 12;
+            EventCreation.TabIndex = 6;
             EventCreation.Text = "Conform";
             EventCreation.UseVisualStyleBackColor = false;
             EventCreation.Click += EventCreation_Click;
@@ -168,7 +168,7 @@
             PriceIN.Location = new Point(280, 327);
             PriceIN.Name = "PriceIN";
             PriceIN.Size = new Size(187, 27);
-            PriceIN.TabIndex = 13;
+            PriceIN.TabIndex = 5;
             PriceIN.TextChanged += PriceIN_TextChanged;
             // 
             // PamountIN
@@ -178,7 +178,7 @@
             PamountIN.Name = "PamountIN";
             PamountIN.PromptChar = ' ';
             PamountIN.Size = new Size(187, 27);
-            PamountIN.TabIndex = 14;
+            PamountIN.TabIndex = 4;
             // 
             // CreateEvent
             // 

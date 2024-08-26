@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            pictureBox1 = new PictureBox();
+            BackBtn = new PictureBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
             dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            NameIN = new Label();
+            PlaceIN = new Label();
+            DateTimeIN = new Label();
+            PriceIN = new Label();
+            SeatsCountIN = new Label();
+            ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -51,22 +51,23 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Rockwell Extra Bold", 20F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(165, 26);
+            label1.Location = new Point(168, 26);
             label1.Name = "label1";
-            label1.Size = new Size(262, 40);
+            label1.Size = new Size(287, 40);
             label1.TabIndex = 0;
-            label1.Text = "Event Name";
+            label1.Text = "Event Details";
             // 
-            // pictureBox1
+            // BackBtn
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.backGlowBtn1;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(-5, -5);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 60);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            BackBtn.BackColor = Color.Transparent;
+            BackBtn.BackgroundImage = Properties.Resources.backGlowBtn1;
+            BackBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            BackBtn.Location = new Point(-5, -5);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new Size(63, 60);
+            BackBtn.TabIndex = 1;
+            BackBtn.TabStop = false;
+            BackBtn.Click += BackBtn_Click;
             // 
             // label2
             // 
@@ -128,43 +129,6 @@
             label6.TabIndex = 6;
             label6.Text = "Participant amount:";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(335, 103);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(165, 27);
-            textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(335, 152);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(165, 27);
-            textBox2.TabIndex = 8;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy h:mm tt";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(335, 199);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(165, 27);
-            dateTimePicker1.TabIndex = 9;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(335, 248);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(165, 27);
-            textBox3.TabIndex = 10;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(335, 296);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(165, 27);
-            textBox4.TabIndex = 11;
-            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -174,6 +138,61 @@
             dataGridView1.Size = new Size(504, 226);
             dataGridView1.TabIndex = 12;
             // 
+            // NameIN
+            // 
+            NameIN.BackColor = SystemColors.Window;
+            NameIN.BorderStyle = BorderStyle.FixedSingle;
+            NameIN.Location = new Point(335, 101);
+            NameIN.Name = "NameIN";
+            NameIN.Padding = new Padding(0, 2, 0, 2);
+            NameIN.Size = new Size(165, 27);
+            NameIN.TabIndex = 13;
+            NameIN.Text = " ";
+            // 
+            // PlaceIN
+            // 
+            PlaceIN.BackColor = SystemColors.Window;
+            PlaceIN.BorderStyle = BorderStyle.FixedSingle;
+            PlaceIN.Location = new Point(335, 149);
+            PlaceIN.Name = "PlaceIN";
+            PlaceIN.Padding = new Padding(0, 2, 0, 2);
+            PlaceIN.Size = new Size(165, 27);
+            PlaceIN.TabIndex = 14;
+            PlaceIN.Text = " ";
+            // 
+            // DateTimeIN
+            // 
+            DateTimeIN.BackColor = SystemColors.Window;
+            DateTimeIN.BorderStyle = BorderStyle.FixedSingle;
+            DateTimeIN.Location = new Point(335, 197);
+            DateTimeIN.Name = "DateTimeIN";
+            DateTimeIN.Padding = new Padding(0, 2, 0, 2);
+            DateTimeIN.Size = new Size(165, 27);
+            DateTimeIN.TabIndex = 15;
+            DateTimeIN.Text = " ";
+            // 
+            // PriceIN
+            // 
+            PriceIN.BackColor = SystemColors.Window;
+            PriceIN.BorderStyle = BorderStyle.FixedSingle;
+            PriceIN.Location = new Point(335, 245);
+            PriceIN.Name = "PriceIN";
+            PriceIN.Padding = new Padding(0, 2, 0, 2);
+            PriceIN.Size = new Size(165, 27);
+            PriceIN.TabIndex = 16;
+            PriceIN.Text = " ";
+            // 
+            // SeatsCountIN
+            // 
+            SeatsCountIN.BackColor = SystemColors.Window;
+            SeatsCountIN.BorderStyle = BorderStyle.FixedSingle;
+            SeatsCountIN.Location = new Point(335, 293);
+            SeatsCountIN.Name = "SeatsCountIN";
+            SeatsCountIN.Padding = new Padding(0, 2, 0, 2);
+            SeatsCountIN.Size = new Size(165, 27);
+            SeatsCountIN.TabIndex = 17;
+            SeatsCountIN.Text = " ";
+            // 
             // ViewEvent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -181,23 +200,23 @@
             BackgroundImage = Properties.Resources.viewEventBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(612, 606);
+            Controls.Add(SeatsCountIN);
+            Controls.Add(PriceIN);
+            Controls.Add(DateTimeIN);
+            Controls.Add(PlaceIN);
+            Controls.Add(NameIN);
             Controls.Add(dataGridView1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(pictureBox1);
+            Controls.Add(BackBtn);
             Controls.Add(label1);
-            Cursor = Cursors.Default;
             Name = "ViewEvent";
             Text = "View Event";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += ViewEvent_Load;
+            ((System.ComponentModel.ISupportInitialize)BackBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -206,17 +225,17 @@
         #endregion
 
         private Label label1;
-        private PictureBox pictureBox1;
+        private PictureBox BackBtn;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox3;
-        private TextBox textBox4;
         private DataGridView dataGridView1;
+        private Label NameIN;
+        private Label PlaceIN;
+        private Label DateTimeIN;
+        private Label PriceIN;
+        private Label SeatsCountIN;
     }
 }

@@ -12,9 +12,25 @@ namespace Root_Folder
 {
     public partial class ViewEvent : Form
     {
-        public ViewEvent()
+        private string organizer;
+        private string EventID;
+        public ViewEvent(string EventID, string organizer)
         {
             InitializeComponent();
+            this.EventID = EventID;
+            this.organizer = organizer;
+        }
+
+        private void ViewEvent_Load(object sender, EventArgs e)
+        {
+            MyDb.OrgViewEventDeatils(EventID, NameIN, PlaceIN, DateTimeIN, PriceIN, SeatsCountIN);
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            OganizerDashbord o1 = new OganizerDashbord(organizer);
+            o1.Show();
+            this.Hide();
         }
     }
 }

@@ -877,5 +877,50 @@ namespace Root_Folder
                 }
             }
         }
+
+
+        // View Event Details
+        public static void OrgViewEventDeatils(string EventID, Label NameIN, Label PlaceIN, Label DateTimeIN, Label PriceIN, Label SeatsCountIN)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT Ename, Price, Place, Pamount, Time, Date FROM eventdb WHERE Id = @Id";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Id", EventID);
+
+                    // Reading the data and storing them in the Lables
+                    using (MySqlDataReader reader = cmd0.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string name = reader["Ename"].ToString();
+                            string price = reader["Price"].ToString();
+                            string place = reader["Place"].ToString();
+                            string time = reader["Time"].ToString();
+                            string date = reader["Date"].ToString();
+                            string particepentAmount = reader["Pamount"].ToString();
+
+                            NameIN.Text = name;
+                            PlaceIN.Text = place;
+                            DateTimeIN.Text = $"{date} {time}";
+                            PriceIN.Text = price;
+                            SeatsCountIN.Text = particepentAmount;
+                        }
+
+                        con.Close();
+                    }
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
+        }
     } 
 }
