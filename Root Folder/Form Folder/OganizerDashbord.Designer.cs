@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
             label1 = new Label();
             EventTable = new DataGridView();
             LogOutBtn = new Button();
@@ -37,17 +36,10 @@
             AddEventBtn = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ViewDetailsBtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)EventTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(72, 90);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(48, 48);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -55,7 +47,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Cooper Black", 20F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(275, 33);
+            label1.Location = new Point(266, 22);
             label1.Name = "label1";
             label1.Size = new Size(254, 39);
             label1.TabIndex = 4;
@@ -64,7 +56,7 @@
             // EventTable
             // 
             EventTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            EventTable.Location = new Point(72, 90);
+            EventTable.Location = new Point(265, 76);
             EventTable.Name = "EventTable";
             EventTable.RowHeadersWidth = 51;
             EventTable.Size = new Size(656, 509);
@@ -72,11 +64,12 @@
             // 
             // LogOutBtn
             // 
-            LogOutBtn.BackColor = SystemColors.ControlDark;
-            LogOutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            LogOutBtn.Location = new Point(694, 12);
+            LogOutBtn.BackColor = Color.FromArgb(0, 0, 30);
+            LogOutBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            LogOutBtn.ForeColor = SystemColors.Window;
+            LogOutBtn.Location = new Point(42, 535);
             LogOutBtn.Name = "LogOutBtn";
-            LogOutBtn.Size = new Size(94, 29);
+            LogOutBtn.Size = new Size(144, 50);
             LogOutBtn.TabIndex = 6;
             LogOutBtn.Text = "LogOut";
             LogOutBtn.UseVisualStyleBackColor = false;
@@ -84,11 +77,12 @@
             // 
             // EventRemoveBtn
             // 
-            EventRemoveBtn.BackColor = SystemColors.ControlDark;
+            EventRemoveBtn.BackColor = Color.FromArgb(0, 0, 30);
             EventRemoveBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            EventRemoveBtn.Location = new Point(125, 605);
+            EventRemoveBtn.ForeColor = SystemColors.Window;
+            EventRemoveBtn.Location = new Point(42, 173);
             EventRemoveBtn.Name = "EventRemoveBtn";
-            EventRemoveBtn.Size = new Size(94, 29);
+            EventRemoveBtn.Size = new Size(144, 50);
             EventRemoveBtn.TabIndex = 8;
             EventRemoveBtn.Text = "Remove";
             EventRemoveBtn.UseVisualStyleBackColor = false;
@@ -96,11 +90,12 @@
             // 
             // UpdateEvent
             // 
-            UpdateEvent.BackColor = SystemColors.ControlDark;
+            UpdateEvent.BackColor = Color.FromArgb(0, 0, 30);
             UpdateEvent.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            UpdateEvent.Location = new Point(296, 605);
+            UpdateEvent.ForeColor = SystemColors.Window;
+            UpdateEvent.Location = new Point(42, 29);
             UpdateEvent.Name = "UpdateEvent";
-            UpdateEvent.Size = new Size(94, 29);
+            UpdateEvent.Size = new Size(144, 50);
             UpdateEvent.TabIndex = 9;
             UpdateEvent.Text = "Update";
             UpdateEvent.UseVisualStyleBackColor = false;
@@ -108,35 +103,49 @@
             // 
             // AddEventBtn
             // 
-            AddEventBtn.BackColor = SystemColors.ControlDark;
+            AddEventBtn.BackColor = Color.FromArgb(0, 0, 10);
+            AddEventBtn.FlatAppearance.BorderColor = Color.Navy;
+            AddEventBtn.FlatAppearance.MouseDownBackColor = Color.Navy;
+            AddEventBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
             AddEventBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            AddEventBtn.Location = new Point(583, 605);
+            AddEventBtn.ForeColor = SystemColors.Window;
+            AddEventBtn.Location = new Point(798, 29);
             AddEventBtn.Name = "AddEventBtn";
-            AddEventBtn.Size = new Size(94, 29);
+            AddEventBtn.Size = new Size(113, 31);
             AddEventBtn.TabIndex = 10;
-            AddEventBtn.Text = "Add";
+            AddEventBtn.Text = "Add Event";
             AddEventBtn.UseVisualStyleBackColor = false;
             AddEventBtn.Click += AddEventBtn_Click;
             // 
             // ViewDetailsBtn
             // 
-            ViewDetailsBtn.BackColor = SystemColors.ControlDark;
+            ViewDetailsBtn.BackColor = Color.FromArgb(0, 0, 30);
             ViewDetailsBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ViewDetailsBtn.Location = new Point(431, 605);
+            ViewDetailsBtn.ForeColor = SystemColors.Window;
+            ViewDetailsBtn.Location = new Point(42, 100);
             ViewDetailsBtn.Name = "ViewDetailsBtn";
-            ViewDetailsBtn.Size = new Size(109, 29);
+            ViewDetailsBtn.Size = new Size(144, 50);
             ViewDetailsBtn.TabIndex = 11;
             ViewDetailsBtn.Text = "View Details";
             ViewDetailsBtn.UseVisualStyleBackColor = false;
             ViewDetailsBtn.Click += ViewDetailsBtn_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(0, 0, 30);
+            pictureBox1.Location = new Point(-8, -12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(237, 708);
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
             // OganizerDashbord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.oganizerBg;
+            BackColor = Color.FromArgb(0, 0, 10);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 691);
+            ClientSize = new Size(962, 609);
             Controls.Add(ViewDetailsBtn);
             Controls.Add(AddEventBtn);
             Controls.Add(UpdateEvent);
@@ -150,15 +159,13 @@
             Name = "OganizerDashbord";
             Text = "OganizerDashbord";
             Load += OganizerDashbord_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)EventTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private Label label1;
         private DataGridView EventTable;
         private Button LogOutBtn;
@@ -167,5 +174,6 @@
         private Button AddEventBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button ViewDetailsBtn;
+        private PictureBox pictureBox1;
     }
 }
