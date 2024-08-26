@@ -416,6 +416,14 @@ namespace Root_Folder
                 {
                     con.Open();
 
+                    // Getting the customers who has joined the event
+                    string q = "SELECT Participants FROM eventdb WHERE Id = @Id";
+                    MySqlCommand cmd = new MySqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@Id", eventID);
+
+                    string joinedParticipents = $"{cmd.ExecuteScalar()}";
+
+                    // Deleting the event
                     string q0 = "DELETE FROM eventdb WHERE Id = @Id;";
                     MySqlCommand cmd0 = new MySqlCommand(q0, con);
                     cmd0.Parameters.AddWithValue("@Id", eventID);
@@ -426,6 +434,56 @@ namespace Root_Folder
                     if (deletedRows != 1)
                     {
                         MessageBox.Show("Event didn't get deleted!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                    }
+                    else
+                    {
+                        if (joinedParticipents != "")
+                        {
+                            // Removing the event from the users
+                            List<string> joinedParticipentsList = joinedParticipents
+                                .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(i => i.Trim())
+                                .ToList();
+
+                            foreach (string userId in joinedParticipentsList)
+                            {
+                                string q1 = "SELECT JoinedEvents FROM persondb WHERE Id = @Id";
+                                MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                                cmd1.Parameters.AddWithValue("@Id", userId);
+
+                                string userJoinedEvents = $"{cmd1.ExecuteScalar()}";
+
+                                // Converting into a list
+                                List<string> userJoinedEventsList = userJoinedEvents
+                                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                    .Select(i => i.Trim())
+                                    .ToList();
+
+                                userJoinedEventsList.Remove(eventID);
+                                string updatedUserJoinedEvents = string.Join(", ", userJoinedEventsList);
+
+                                // Updating the user joinedEvents
+                                string q2 = "UPDATE persondb SET JoinedEvents = @updatedJoinedEvents WHERE Id = @Id";
+                                MySqlCommand cmd2 = new MySqlCommand(q2, con);
+                                cmd2.Parameters.AddWithValue("@updatedJoinedEvents", updatedUserJoinedEvents);
+                                cmd2.Parameters.AddWithValue("@Id", userId);
+
+                                int affectedRows = cmd2.ExecuteNonQuery();
+
+                                if (affectedRows != 1) 
+                                {
+                                    MessageBox.Show("Something went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    con.Close();
+                                }
+                                else
+                                {
+                                    con.Close();
+                                }
+                            }
+                        }
+
+                        con.Close();
                     }
                 }
                 catch (Exception ex)
