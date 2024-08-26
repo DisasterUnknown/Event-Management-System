@@ -13,6 +13,7 @@ namespace Root_Folder
     public partial class ViewJoinedEvents : Form
     {
         private string Uname;
+        private string UserID;
 
         public ViewJoinedEvents(string uname)
         {
@@ -20,10 +21,25 @@ namespace Root_Folder
             Uname = uname;
         }
 
+        // Page Onload functions
         private void ViewJoinedEvents_Load(object sender, EventArgs e)
         {
             Particepent p1 = new Particepent();
-            p1.ViewJoinedEvents(Uname, DisplayJoinedEvents);
+            UserID = p1.ViewJoinedEvents(Uname, DisplayJoinedEvents);
+        }
+
+        // Back Btn
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            CustemerDashbord c1 = new CustemerDashbord(Uname);
+            c1.Show();
+            this.Hide();
+        }
+
+        private void LeaveBtn_Click(object sender, EventArgs e)
+        {
+            Particepent p1 = new Particepent();
+            p1.LeaveEvent(UserID, Uname, DisplayJoinedEvents);
         }
     }
 }

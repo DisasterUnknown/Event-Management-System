@@ -40,5 +40,18 @@ namespace Root_Folder
             v1.Show();
             this.Hide();
         }
+
+        // LogOut Btn
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to LogOut!!", "Imformation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                HomePage h1 = new HomePage();
+                h1.Show();
+                this.Hide();
+            }
+        }
     }
 }

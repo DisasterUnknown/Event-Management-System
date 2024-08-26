@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            BackBtn = new PictureBox();
             label1 = new Label();
             DisplayJoinedEvents = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            LeaveBtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DisplayJoinedEvents).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // BackBtn
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.backGlowBtn1;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(-5, -5);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 60);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            BackBtn.BackColor = Color.Transparent;
+            BackBtn.BackgroundImage = Properties.Resources.backGlowBtn1;
+            BackBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            BackBtn.Location = new Point(-5, -5);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new Size(63, 60);
+            BackBtn.TabIndex = 0;
+            BackBtn.TabStop = false;
+            BackBtn.Click += BackBtn_Click;
             // 
             // label1
             // 
@@ -67,20 +69,33 @@
             DisplayJoinedEvents.Size = new Size(484, 312);
             DisplayJoinedEvents.TabIndex = 2;
             // 
+            // LeaveBtn
+            // 
+            LeaveBtn.BackColor = SystemColors.ControlDark;
+            LeaveBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LeaveBtn.Location = new Point(219, 434);
+            LeaveBtn.Name = "LeaveBtn";
+            LeaveBtn.Size = new Size(114, 29);
+            LeaveBtn.TabIndex = 3;
+            LeaveBtn.Text = "Leave Event";
+            LeaveBtn.UseVisualStyleBackColor = false;
+            LeaveBtn.Click += LeaveBtn_Click;
+            // 
             // ViewJoinedEvents
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.viewJoinedEventsBg;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(548, 450);
+            ClientSize = new Size(548, 475);
+            Controls.Add(LeaveBtn);
             Controls.Add(DisplayJoinedEvents);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Controls.Add(BackBtn);
             Name = "ViewJoinedEvents";
             Text = "Joined Events";
             Load += ViewJoinedEvents_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BackBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)DisplayJoinedEvents).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -88,8 +103,9 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox BackBtn;
         private Label label1;
         private DataGridView DisplayJoinedEvents;
+        private Button LeaveBtn;
     }
 }

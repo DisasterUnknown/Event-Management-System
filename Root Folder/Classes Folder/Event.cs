@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,13 @@ namespace Root_Folder
         public void JoinEvent(string Uname, string UserId, string EventId, Form f1)
         {
             MyDb.EventJoin(Uname, UserId, EventId, f1);
+        }
+
+
+        // Leave Event Function
+        public void LeaveEvent(string UserID, string EventID, string Uname, DataGridView G1)
+        {
+            MyDb.EventLaeve(UserID, EventID, Uname, G1);
         }
     }
 }

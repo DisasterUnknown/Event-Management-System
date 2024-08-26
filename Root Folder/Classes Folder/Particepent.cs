@@ -79,9 +79,26 @@ namespace Root_Folder
 
 
         // View Joined Events
-        public void ViewJoinedEvents(string Uname, DataGridView G1)
+        public string ViewJoinedEvents(string Uname, DataGridView G1)
         {
-            MyDb.EventsJoinedView(Uname, G1);
+            string UserID =  MyDb.EventsJoinedView(Uname, G1);
+            return UserID;
+        }
+
+        // Leave Event
+        public void LeaveEvent(string UserID, string Uname, DataGridView G1)
+        {
+            if (G1.SelectedRows.Count > 0)
+            {
+                string EventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                Event e1 = new Event();
+                e1.LeaveEvent(UserID, EventID, Uname, G1);
+            }
+            else
+            {
+                MessageBox.Show("Please select the event first!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

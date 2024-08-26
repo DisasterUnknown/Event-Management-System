@@ -688,7 +688,7 @@ namespace Root_Folder
 
 
         // Display Joined Events
-        public static void EventsJoinedView(string Uname, DataGridView G1)
+        public static string EventsJoinedView(string Uname, DataGridView G1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -725,10 +725,10 @@ namespace Root_Folder
                     // Table formating
                     G1.Columns["Participants"].Visible = false;
                     G1.Columns["Pamount"].Visible = false;
-                    G1.Columns["Id"].Visible = false;
 
                     G1.Columns["Ename"].HeaderText = "Event";
 
+                    G1.Columns["Id"].DisplayIndex = 0;
                     G1.Columns["Ename"].DisplayIndex = 1;
                     G1.Columns["Place"].DisplayIndex = 2;
                     G1.Columns["Date"].DisplayIndex = 3;
@@ -736,6 +736,81 @@ namespace Root_Folder
                     G1.Columns["Price"].DisplayIndex = 5;
                     G1.Columns["Organizer"].DisplayIndex = 6;
 
+                    con.Close();
+                    return UserID;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                    return "";
+                }
+            }
+        }
+
+
+        // Leave Event Function
+        public static void EventLaeve(string UserID, string EventID, string Uname, DataGridView G1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    // Geting the participent joined event list
+                    string q0 = "SELECT JoinedEvents FROM persondb WHERE Id = @Id";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Id", UserID);
+
+                    string joinedEvents = $"{cmd0.ExecuteScalar()}";
+
+                    // Geting the event joined participent list
+                    string q1 = "SELECT Participants FROM eventdb WHERE Id = @Id";
+                    MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                    cmd1.Parameters.AddWithValue("@Id", EventID);
+
+                    string joinedParticipents = $"{cmd1.ExecuteScalar()}";
+
+                    // Removing the IDs
+                    List<string> joinedEventsList = joinedEvents
+                        .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(i => i.Trim())
+                        .ToList();
+
+                    List<string> joinedParticipentsList = joinedParticipents
+                        .Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(i => i.Trim())
+                        .ToList();
+
+                    joinedEventsList.Remove(EventID);
+                    joinedParticipentsList.Remove(UserID);
+
+                    // Converting into database format
+                    string updatedJoinedEvents = string.Join(", ", joinedEventsList);
+                    string updatedJoinedParticipents = string.Join(", ", joinedParticipentsList);
+
+                    // Updating the databases
+                    string q2 = "UPDATE persondb SET JoinedEvents = @updatedJoinedEvents WHERE Id = @Id";
+                    MySqlCommand cmd2 = new MySqlCommand(q2, con);
+                    cmd2.Parameters.AddWithValue("@updatedJoinedEvents", updatedJoinedEvents);
+                    cmd2.Parameters.AddWithValue("@Id", UserID);
+
+                    string q3 = "UPDATE eventdb SET Participants = @updatedJoinedParticipents WHERE Id = @Id";
+                    MySqlCommand cmd3 = new MySqlCommand(q3, con);
+                    cmd3.Parameters.AddWithValue("@updatedJoinedParticipents", updatedJoinedParticipents);
+                    cmd3.Parameters.AddWithValue("@Id", EventID);
+
+                    int affectedRows1 = Convert.ToInt32 (cmd2.ExecuteNonQuery());
+                    int affectedRows2 = Convert.ToInt32 (cmd3.ExecuteNonQuery());
+
+                    if ((affectedRows1 != 1) && (affectedRows2 != 1))
+                    {
+                        MessageBox.Show("Something went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                    }
+
+                    // Calling the Display joined events function
+                    EventsJoinedView(Uname, G1);
                     con.Close();
                 }
                 catch (Exception ex)
