@@ -24,6 +24,7 @@ namespace Root_Folder
         private void ViewEvent_Load(object sender, EventArgs e)
         {
             MyDb.OrgViewEventDeatils(EventID, NameIN, PlaceIN, DateTimeIN, PriceIN, SeatsCountIN);
+            MyDb.ParticipentGridOnload(EventID, ParticipentGrid);
         }
 
         private void BackBtn_Click(object sender, EventArgs e)

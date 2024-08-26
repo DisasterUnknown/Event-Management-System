@@ -35,14 +35,14 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            dataGridView1 = new DataGridView();
+            ParticipentGrid = new DataGridView();
             NameIN = new Label();
             PlaceIN = new Label();
             DateTimeIN = new Label();
             PriceIN = new Label();
             SeatsCountIN = new Label();
             ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ParticipentGrid).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -129,14 +129,14 @@
             label6.TabIndex = 6;
             label6.Text = "Participant amount:";
             // 
-            // dataGridView1
+            // ParticipentGrid
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(50, 349);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(504, 226);
-            dataGridView1.TabIndex = 12;
+            ParticipentGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ParticipentGrid.Location = new Point(50, 349);
+            ParticipentGrid.Name = "ParticipentGrid";
+            ParticipentGrid.RowHeadersWidth = 51;
+            ParticipentGrid.Size = new Size(504, 226);
+            ParticipentGrid.TabIndex = 12;
             // 
             // NameIN
             // 
@@ -205,7 +205,7 @@
             Controls.Add(DateTimeIN);
             Controls.Add(PlaceIN);
             Controls.Add(NameIN);
-            Controls.Add(dataGridView1);
+            Controls.Add(ParticipentGrid);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -217,7 +217,7 @@
             Text = "View Event";
             Load += ViewEvent_Load;
             ((System.ComponentModel.ISupportInitialize)BackBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ParticipentGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -231,7 +231,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private DataGridView dataGridView1;
+        private DataGridView ParticipentGrid;
         private Label NameIN;
         private Label PlaceIN;
         private Label DateTimeIN;
