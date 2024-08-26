@@ -32,5 +32,13 @@ namespace Root_Folder
             Particepent p1 = new Particepent();
             p1.ViewEventJoinPage(Uname, EventDashBord, this);
         }
+
+        // Navigate to View Joined events Page
+        private void ViewJoined_Click(object sender, EventArgs e)
+        {
+            ViewJoinedEvents v1 = new ViewJoinedEvents(Uname);
+            v1.Show();
+            this.Hide();
+        }
     }
 }

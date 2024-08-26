@@ -604,7 +604,16 @@ namespace Root_Folder
                     }
                     else
                     {
-                        string joinedParticepents = $"{particepents}, {UserId}";
+                        // Creating the joinedParticepents format
+                        string joinedParticepents;
+                        if (particepents == "")
+                        {
+                            joinedParticepents = $"{UserId}";
+                        }
+                        else
+                        {
+                            joinedParticepents = $"{particepents}, {UserId}";
+                        }
 
                         // Add the participent to the event
                         string q1 = "UPDATE eventdb SET Participants = @Participants WHERE Id = @Id";
@@ -635,7 +644,16 @@ namespace Root_Folder
                                 }
                             }
 
-                            string updatedJoinedEvents = $"{joinedEvents}, {EventId}";
+                            // Creating the updatedJoinedEvents format
+                            string updatedJoinedEvents;
+                            if (joinedEvents == "")
+                            {
+                                updatedJoinedEvents = $"{EventId}";
+                            }
+                            else
+                            {
+                                updatedJoinedEvents = $"{joinedEvents}, {EventId}";
+                            }
 
                             // Adding the new event to the event list
                             string q3 = "UPDATE persondb SET JoinedEvents = @updatedJoinedEvents WHERE Id = @Id";
@@ -667,5 +685,64 @@ namespace Root_Folder
                 }
             }
         }
-    }
+
+
+        // Display Joined Events
+        public static void EventsJoinedView(string Uname, DataGridView G1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    // Get the user Id
+                    string q0 = "SELECT Id FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Uname", Uname);
+
+                    string UserID = $"{cmd0.ExecuteScalar()}";
+
+                    // Get the Joined Events List
+                    string q1 = "SELECT JoinedEvents FROM persondb WHERE Id = @Id";
+                    MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                    cmd1.Parameters.AddWithValue("@Id", UserID);
+
+                    string JoinedEvents = $"{cmd1.ExecuteScalar()}";
+
+                    // Formating the string
+                    string[] eventIDs = JoinedEvents.Split(",");
+                    string eventIDQuary = string.Join(",", eventIDs.Select(id => $"'{id.Trim()}'"));
+
+                    string q2 = $"SELECT * FROM eventdb WHERE Id IN ({eventIDQuary})";
+                    MySqlDataAdapter data = new MySqlDataAdapter(q2, con);
+                    DataTable dt = new DataTable();
+                    data.Fill(dt);
+
+                    // Display data in the grid
+                    G1.DataSource = dt;
+
+                    // Table formating
+                    G1.Columns["Participants"].Visible = false;
+                    G1.Columns["Pamount"].Visible = false;
+                    G1.Columns["Id"].Visible = false;
+
+                    G1.Columns["Ename"].HeaderText = "Event";
+
+                    G1.Columns["Ename"].DisplayIndex = 1;
+                    G1.Columns["Place"].DisplayIndex = 2;
+                    G1.Columns["Date"].DisplayIndex = 3;
+                    G1.Columns["Time"].DisplayIndex = 4;
+                    G1.Columns["Price"].DisplayIndex = 5;
+                    G1.Columns["Organizer"].DisplayIndex = 6;
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
+        }
+    } 
 }

@@ -12,9 +12,18 @@ namespace Root_Folder
 {
     public partial class ViewJoinedEvents : Form
     {
-        public ViewJoinedEvents()
+        private string Uname;
+
+        public ViewJoinedEvents(string uname)
         {
             InitializeComponent();
+            Uname = uname;
+        }
+
+        private void ViewJoinedEvents_Load(object sender, EventArgs e)
+        {
+            Particepent p1 = new Particepent();
+            p1.ViewJoinedEvents(Uname, DisplayJoinedEvents);
         }
     }
 }

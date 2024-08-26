@@ -76,5 +76,12 @@ namespace Root_Folder
             Event e1 = new Event();
             e1.JoinEvent(Uname, UserId, EventId, f1);
         }
+
+
+        // View Joined Events
+        public void ViewJoinedEvents(string Uname, DataGridView G1)
+        {
+            MyDb.EventsJoinedView(Uname, G1);
+        }
     }
 }

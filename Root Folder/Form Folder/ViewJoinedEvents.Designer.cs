@@ -30,9 +30,9 @@
         {
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            DisplayJoinedEvents = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DisplayJoinedEvents).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -58,14 +58,14 @@
             label1.TabIndex = 1;
             label1.Text = "Joined Events";
             // 
-            // dataGridView1
+            // DisplayJoinedEvents
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(29, 109);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(484, 312);
-            dataGridView1.TabIndex = 2;
+            DisplayJoinedEvents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DisplayJoinedEvents.Location = new Point(29, 109);
+            DisplayJoinedEvents.Name = "DisplayJoinedEvents";
+            DisplayJoinedEvents.RowHeadersWidth = 51;
+            DisplayJoinedEvents.Size = new Size(484, 312);
+            DisplayJoinedEvents.TabIndex = 2;
             // 
             // ViewJoinedEvents
             // 
@@ -74,13 +74,14 @@
             BackgroundImage = Properties.Resources.viewJoinedEventsBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(548, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(DisplayJoinedEvents);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Name = "ViewJoinedEvents";
             Text = "Joined Events";
+            Load += ViewJoinedEvents_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DisplayJoinedEvents).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -89,6 +90,6 @@
 
         private PictureBox pictureBox1;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView DisplayJoinedEvents;
     }
 }

@@ -32,7 +32,7 @@
             EventDashBord = new DataGridView();
             button1 = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            button2 = new Button();
+            ViewJoined = new Button();
             ViewJoinPageBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)EventDashBord).BeginInit();
             SuspendLayout();
@@ -69,16 +69,17 @@
             button1.Text = "LogOut";
             button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // ViewJoined
             // 
-            button2.BackColor = SystemColors.ControlDark;
-            button2.Font = new Font("Rockwell Extra Bold", 9F, FontStyle.Bold);
-            button2.Location = new Point(649, 650);
-            button2.Name = "button2";
-            button2.Size = new Size(139, 29);
-            button2.TabIndex = 5;
-            button2.Text = "View Joined";
-            button2.UseVisualStyleBackColor = false;
+            ViewJoined.BackColor = SystemColors.ControlDark;
+            ViewJoined.Font = new Font("Rockwell Extra Bold", 9F, FontStyle.Bold);
+            ViewJoined.Location = new Point(649, 650);
+            ViewJoined.Name = "ViewJoined";
+            ViewJoined.Size = new Size(139, 29);
+            ViewJoined.TabIndex = 5;
+            ViewJoined.Text = "View Joined";
+            ViewJoined.UseVisualStyleBackColor = false;
+            ViewJoined.Click += ViewJoined_Click;
             // 
             // ViewJoinPageBtn
             // 
@@ -100,7 +101,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
             Controls.Add(ViewJoinPageBtn);
-            Controls.Add(button2);
+            Controls.Add(ViewJoined);
             Controls.Add(button1);
             Controls.Add(EventDashBord);
             Controls.Add(label1);
@@ -118,7 +119,7 @@
         private DataGridView EventDashBord;
         private Button button1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Button button2;
+        private Button ViewJoined;
         private Button ViewJoinPageBtn;
     }
 }
