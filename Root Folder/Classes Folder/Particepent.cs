@@ -11,7 +11,7 @@ namespace Root_Folder
     {
         public Particepent() { }
 
-        public override void Register(string name, int age, string password, string comPassword, string email, long phoneNo, string role, Form f1)
+        public override void Register(string name, int age, string password, string comPassword, string email, string phoneNo, string role, Form f1)
         {
             // Checking for form validation!!
             if ((name.Replace(" ", string.Empty).Length < 2))
@@ -29,6 +29,10 @@ namespace Root_Folder
             else if ((($"{phoneNo}").Replace(" ", string.Empty).Length < 10))
             {
                 MessageBox.Show($"Your Tel. No. Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (password == "")
+            {
+                MessageBox.Show("Pleas enter a password!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if ((password != comPassword))
             {

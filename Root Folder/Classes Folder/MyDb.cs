@@ -23,7 +23,7 @@ namespace Root_Folder
         private static string connectionstring = "server=localhost;database=event_management_system;user=root;password=;";
 
         // Function to register the user
-        public static void RegisterPerson(string uname, string gmail, int age, long tel, string pass, string role, Form f1)
+        public static void RegisterPerson(string uname, string gmail, int age, string tel, string pass, string role, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {

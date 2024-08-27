@@ -56,7 +56,7 @@ namespace Root_Folder
                 string name = UnameIN.Text;
                 string gmail = GmailIN.Text;
                 int age = int.Parse(AgeIN.Text);
-                long tel = long.Parse((TelIN.Text).Replace(" ", string.Empty));
+                string tel = (TelIN.Text).Replace(" ", string.Empty);
                 string pass = PassIN.Text;
                 string comPass = ComPassIN.Text;
 
