@@ -83,7 +83,7 @@ namespace Root_Folder
                 }
                 else
                 {
-                    Person p1 = new Organizer();
+                    Person p1 = new Particepent();
                     p1.Login(uname, pass, role, this);
                 }
             }

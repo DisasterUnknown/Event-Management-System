@@ -48,8 +48,13 @@ namespace Root_Folder
         // Remove Event Btn Click
         private void EventRemoveBtn_Click(object sender, EventArgs e)
         {
-            Organizer o1 = new Organizer();
-            o1.RemoveEvent(organizer, EventTable);
+            DialogResult funcanality = MessageBox.Show("Are you sure that you want to remove the event?\nThis will remove all the participents from the events!!", "Imformation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (funcanality == DialogResult.Yes)
+            {
+                Organizer o1 = new Organizer();
+                o1.RemoveEvent(organizer, EventTable);
+            }
         }
 
 
