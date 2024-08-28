@@ -12,40 +12,30 @@ namespace Root_Folder
         private string name;
         private int age;
         private string password;
+        private string comPassword;
         private string email;
         private string phoneNo;
         private string role;
-        private static string discription;
 
         public string Name { get { return name; } set { name = value; } }
         public int Age { get { return age; } set { age = value; } }
         public string Password { get { return password; } set { password = value; } }
+        public string ComPassword { get { return comPassword; } set { comPassword = value; } }
         public string Email { get { return email; } set { email = value; } }
         public string PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
         public string Role { get { return role; } set { role = value; } }
 
         public Person() { }
 
-        public Person(string name, int age, string password, string email, string phoneNo, string role) 
+        public Person(string name, int age, string password, string comPassword, string email, string phoneNo, string role) 
         {
             this.name = name;
             this.age = age;
             this.password = password;
+            this.comPassword = comPassword;
             this.email = email;
             this.phoneNo = phoneNo;
             this.role = role;
-        }
-
-        // Fun to set discription
-        public static void SetDiscription(string userDiscription)
-        {
-            discription = userDiscription;
-        }
-
-        // Fun to return discription
-        public static string GetDiscription() 
-        { 
-            return discription;
         }
 
         // Debug function to print the user details
