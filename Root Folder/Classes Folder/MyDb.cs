@@ -309,6 +309,61 @@ namespace Root_Folder
         }
 
 
+        // Display Content in Update Page
+        public static void Display(string eventId, TextBox NameIN, TextBox PlaceIN, DateTimePicker DateTimeIN, MaskedTextBox TicketCIN, TextBox PriceIN)
+        {
+            // Displaying the data in the fields
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT * FROM eventdb WHERE Id = @Id;";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Id", eventId);
+
+                    // Gets the data and displayes them
+                    using (MySqlDataReader read = cmd0.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            string Ename = read["Ename"].ToString();
+                            string Price = read["Price"].ToString();
+                            string Place = read["Place"].ToString();
+                            string Amount = read["Pamount"].ToString();
+                            string Time = read["Time"].ToString();
+                            string Date = read["Date"].ToString();
+
+                            // Fille the text boxes
+                            NameIN.Text = Ename;
+                            PlaceIN.Text = Place;
+                            TicketCIN.Text = Amount;
+                            PriceIN.Text = Price;
+
+                            // Formating the time
+                            DateTime eventDate = DateTime.Parse(Date);
+                            TimeSpan eventTime = TimeSpan.Parse(Time.Substring(0, 8));
+
+                            // Adding the time
+                            DateTimeIN.Value = eventDate.Add(eventTime);
+
+                            // Debug Message
+                            // MessageBox.Show($"Name: {Ename}\nPrice: {Price}\nPlace: {Place}\nAmount: {Amount}\nTime: {Time}\nDate: {Date}");
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                    con.Close();
+                }
+            }
+        }
+
+
         // Update Event Function
         public static void EventUpdate(string name, string eventName, string price, string place, int pCount, string time, string date, string orgnizer, string eventID, Form f1)
         {
@@ -459,61 +514,6 @@ namespace Root_Folder
                 catch (Exception ex)
                 {
                     MessageBox.Show($"{ex}");
-                }
-            }
-        }
-
-
-        // Display Content in Update Page
-        public static void Display(string eventId, TextBox NameIN, TextBox PlaceIN, DateTimePicker DateTimeIN, MaskedTextBox TicketCIN, TextBox PriceIN)
-        {
-            // Displaying the data in the fields
-            using (MySqlConnection con = new MySqlConnection(connectionstring))
-            {
-                try
-                {
-                    con.Open();
-
-                    string q0 = "SELECT * FROM eventdb WHERE Id = @Id;";
-                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
-                    cmd0.Parameters.AddWithValue("@Id", eventId);
-
-                    // Gets the data and displayes them
-                    using (MySqlDataReader read = cmd0.ExecuteReader())
-                    {
-                        while (read.Read())
-                        {
-                            string Ename = read["Ename"].ToString();
-                            string Price = read["Price"].ToString();
-                            string Place = read["Place"].ToString();
-                            string Amount = read["Pamount"].ToString();
-                            string Time = read["Time"].ToString();
-                            string Date = read["Date"].ToString();
-
-                            // Fille the text boxes
-                            NameIN.Text = Ename;
-                            PlaceIN.Text = Place;
-                            TicketCIN.Text = Amount;
-                            PriceIN.Text = Price;
-
-                            // Formating the time
-                            DateTime eventDate = DateTime.Parse(Date);
-                            TimeSpan eventTime = TimeSpan.Parse(Time.Substring(0, 8));
-                            
-                            // Adding the time
-                            DateTimeIN.Value = eventDate.Add(eventTime);
-
-                            // Debug Message
-                            // MessageBox.Show($"Name: {Ename}\nPrice: {Price}\nPlace: {Place}\nAmount: {Amount}\nTime: {Time}\nDate: {Date}");
-                        }
-                    }
-
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex}");
-                    con.Close();
                 }
             }
         }

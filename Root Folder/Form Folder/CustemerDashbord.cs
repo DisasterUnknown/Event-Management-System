@@ -29,8 +29,15 @@ namespace Root_Folder
         // Navigate to JoinPage
         private void ViewJoinPageBtn_Click(object sender, EventArgs e)
         {
-            Particepent p1 = new Particepent();
-            p1.ViewEventJoinPage(Uname, EventDashBord, this);
+            if (EventDashBord.SelectedRows.Count > 0)
+            {
+                Particepent p1 = new Particepent();
+                p1.ViewEventJoinPage(Uname, EventDashBord, this);
+            }
+            else
+            {
+                MessageBox.Show("Please select the event first!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Navigate to View Joined events Page

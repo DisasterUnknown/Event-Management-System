@@ -38,8 +38,15 @@ namespace Root_Folder
 
         private void LeaveBtn_Click(object sender, EventArgs e)
         {
-            Particepent p1 = new Particepent();
-            p1.LeaveEvent(UserID, Uname, DisplayJoinedEvents);
+            if (DisplayJoinedEvents.SelectedRows.Count > 0)
+            {
+                Particepent p1 = new Particepent();
+                p1.LeaveEvent(UserID, Uname, DisplayJoinedEvents);
+            }
+            else
+            {
+                MessageBox.Show("Please select the event first!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -36,16 +36,8 @@ namespace Root_Folder
         // Display Join Event Page
         public void ViewEventJoinPage(string Uname, DataGridView G1, Form F1)
         {
-            if (G1.SelectedRows.Count > 0)
-            {
-                string eventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
-
-                MyDb.EventJoinPageView(Uname, eventID, F1);
-            }
-            else
-            {
-                MessageBox.Show("Please select the event first!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string eventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
+            MyDb.EventJoinPageView(Uname, eventID, F1);
         }
 
 
@@ -64,20 +56,14 @@ namespace Root_Folder
             return UserID;
         }
 
+
         // Leave Event
         public void LeaveEvent(string UserID, string Uname, DataGridView G1)
         {
-            if (G1.SelectedRows.Count > 0)
-            {
-                string EventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
+            string EventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
 
-                Event e1 = new Event();
-                e1.LeaveEvent(UserID, EventID, Uname, G1);
-            }
-            else
-            {
-                MessageBox.Show("Please select the event first!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Event e1 = new Event();
+            e1.LeaveEvent(UserID, EventID, Uname, G1);
         }
     }
 }
