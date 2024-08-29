@@ -25,10 +25,11 @@ namespace Root_Folder
 
         public Person() { }
 
-        public Person(string name, string password)
+        public Person(string name, string password, string role)
         {
             this.name = name;
             this.password = password;
+            this.role = role;
         }
 
         public Person(string name, int age, string password, string email, string phoneNo, string role) 
@@ -50,7 +51,7 @@ namespace Root_Folder
 
         // Abstract Methods
         public abstract void Register(Person P1, Form f1);
-        public abstract void Login(string uname, string pass, string role, Form f1);
+        public abstract void Login(Person P1, Form f1);
 
     }
 }

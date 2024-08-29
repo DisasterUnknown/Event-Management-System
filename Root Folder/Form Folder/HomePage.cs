@@ -11,7 +11,7 @@ namespace Root_Folder
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            string role = "particepent";
+            string role = "PA";
             LoginPage l1 = new LoginPage(role);
             l1.Show();
             this.Hide();
@@ -19,7 +19,7 @@ namespace Root_Folder
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string role = "particepent";
+            string role = "PA";
             LoginPage l1 = new LoginPage(role);
             l1.Show();
             this.Hide();
@@ -27,7 +27,7 @@ namespace Root_Folder
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            string role = "orgnizer";
+            string role = "OR";
             LoginPage l1 = new LoginPage(role);
             l1.Show();
             this.Hide();
@@ -35,7 +35,7 @@ namespace Root_Folder
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string role = "orgnizer";
+            string role = "OR";
             LoginPage l1 = new LoginPage(role);
             l1.Show();
             this.Hide();
@@ -43,7 +43,7 @@ namespace Root_Folder
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            string role = "admin";
+            string role = "AD";
             LoginPage l1 = new LoginPage(role);
             l1.Show();
             this.Hide();
@@ -51,7 +51,7 @@ namespace Root_Folder
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string role = "admin";
+            string role = "AD";
             LoginPage l1 = new LoginPage(role);
             l1.Show();
             this.Hide();

@@ -71,20 +71,20 @@ namespace Root_Folder
                 string uname = UnameIN.Text;
                 string pass = PassIN.Text;
 
-                if (role == "admin")
+                if (role == "AD")
                 {
-                    Person p1 = new Admin();
-                    p1.Login(uname, pass, role, this);
+                    Person p1 = new Admin(uname, pass, role);
+                    p1.Login(p1, this);
                 }
-                else if (role == "orgnizer")
+                else if (role == "OR")
                 {
-                    Person p1 = new Organizer();
-                    p1.Login(uname, pass, role, this);
+                    Person p1 = new Organizer(uname, pass, role);
+                    p1.Login(p1, this);
                 }
                 else
                 {
-                    Person p1 = new Particepent();
-                    p1.Login(uname, pass, role, this);
+                    Person p1 = new Particepent(uname, pass, role);
+                    p1.Login(p1, this);
                 }
             }
             catch (Exception ex)

@@ -88,7 +88,7 @@ namespace Root_Folder
                 else
                 {
                     // Creating the objects
-                    if (role == "admin")
+                    if (role == "AD")
                     {
                         string adminID = AdminPassIN.Text;
                         if (adminID == "admin123")
@@ -101,7 +101,7 @@ namespace Root_Folder
                             MessageBox.Show("Invalide Admin ID!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else if (role == "orgnizer")
+                    else if (role == "OR")
                     {
                         Person p1 = new Organizer(name, age, pass, gmail, tel, role);
                         p1.Register(p1, this);

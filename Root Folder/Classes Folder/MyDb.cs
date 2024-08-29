@@ -46,26 +46,10 @@ namespace Root_Folder
                         return;
                     }
 
-                    // Creating The UserId
-                    string idLable;
-                    if (P1.Role == "admin")
-                    {
-                        idLable = "AD";
-                    }
-                    else if (P1.Role == "particepent")
-                    {
-                        idLable = "PA";
-                    }
-                    else
-                    {
-                        idLable = "OR";
-                    }
-
-
                     // Creating the user id
                     string q1 = "SELECT Id FROM persondb WHERE Id LIKE @Prefix ORDER BY Id DESC LIMIT 1";
                     MySqlCommand cmd = new MySqlCommand(q1, con);
-                    cmd.Parameters.AddWithValue("@Prefix", idLable + "%");
+                    cmd.Parameters.AddWithValue("@Prefix", P1.Role + "%");
 
                     string lastId = cmd.ExecuteScalar() as string;
 
@@ -73,13 +57,13 @@ namespace Root_Folder
                     string newId;
                     if (lastId == null)
                     {
-                        newId = $"{idLable}0001";
+                        newId = $"{P1.Role}0001";
                     }
                     else
                     {
                         int lastNumber = int.Parse(lastId.Substring(2));
                         int newNumber = lastNumber + 1;
-                        newId = $"{idLable}{newNumber:D4}";
+                        newId = $"{P1.Role}{newNumber:D4}";
                     }
 
 
@@ -94,7 +78,7 @@ namespace Root_Folder
                     cmd1.Parameters.AddWithValue("@Tel", P1.PhoneNo);
                     cmd1.Parameters.AddWithValue("@Pass", P1.Password);
                     cmd1.Parameters.AddWithValue("@Id", newId);
-                    cmd1.Parameters.AddWithValue("@Role", idLable);
+                    cmd1.Parameters.AddWithValue("@Role", P1.Role);
 
                     int addedRowIndex = cmd1.ExecuteNonQuery();
 
@@ -106,14 +90,14 @@ namespace Root_Folder
                     else
                     {
                         // Dirrecting the user to the dashbord according to there role
-                        if (P1.Role == "particepent")
+                        if (P1.Role == "PA")
                         {
                             CustemerDashbord cd1 = new CustemerDashbord(P1.Name);
                             cd1.Show();
                             f1.Hide();
                             con.Close();
                         }
-                        else if (P1.Role == "orgnizer")
+                        else if (P1.Role == "OR")
                         {
                             OganizerDashbord od1 = new OganizerDashbord(P1.Name);
                             od1.Show();
@@ -139,7 +123,7 @@ namespace Root_Folder
 
 
         // Login Function
-        public static void UserLogin(string uname, string pass, string role, Form f1)
+        public static void UserLogin(Person P1, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -149,8 +133,8 @@ namespace Root_Folder
 
                     string q0 = "SELECT COUNT(*) FROM persondb WHERE Uname = @Uname AND Pass = @Pass";
                     MySqlCommand cmd0 = new MySqlCommand(q0, con);
-                    cmd0.Parameters.AddWithValue("@Uname", uname);
-                    cmd0.Parameters.AddWithValue("@Pass", pass);
+                    cmd0.Parameters.AddWithValue("@Uname", P1.Name);
+                    cmd0.Parameters.AddWithValue("@Pass", P1.Password);
 
                     int noRow = Convert.ToInt32(cmd0.ExecuteScalar());
 
@@ -158,40 +142,26 @@ namespace Root_Folder
                     {
                         string q1 = "SELECT Role FROM persondb WHERE Uname = @Uname";
                         MySqlCommand cmd1 = new MySqlCommand(q1, con);
-                        cmd1.Parameters.AddWithValue("@Uname", uname);
+                        cmd1.Parameters.AddWithValue("@Uname", P1.Name);
 
                         string dbRole = $"{cmd1.ExecuteScalar()}";
 
-                        // Converting role into Database Role Format
-                        if (role == "admin")
-                        {
-                            role = "AD";
-                        }
-                        else if (role == "particepent")
-                        {
-                            role = "PA";
-                        }
-                        else
-                        {
-                            role = "OR";
-                        }
-
                         // Directing the user to the dashbord
-                        if ((role == dbRole) && (role == "PA"))
+                        if ((P1.Role == dbRole) && (P1.Role == "PA"))
                         {
-                            CustemerDashbord cd1 = new CustemerDashbord(uname);
+                            CustemerDashbord cd1 = new CustemerDashbord(P1.Name);
                             cd1.Show();
                             f1.Hide();
                             con.Close();
                         }
-                        else if ((role == dbRole) && (role == "OR"))
+                        else if ((P1.Role == dbRole) && (P1.Role == "OR"))
                         {
-                            OganizerDashbord od1 = new OganizerDashbord(uname);
+                            OganizerDashbord od1 = new OganizerDashbord(P1.Name);
                             od1.Show();
                             f1.Hide();
                             con.Close();
                         }
-                        else if ((role == dbRole) && (role == "AD"))
+                        else if ((P1.Role == dbRole) && (P1.Role == "AD"))
                         {
                             AdminDashbord ad1 = new AdminDashbord();
                             ad1.Show();

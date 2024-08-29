@@ -10,6 +10,7 @@ namespace Root_Folder
     {
         public Admin() { }
         public Admin(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
+        public Admin(string name, string password, string role) :base(name, password, role) { }
 
         // Person register function
         public override void Register(Person A1, Form f1)
@@ -17,9 +18,9 @@ namespace Root_Folder
             MyDb.RegisterPerson(A1, f1);
         }
 
-        public override void Login(string uname, string pass, string role, Form f1)
+        public override void Login(Person P1, Form f1)
         {
-            MyDb.UserLogin(uname, pass, role, f1);
+            MyDb.UserLogin(P1, f1);
         }
     }
 }
