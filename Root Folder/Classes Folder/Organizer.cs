@@ -13,41 +13,15 @@ using System.Drawing;
 
 namespace Root_Folder
 {
-    internal class Organizer:Person
+    internal class Organizer : Person
     {
         public Organizer() { }
+        public Organizer(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
 
-        public override void Register(string name, int age, string password, string comPassword, string email, string phoneNo, string role, Form f1)
+        // Person register function
+        public override void Register(Person P1, Form f1)
         {
-            // Checking for form validation!!
-            if ((name.Replace(" ", string.Empty).Length < 2))
-            {
-                MessageBox.Show("Your Uname Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((!(email.Contains("@"))) || email.Length < 11)
-            {
-                MessageBox.Show("Your Gmail Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((($"{age}").Replace(" ", string.Empty).Length < 1))
-            {
-                MessageBox.Show("Please Enter Your Age!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((($"{phoneNo}").Replace(" ", string.Empty).Length < 10))
-            {
-                MessageBox.Show($"Your Tel. No. Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (password == "")
-            {
-                MessageBox.Show("Pleas enter a password!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((password != comPassword))
-            {
-                MessageBox.Show("Your Password Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MyDb.RegisterPerson(name, email, age, phoneNo, password, role, f1);
-            }
+            MyDb.RegisterPerson(P1, f1);
         }
 
         public override void Login(string uname, string pass, string role, Form f1)
@@ -86,13 +60,13 @@ namespace Root_Folder
             {
                 // Debug MessageBox
                 //MessageBox.Show($"Name: {name}\nPrice: {price}\nPlace: {place}\nPcount: {patientCount}\nTime: {time}\nDate: {date}\nOrg: {organizerName}");
-                
+
                 Event e1 = new Event(name, eventName, price, place, patientCount, time, date, organizerName, eventId, f1, functionType);
             }
         }
 
 
-        // Update Page navigation (Display the ubdate page by checking the permision)
+        // Update Page navigation (Display the update page by checking the permision)
         public void ViewUpdate(string organizer, DataGridView G1, Form f1)
         {
             if (G1.SelectedRows.Count > 0)
@@ -146,7 +120,7 @@ namespace Root_Folder
         // View Event Details
         public void OrgViewEventDetails(string organizer, DataGridView G1, Form f1)
         {
-            if (G1.SelectedRows.Count > 0) 
+            if (G1.SelectedRows.Count > 0)
             {
                 string eventOrganizer = G1.SelectedRows[0].Cells["Organizer"].Value.ToString();
                 string eventId = G1.SelectedRows[0].Cells["Id"].Value.ToString();

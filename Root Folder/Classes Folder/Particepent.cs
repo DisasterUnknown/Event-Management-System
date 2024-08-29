@@ -7,41 +7,15 @@ using System.Threading.Tasks;
 
 namespace Root_Folder
 {
-    internal class Particepent:Person
+    internal class Particepent : Person
     {
         public Particepent() { }
+        public Particepent(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
 
-        public override void Register(string name, int age, string password, string comPassword, string email, string phoneNo, string role, Form f1)
+        // Person register function
+        public override void Register(Person P1, Form f1)
         {
-            // Checking for form validation!!
-            if ((name.Replace(" ", string.Empty).Length < 2))
-            {
-                MessageBox.Show("Your Uname Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((!(email.Contains("@"))) || email.Length < 11)
-            {
-                MessageBox.Show("Your Gmail Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((($"{age}").Replace(" ", string.Empty).Length < 1))
-            {
-                MessageBox.Show("Please Enter Your Age!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((($"{phoneNo}").Replace(" ", string.Empty).Length < 10))
-            {
-                MessageBox.Show($"Your Tel. No. Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (password == "")
-            {
-                MessageBox.Show("Pleas enter a password!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((password != comPassword))
-            {
-                MessageBox.Show("Your Password Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MyDb.RegisterPerson(name, email, age, phoneNo, password, role, f1);
-            }
+            MyDb.RegisterPerson(P1, f1);
         }
 
         // Login
@@ -85,7 +59,7 @@ namespace Root_Folder
         // View Joined Events
         public string ViewJoinedEvents(string Uname, DataGridView G1)
         {
-            string UserID =  MyDb.EventsJoinedView(Uname, G1);
+            string UserID = MyDb.EventsJoinedView(Uname, G1);
             return UserID;
         }
 

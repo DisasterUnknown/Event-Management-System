@@ -12,7 +12,6 @@ namespace Root_Folder
         private string name;
         private int age;
         private string password;
-        private string comPassword;
         private string email;
         private string phoneNo;
         private string role;
@@ -20,19 +19,23 @@ namespace Root_Folder
         public string Name { get { return name; } set { name = value; } }
         public int Age { get { return age; } set { age = value; } }
         public string Password { get { return password; } set { password = value; } }
-        public string ComPassword { get { return comPassword; } set { comPassword = value; } }
         public string Email { get { return email; } set { email = value; } }
         public string PhoneNo { get { return phoneNo; } set { phoneNo = value; } }
         public string Role { get { return role; } set { role = value; } }
 
         public Person() { }
 
-        public Person(string name, int age, string password, string comPassword, string email, string phoneNo, string role) 
+        public Person(string name, string password)
+        {
+            this.name = name;
+            this.password = password;
+        }
+
+        public Person(string name, int age, string password, string email, string phoneNo, string role) 
         {
             this.name = name;
             this.age = age;
             this.password = password;
-            this.comPassword = comPassword;
             this.email = email;
             this.phoneNo = phoneNo;
             this.role = role;
@@ -46,7 +49,7 @@ namespace Root_Folder
 
 
         // Abstract Methods
-        public abstract void Register(string name, int age, string password, string comPassword, string email, string phoneNo, string role, Form f1);
+        public abstract void Register(Person P1, Form f1);
         public abstract void Login(string uname, string pass, string role, Form f1);
 
     }

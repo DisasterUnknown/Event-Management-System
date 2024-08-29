@@ -60,28 +60,57 @@ namespace Root_Folder
                 string pass = PassIN.Text;
                 string comPass = ComPassIN.Text;
 
-                if (role == "admin")
+                // Checking for form validation!!
+                if ((name.Replace(" ", string.Empty).Length < 2))
                 {
-                    string adminID = AdminPassIN.Text;
-                    if (adminID == "admin123")
-                    {
-                        Person p1 = new Admin();
-                        p1.Register(name, age, pass, comPass, gmail, tel, role, this);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalide Admin ID!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Your Uname Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (role == "orgnizer")
+                else if ((!(gmail.Contains("@"))) || gmail.Length < 11)
                 {
-                    Person p1 = new Organizer();
-                    p1.Register(name, age, pass, comPass, gmail, tel, role, this);
+                    MessageBox.Show("Your Gmail Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if ((($"{age}").Replace(" ", string.Empty).Length < 1))
+                {
+                    MessageBox.Show("Please Enter Your Age!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if ((($"{tel}").Replace(" ", string.Empty).Length < 10))
+                {
+                    MessageBox.Show($"Your Tel. No. Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (pass == "")
+                {
+                    MessageBox.Show("Pleas enter a password!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if ((pass != comPass))
+                {
+                    MessageBox.Show("Your Password Entry's Invalid!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    Person p1 = new Organizer();
-                    p1.Register(name, age, pass, comPass, gmail, tel, role, this);
+                    // Creating the objects
+                    if (role == "admin")
+                    {
+                        string adminID = AdminPassIN.Text;
+                        if (adminID == "admin123")
+                        {
+                            Person p1 = new Admin(name, age, pass, gmail, tel, role);
+                            p1.Register(p1, this);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalide Admin ID!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else if (role == "orgnizer")
+                    {
+                        Person p1 = new Organizer(name, age, pass, gmail, tel, role);
+                        p1.Register(p1, this);
+                    }
+                    else
+                    {
+                        Person p1 = new Organizer(name, age, pass, gmail, tel, role);
+                        p1.Register(p1, this);
+                    }
                 }
             }
             catch (Exception ex)

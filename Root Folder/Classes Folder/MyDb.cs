@@ -23,7 +23,7 @@ namespace Root_Folder
         private static string connectionstring = "server=localhost;database=event_management_system;user=root;password=;";
 
         // Function to register the user
-        public static void RegisterPerson(string uname, string gmail, int age, string tel, string pass, string role, Form f1)
+        public static void RegisterPerson(Person P1, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -35,7 +35,7 @@ namespace Root_Folder
                     // Checking if there are any user with the same Uname
                     string q = "SELECT COUNT(*) FROM persondb WHERE Uname = @Uname";
                     MySqlCommand cmd0 = new MySqlCommand(q, con);
-                    cmd0.Parameters.AddWithValue("@Uname", uname);
+                    cmd0.Parameters.AddWithValue("@Uname", P1.Name);
 
                     int userCount = Convert.ToInt32(cmd0.ExecuteScalar());
 
@@ -48,11 +48,11 @@ namespace Root_Folder
 
                     // Creating The UserId
                     string idLable;
-                    if (role == "admin")
+                    if (P1.Role == "admin")
                     {
                         idLable = "AD";
                     }
-                    else if (role == "particepent")
+                    else if (P1.Role == "particepent")
                     {
                         idLable = "PA";
                     }
@@ -88,11 +88,11 @@ namespace Root_Folder
                                 "VALUES (@Uname, @Gmail, @Age, @Tel, @Pass, @Id, @Role)";
 
                     MySqlCommand cmd1 = new MySqlCommand(q2, con);
-                    cmd1.Parameters.AddWithValue("@Uname", uname);
-                    cmd1.Parameters.AddWithValue("@Gmail", gmail);
-                    cmd1.Parameters.AddWithValue("@Age", age);
-                    cmd1.Parameters.AddWithValue("@Tel", tel);
-                    cmd1.Parameters.AddWithValue("@Pass", pass);
+                    cmd1.Parameters.AddWithValue("@Uname", P1.Name);
+                    cmd1.Parameters.AddWithValue("@Gmail", P1.Email);
+                    cmd1.Parameters.AddWithValue("@Age", P1.Age);
+                    cmd1.Parameters.AddWithValue("@Tel", P1.PhoneNo);
+                    cmd1.Parameters.AddWithValue("@Pass", P1.Password);
                     cmd1.Parameters.AddWithValue("@Id", newId);
                     cmd1.Parameters.AddWithValue("@Role", idLable);
 
@@ -106,16 +106,16 @@ namespace Root_Folder
                     else
                     {
                         // Dirrecting the user to the dashbord according to there role
-                        if (role == "particepent")
+                        if (P1.Role == "particepent")
                         {
-                            CustemerDashbord cd1 = new CustemerDashbord(uname);
+                            CustemerDashbord cd1 = new CustemerDashbord(P1.Name);
                             cd1.Show();
                             f1.Hide();
                             con.Close();
                         }
-                        else if (role == "orgnizer")
+                        else if (P1.Role == "orgnizer")
                         {
-                            OganizerDashbord od1 = new OganizerDashbord(uname);
+                            OganizerDashbord od1 = new OganizerDashbord(P1.Name);
                             od1.Show();
                             f1.Hide();
                             con.Close();
