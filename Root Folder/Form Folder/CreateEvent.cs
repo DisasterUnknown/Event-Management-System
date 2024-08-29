@@ -112,15 +112,34 @@ namespace Root_Folder
             string date = (dateTime.Date).ToString("yyyy-MM-dd");
             string time = (dateTime.TimeOfDay).ToString(@"hh\:mm\:ss");
 
-            if (FunctionType == "Add")
-            {   // Calling the Create Event Function
-                Organizer o1 = new Organizer();
-                o1.orgAddAndUpdateEvent(name, null, price, place, pAmount, time, date, organizer, null, this, "Add");
+            if ((name.Length < 2) || (name.Length > 20))
+            {
+                MessageBox.Show("Invalide Event Name!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (FunctionType == "Update")
-            {   // Calling the Update Event Function
-                Organizer o1 = new Organizer();
-                o1.orgAddAndUpdateEvent(name, eventName, price, place, pAmount, time, date, organizer, eventId, this, "Update");
+            else if ((place.Length < 3) || (place.Length > 50))
+            {
+                MessageBox.Show("The place is invalide!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (pAmount < 5)
+            {
+                MessageBox.Show("Insuficent particepent count!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (price.Length < 2)
+            {
+                MessageBox.Show("The price should be grater thn Rs. 50!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (FunctionType == "Add")
+                {   // Calling the Create Event Function
+                    Organizer o1 = new Organizer();
+                    o1.orgAddAndUpdateEvent(name, null, price, place, pAmount, time, date, organizer, null, this, "Add");
+                }
+                else if (FunctionType == "Update")
+                {   // Calling the Update Event Function
+                    Organizer o1 = new Organizer();
+                    o1.orgAddAndUpdateEvent(name, eventName, price, place, pAmount, time, date, organizer, eventId, this, "Update");
+                }
             }
         }
     }

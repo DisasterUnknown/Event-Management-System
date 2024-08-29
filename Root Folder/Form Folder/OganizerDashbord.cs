@@ -40,20 +40,34 @@ namespace Root_Folder
         // Calling the Update Event Form
         private void UpdateEvent_Click(object sender, EventArgs e)
         {
-            Organizer o1 = new Organizer();
-            o1.ViewUpdate(organizer, EventTable, this);
+            if (EventTable.SelectedRows.Count > 0)
+            {
+                Organizer o1 = new Organizer();
+                o1.ViewUpdate(organizer, EventTable, this);
+            }
+            else
+            {
+                MessageBox.Show("Please select the event to be edited!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
         // Remove Event Btn Click
         private void EventRemoveBtn_Click(object sender, EventArgs e)
         {
-            DialogResult funcanality = MessageBox.Show("Are you sure that you want to remove the event?\nThis will remove all the participents from the events!!", "Imformation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (funcanality == DialogResult.Yes)
+            if (EventTable.SelectedRows.Count > 0)
             {
-                Organizer o1 = new Organizer();
-                o1.RemoveEvent(organizer, EventTable);
+                DialogResult funcanality = MessageBox.Show("Are you sure that you want to remove the event?\nThis will remove all the participents from the events!!", "Imformation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (funcanality == DialogResult.Yes)
+                {
+                    Organizer o1 = new Organizer();
+                    o1.RemoveEvent(organizer, EventTable);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select the event to be removed!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -75,8 +89,15 @@ namespace Root_Folder
         // View Event Details
         private void ViewDetailsBtn_Click(object sender, EventArgs e)
         {
-            Organizer o1 = new Organizer();
-            o1.OrgViewEventDetails(organizer, EventTable, this);
+            if (EventTable.SelectedRows.Count > 0)
+            {
+                Organizer o1 = new Organizer();
+                o1.OrgViewEventDetails(organizer, EventTable, this);
+            }
+            else
+            {
+                MessageBox.Show("Please select the event to be removed!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
