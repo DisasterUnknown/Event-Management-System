@@ -200,6 +200,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(BackBtn);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "CreateEvent";
             Text = "CreateEvent";
             Load += CreateEvent_Load;

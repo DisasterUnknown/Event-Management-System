@@ -31,8 +31,10 @@ namespace Root_Folder
         {
             if (EventDashBord.SelectedRows.Count > 0)
             {
-                Particepent p1 = new Particepent();
-                p1.ViewEventJoinPage(Uname, EventDashBord, this);
+                string eventID = EventDashBord.SelectedRows[0].Cells["Id"].Value.ToString();
+                JoinEvent j1 = new JoinEvent(eventID, Uname);
+                j1.Show();
+                this.Hide();
             }
             else
             {

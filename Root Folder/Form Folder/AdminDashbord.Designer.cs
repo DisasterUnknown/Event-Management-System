@@ -89,6 +89,8 @@
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "AdminDashbord";
             Text = "Admin Dashbord";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

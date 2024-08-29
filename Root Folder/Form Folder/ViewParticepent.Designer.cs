@@ -160,6 +160,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "ViewParticepent";
             Text = "View Particepent Detais";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -22,7 +22,7 @@ namespace Root_Folder
     {
         private static string connectionstring = "server=localhost;database=event_management_system;user=root;password=;";
 
-        // Function to register the user
+        // Register User Function
         public static void RegisterPerson(Person P1, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
@@ -122,7 +122,7 @@ namespace Root_Folder
         }
 
 
-        // Login Function
+        // Login User Function
         public static void UserLogin(Person P1, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
@@ -189,8 +189,7 @@ namespace Root_Folder
         }
 
 
-        // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        // View Event function
+        // View Event Function (Display events in grids)
         public static void ViewEvents(DataGridView EventViewGrid)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
@@ -232,7 +231,7 @@ namespace Root_Folder
         }
 
 
-        // Event add function
+        // Add Event Function
         public static void EventAdd(Event E1, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
@@ -432,7 +431,7 @@ namespace Root_Folder
         }
 
 
-        // Remove Event
+        // Remove Event Function
         public static void EventRemove(string eventID, DataGridView G1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
@@ -519,37 +518,7 @@ namespace Root_Folder
         }
 
 
-        // --------------------------------------------------------------------------------------------------------------------------------------------
-        //Particepent Join Page Navigation
-        public static void EventJoinPageView(string Uname, string eventID, Form F1)
-        {
-            using (MySqlConnection con = new MySqlConnection(connectionstring))
-            {
-                try
-                {
-                    con.Open();
-
-                    string q0 = "SELECT Id FROM persondb WHERE Uname = @Uname";
-                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
-                    cmd0.Parameters.AddWithValue("@Uname", Uname);
-
-                    string userID = $"{cmd0.ExecuteScalar()}";
-
-                    JoinEvent j1 = new JoinEvent(userID, eventID, Uname);
-                    j1.Show();
-                    F1.Hide();
-
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex}");
-                }
-            }
-        }
-
-
-        // Join event page onload
+        // Join event page onload Function (Display Event Details)
         public static void EventJoinPageOnLoad(string EventId, Label NameIN, Label LocationIN, Label DateTimeIN, Label PriceIN)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
@@ -590,13 +559,20 @@ namespace Root_Folder
 
 
         // Join event
-        public static void EventJoin(string Uname, string UserId, string EventId, Form f1)
+        public static void EventJoin(string Uname, string EventId, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
                 try
                 {
                     con.Open();
+
+                    // Getting the user Id
+                    string q = "SELECT Id FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd = new MySqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@Uname", Uname);
+
+                    string UserId = $"{cmd.ExecuteScalar()}";
 
                     // Getting the particepents joined in the event
                     string q0 = "SELECT Participants, Pamount FROM eventdb WHERE Id = @Id";
@@ -715,7 +691,7 @@ namespace Root_Folder
         }
 
 
-        // Display Joined Events
+        // Display Joined Events Function
         public static string EventsJoinedView(string Uname, DataGridView G1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
@@ -849,7 +825,7 @@ namespace Root_Folder
         }
 
 
-        // View Event Details
+        // View Event Details Function (Admin and Organizer)
         public static void OrgViewEventDeatils(string EventID, Label NameIN, Label PlaceIN, Label DateTimeIN, Label PriceIN, Label SeatsCountIN)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))

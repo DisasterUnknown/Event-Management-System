@@ -13,14 +13,12 @@ namespace Root_Folder
 {
     public partial class JoinEvent : Form
     {
-        private string UserId;
         private string EventId;
         private string Uname;
 
-        public JoinEvent(string UserId, string EventId, string Uname)
+        public JoinEvent(string EventId, string Uname)
         {
             InitializeComponent();
-            this.UserId = UserId;
             this.EventId = EventId;
             this.Uname = Uname;
         }
@@ -49,7 +47,7 @@ namespace Root_Folder
         private void JoinBtn_Click(object sender, EventArgs e)
         {
             Particepent p1 =new Particepent();
-            p1.JoinEvent(Uname, UserId, EventId, this);
+            p1.JoinEvent(Uname, EventId, this);
         }
     }
 }

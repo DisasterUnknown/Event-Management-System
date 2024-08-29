@@ -92,6 +92,8 @@
             Controls.Add(DisplayJoinedEvents);
             Controls.Add(label1);
             Controls.Add(BackBtn);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "ViewJoinedEvents";
             Text = "Joined Events";
             Load += ViewJoinedEvents_Load;

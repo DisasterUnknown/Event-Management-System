@@ -33,19 +33,11 @@ namespace Root_Folder
         }
 
 
-        // Display Join Event Page
-        public void ViewEventJoinPage(string Uname, DataGridView G1, Form F1)
-        {
-            string eventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
-            MyDb.EventJoinPageView(Uname, eventID, F1);
-        }
-
-
         // Join Event
-        public void JoinEvent(string Uname, string UserId, string EventId, Form f1)
+        public void JoinEvent(string Uname, string EventId, Form f1)
         {
             Event e1 = new Event();
-            e1.JoinEvent(Uname, UserId, EventId, f1);
+            e1.JoinEvent(Uname, EventId, f1);
         }
 
 

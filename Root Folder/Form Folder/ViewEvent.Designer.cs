@@ -213,6 +213,8 @@
             Controls.Add(label2);
             Controls.Add(BackBtn);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "ViewEvent";
             Text = "View Event";
             Load += ViewEvent_Load;

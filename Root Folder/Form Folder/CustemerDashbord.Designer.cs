@@ -120,6 +120,8 @@
             Controls.Add(EventDashBord);
             Controls.Add(label1);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "CustemerDashbord";
             Text = "Custemer Dashbord";
             Load += CustemerDashbord_Load;

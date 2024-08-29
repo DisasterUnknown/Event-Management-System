@@ -61,9 +61,9 @@ namespace Root_Folder
 
 
         // Join Event
-        public void JoinEvent(string Uname, string UserId, string EventId, Form f1)
+        public void JoinEvent(string Uname, string EventId, Form f1)
         {
-            MyDb.EventJoin(Uname, UserId, EventId, f1);
+            MyDb.EventJoin(Uname, EventId, f1);
         }
 
 
