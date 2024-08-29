@@ -42,8 +42,19 @@ namespace Root_Folder
         {
             if (EventTable.SelectedRows.Count > 0)
             {
-                Organizer o1 = new Organizer();
-                o1.ViewUpdate(organizer, EventTable, this);
+                string eventOrganizer = EventTable.SelectedRows[0].Cells["Organizer"].Value.ToString();
+                string eventId = EventTable.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                if (eventOrganizer == organizer)
+                {
+                    CreateEvent c1 = new CreateEvent(organizer, eventId, "Update");
+                    c1.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Permision denieled!!\nOnly the event owner can update the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -86,13 +97,24 @@ namespace Root_Folder
         }
 
 
-        // View Event Details
+        // Calling The View Event Details Form
         private void ViewDetailsBtn_Click(object sender, EventArgs e)
         {
             if (EventTable.SelectedRows.Count > 0)
             {
-                Organizer o1 = new Organizer();
-                o1.OrgViewEventDetails(organizer, EventTable, this);
+                string eventOrganizer = EventTable.SelectedRows[0].Cells["Organizer"].Value.ToString();
+                string eventId = EventTable.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                if (organizer == eventOrganizer)
+                {
+                    ViewEvent v1 = new ViewEvent(eventId, organizer);
+                    v1.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Permision denieled!!\nOnly the event owner can view event details!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

@@ -132,13 +132,17 @@ namespace Root_Folder
             {
                 if (FunctionType == "Add")
                 {   // Calling the Create Event Function
+                    Event e1 = new Event(name, price, place, pAmount, time, date, organizer);
+
                     Organizer o1 = new Organizer();
-                    o1.orgAddAndUpdateEvent(name, null, price, place, pAmount, time, date, organizer, null, this, "Add");
+                    o1.AddEvent(e1, this);
                 }
                 else if (FunctionType == "Update")
                 {   // Calling the Update Event Function
+                    Event e1 = new Event(name, price, place, pAmount, time, date, organizer);
+
                     Organizer o1 = new Organizer();
-                    o1.orgAddAndUpdateEvent(name, eventName, price, place, pAmount, time, date, organizer, eventId, this, "Update");
+                    o1.UpdateEvent(e1, eventName, eventId, this);
                 }
             }
         }

@@ -27,7 +27,7 @@ namespace Root_Folder
 
         public Event() { }
 
-        public Event(string name, string eventName, string price, string place, int patientCount, string time, string date, string organizerName, string eventID, Form f1, string functionType) 
+        public Event(string name, string price, string place, int patientCount, string time, string date, string organizerName) 
         {
             this.name = name;
             this.price = price;
@@ -36,35 +36,29 @@ namespace Root_Folder
             this.time = time;
             this.date = date;
             this.organizerName = organizerName;
-
-            if (functionType == "Add")
-            {
-                AddEvent(name, price, place, patientCount, time, date, organizerName, f1);
-            }
-            else
-            {
-                UpdateEvent(name, eventName, price, place, patientCount, time, date, organizerName, eventID, f1);
-            }
         }
 
 
-        // Adding events to the data base
-        public void AddEvent(string name, string price, string place, int patientCount, string time, string date, string organizerName, Form f1)
+        // Adding Event
+        public void AddEvent(Event E1, Form f1)
         {
-            MyDb.EventAdd(name, price, place, patientCount, time, date, organizerName, f1);
+            MyDb.EventAdd(E1, f1);
         }
+
 
         // Update Event
-        public void UpdateEvent(string name, string eventName, string price, string place, int patientCount, string time, string date, string organizerName, string eventID,Form f1)
+        public void UpdateEvent(Event E1, string eventName, string eventID, Form f1)
         {
-            MyDb.EventUpdate(name, eventName, price, place, patientCount, time, date, organizerName, eventID, f1);
+            MyDb.EventUpdate(E1, eventName, eventID, f1);
         }
+
 
         // Remove Event
         public void RemoveEvent(string eventID, DataGridView G1)
         {
             MyDb.EventRemove(eventID, G1);
         }
+
 
         // Join Event
         public void JoinEvent(string Uname, string UserId, string EventId, Form f1)

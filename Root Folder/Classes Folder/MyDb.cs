@@ -233,7 +233,7 @@ namespace Root_Folder
 
 
         // Event add function
-        public static void EventAdd(string name, string price, string place, int pCount, string time, string date, string orgnizer, Form f1)
+        public static void EventAdd(Event E1, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -244,7 +244,7 @@ namespace Root_Folder
                     // Checking if there are any event with the same name
                     string q = "SELECT COUNT(*) FROM eventdb WHERE Ename = @Ename";
                     MySqlCommand cmd = new MySqlCommand(q, con);
-                    cmd.Parameters.AddWithValue("@Ename", name);
+                    cmd.Parameters.AddWithValue("@Ename", E1.Name);
 
                     int userCount = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -278,14 +278,14 @@ namespace Root_Folder
                                 "VALUES (@Name, @Price, @Place, @Pcount, @Time, @Date, @NewId, @Organizer)";
 
                     MySqlCommand cmd1 = new MySqlCommand(q1, con);
-                    cmd1.Parameters.AddWithValue("@Name", name);
-                    cmd1.Parameters.AddWithValue("@Price", price);
-                    cmd1.Parameters.AddWithValue("@Place", place);
-                    cmd1.Parameters.AddWithValue("@Pcount", pCount);
-                    cmd1.Parameters.AddWithValue("@Time", time);
-                    cmd1.Parameters.AddWithValue("@Date", date);
+                    cmd1.Parameters.AddWithValue("@Name", E1.Name);
+                    cmd1.Parameters.AddWithValue("@Price", E1.Price);
+                    cmd1.Parameters.AddWithValue("@Place", E1.Place);
+                    cmd1.Parameters.AddWithValue("@Pcount", E1.PatientCount);
+                    cmd1.Parameters.AddWithValue("@Time", E1.Time);
+                    cmd1.Parameters.AddWithValue("@Date", E1.Date);
                     cmd1.Parameters.AddWithValue("@NewId", newId);
-                    cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
+                    cmd1.Parameters.AddWithValue("@Organizer", E1.OrganizerName);
 
                     int addedRowCount = cmd1.ExecuteNonQuery();
 
@@ -296,7 +296,7 @@ namespace Root_Folder
                     }
                     else
                     {
-                        OganizerDashbord o1 = new OganizerDashbord(orgnizer);
+                        OganizerDashbord o1 = new OganizerDashbord(E1.OrganizerName);
                         o1.Show();
                         f1.Hide();
                     }
@@ -365,7 +365,7 @@ namespace Root_Folder
 
 
         // Update Event Function
-        public static void EventUpdate(string name, string eventName, string price, string place, int pCount, string time, string date, string orgnizer, string eventID, Form f1)
+        public static void EventUpdate(Event E1, string eventName, string eventID, Form f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -376,11 +376,11 @@ namespace Root_Folder
                     // Checking if there are any event with the same name
                     string q = "SELECT COUNT(*) FROM eventdb WHERE Ename = @Ename";
                     MySqlCommand cmd = new MySqlCommand(q, con);
-                    cmd.Parameters.AddWithValue("@Ename", name);
+                    cmd.Parameters.AddWithValue("@Ename", E1.Name);
 
-                    int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+                    int eventCount = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if ((userCount > 0) && (name != eventName))
+                    if ((eventCount > 0) && (E1.Name != eventName))
                     {
                         MessageBox.Show("Sorry event alredy exists!!\nTry changing the event name!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         con.Close();
@@ -399,13 +399,13 @@ namespace Root_Folder
                         "WHERE Id = @Id";
 
                     MySqlCommand cmd1 = new MySqlCommand(q1, con);
-                    cmd1.Parameters.AddWithValue("@Name", name);
-                    cmd1.Parameters.AddWithValue("@Price", price);
-                    cmd1.Parameters.AddWithValue("@Place", place);
-                    cmd1.Parameters.AddWithValue("@Pcount", pCount);
-                    cmd1.Parameters.AddWithValue("@Time", time);
-                    cmd1.Parameters.AddWithValue("@Date", date);
-                    cmd1.Parameters.AddWithValue("@Organizer", orgnizer);
+                    cmd1.Parameters.AddWithValue("@Name", E1.Name);
+                    cmd1.Parameters.AddWithValue("@Price", E1.Price);
+                    cmd1.Parameters.AddWithValue("@Place", E1.Place);
+                    cmd1.Parameters.AddWithValue("@Pcount", E1.PatientCount);
+                    cmd1.Parameters.AddWithValue("@Time", E1.Time);
+                    cmd1.Parameters.AddWithValue("@Date", E1.Date);
+                    cmd1.Parameters.AddWithValue("@Organizer", E1.OrganizerName);
                     cmd1.Parameters.AddWithValue("@Id", eventID);
 
                     int addedRowCount = cmd1.ExecuteNonQuery();
@@ -417,7 +417,7 @@ namespace Root_Folder
                     }
                     else
                     {
-                        OganizerDashbord o1 = new OganizerDashbord(orgnizer);
+                        OganizerDashbord o1 = new OganizerDashbord(E1.OrganizerName);
                         o1.Show();
                         f1.Hide();
 

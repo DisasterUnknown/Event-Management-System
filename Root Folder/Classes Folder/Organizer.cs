@@ -38,32 +38,17 @@ namespace Root_Folder
         }
 
 
-        // Function to call the AddEvent method in Event.cs
-        public void orgAddAndUpdateEvent(string name, string eventName, string price, string place, int patientCount, string time, string date, string organizerName, string eventId, Form f1, string functionType)
+        // Add event
+        public void AddEvent(Event E1, Form f1)
         {
-            // Debug MessageBox
-            //MessageBox.Show($"Name: {name}\nPrice: {price}\nPlace: {place}\nPcount: {patientCount}\nTime: {time}\nDate: {date}\nOrg: {organizerName}");
-
-            Event e1 = new Event(name, eventName, price, place, patientCount, time, date, organizerName, eventId, f1, functionType);
+            E1.AddEvent(E1, f1);
         }
 
 
-        // Update Page navigation (Display the update page by checking the permision)
-        public void ViewUpdate(string organizer, DataGridView G1, Form f1)
+        // Upadte event
+        public void UpdateEvent(Event E1, string eventName, string eventId, Form f1)
         {
-            string eventOrganizer = G1.SelectedRows[0].Cells["Organizer"].Value.ToString();
-            string eventId = G1.SelectedRows[0].Cells["Id"].Value.ToString();
-
-            if (eventOrganizer == organizer)
-            {
-                CreateEvent c1 = new CreateEvent(organizer, eventId, "Update");
-                c1.Show();
-                f1.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Permision denieled!!\nOnly the event owner can update the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            E1.UpdateEvent(E1, eventName, eventId, f1);
         }
 
 
@@ -81,25 +66,6 @@ namespace Root_Folder
             else
             {
                 MessageBox.Show("Permision denieled!!\nOnly the event owner can remove the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        // View Event Details
-        public void OrgViewEventDetails(string organizer, DataGridView G1, Form f1)
-        {
-            string eventOrganizer = G1.SelectedRows[0].Cells["Organizer"].Value.ToString();
-            string eventId = G1.SelectedRows[0].Cells["Id"].Value.ToString();
-
-            if (organizer == eventOrganizer)
-            {
-                ViewEvent v1 = new ViewEvent(eventId, organizer);
-                v1.Show();
-                f1.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Permision denieled!!\nOnly the event owner can view event details!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
