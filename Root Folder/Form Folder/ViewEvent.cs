@@ -23,7 +23,7 @@ namespace Root_Folder
 
         private void ViewEvent_Load(object sender, EventArgs e)
         {
-            MyDb.OrgViewEventDeatils(EventID, NameIN, PlaceIN, DateTimeIN, PriceIN, SeatsCountIN);
+            MyDb.OrgViewEventDeatils(EventID, NameIN, PlaceIN, DateTimeIN, PriceIN, SeatsCountIN, OrgIN);
             MyDb.ParticipentGridOnload(EventID, ParticipentGrid);
 
             if (name == "admin@123")

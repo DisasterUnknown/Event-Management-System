@@ -42,6 +42,8 @@
             PriceIN = new Label();
             SeatsCountIN = new Label();
             DetailsBtn = new Button();
+            label7 = new Label();
+            OrgIN = new Label();
             ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ParticipentGrid).BeginInit();
             SuspendLayout();
@@ -133,7 +135,7 @@
             // ParticipentGrid
             // 
             ParticipentGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ParticipentGrid.Location = new Point(50, 349);
+            ParticipentGrid.Location = new Point(50, 384);
             ParticipentGrid.Name = "ParticipentGrid";
             ParticipentGrid.RowHeadersWidth = 51;
             ParticipentGrid.Size = new Size(504, 226);
@@ -198,13 +200,35 @@
             // 
             DetailsBtn.BackColor = SystemColors.ControlDark;
             DetailsBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DetailsBtn.Location = new Point(236, 593);
+            DetailsBtn.Location = new Point(228, 629);
             DetailsBtn.Name = "DetailsBtn";
-            DetailsBtn.Size = new Size(139, 29);
+            DetailsBtn.Size = new Size(156, 29);
             DetailsBtn.TabIndex = 18;
-            DetailsBtn.Text = "Participent Details";
+            DetailsBtn.Text = "Participant Details";
             DetailsBtn.UseVisualStyleBackColor = false;
             DetailsBtn.Click += DetailsBtn_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.Control;
+            label7.Location = new Point(103, 338);
+            label7.Name = "label7";
+            label7.Size = new Size(105, 28);
+            label7.TabIndex = 19;
+            label7.Text = "Organizer";
+            // 
+            // OrgIN
+            // 
+            OrgIN.BackColor = SystemColors.Window;
+            OrgIN.Location = new Point(335, 340);
+            OrgIN.Name = "OrgIN";
+            OrgIN.Padding = new Padding(0, 2, 0, 2);
+            OrgIN.Size = new Size(165, 27);
+            OrgIN.TabIndex = 20;
+            OrgIN.Text = " ";
             // 
             // ViewEvent
             // 
@@ -212,7 +236,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.viewEventBg;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(612, 638);
+            ClientSize = new Size(612, 675);
+            Controls.Add(OrgIN);
+            Controls.Add(label7);
             Controls.Add(DetailsBtn);
             Controls.Add(SeatsCountIN);
             Controls.Add(PriceIN);
@@ -254,5 +280,7 @@
         private Label PriceIN;
         private Label SeatsCountIN;
         private Button DetailsBtn;
+        private Label label7;
+        private Label OrgIN;
     }
 }

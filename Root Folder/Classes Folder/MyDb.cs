@@ -836,7 +836,7 @@ namespace Root_Folder
 
 
         // View Event Details Function (Admin and Organizer)
-        public static void OrgViewEventDeatils(string EventID, Label NameIN, Label PlaceIN, Label DateTimeIN, Label PriceIN, Label SeatsCountIN)
+        public static void OrgViewEventDeatils(string EventID, Label NameIN, Label PlaceIN, Label DateTimeIN, Label PriceIN, Label SeatsCountIN, Label OrgIN)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -844,7 +844,7 @@ namespace Root_Folder
                 {
                     con.Open();
 
-                    string q0 = "SELECT Ename, Price, Place, Pamount, Time, Date FROM eventdb WHERE Id = @Id";
+                    string q0 = "SELECT Ename, Price, Place, Pamount, Time, Date, Organizer FROM eventdb WHERE Id = @Id";
                     MySqlCommand cmd0 = new MySqlCommand(q0, con);
                     cmd0.Parameters.AddWithValue("@Id", EventID);
 
@@ -859,12 +859,14 @@ namespace Root_Folder
                             string time = reader["Time"].ToString();
                             string date = reader["Date"].ToString();
                             string particepentAmount = reader["Pamount"].ToString();
+                            string organizer = reader["Organizer"].ToString();
 
                             NameIN.Text = name;
                             PlaceIN.Text = place;
                             DateTimeIN.Text = $"{date} {time}";
                             PriceIN.Text = price;
                             SeatsCountIN.Text = particepentAmount;
+                            OrgIN.Text = organizer;
                         }
 
                         con.Close();
