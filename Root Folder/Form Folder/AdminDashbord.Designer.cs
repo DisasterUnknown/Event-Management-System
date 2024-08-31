@@ -33,16 +33,19 @@
             EventListTable = new DataGridView();
             RemoveEventBtn = new Button();
             ViewEventDetailsBtn = new Button();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)EventListTable).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // LogOutBtn
             // 
-            LogOutBtn.BackColor = SystemColors.ControlDark;
-            LogOutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            LogOutBtn.Location = new Point(694, 12);
+            LogOutBtn.BackColor = Color.FromArgb(0, 0, 30);
+            LogOutBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            LogOutBtn.ForeColor = SystemColors.Window;
+            LogOutBtn.Location = new Point(42, 535);
             LogOutBtn.Name = "LogOutBtn";
-            LogOutBtn.Size = new Size(94, 29);
+            LogOutBtn.Size = new Size(144, 50);
             LogOutBtn.TabIndex = 2;
             LogOutBtn.Text = "LogOut";
             LogOutBtn.UseVisualStyleBackColor = false;
@@ -63,7 +66,7 @@
             // EventListTable
             // 
             EventListTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            EventListTable.Location = new Point(72, 90);
+            EventListTable.Location = new Point(265, 76);
             EventListTable.Name = "EventListTable";
             EventListTable.RowHeadersWidth = 51;
             EventListTable.Size = new Size(656, 509);
@@ -71,11 +74,12 @@
             // 
             // RemoveEventBtn
             // 
-            RemoveEventBtn.BackColor = SystemColors.ControlDark;
+            RemoveEventBtn.BackColor = Color.FromArgb(0, 0, 30);
             RemoveEventBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            RemoveEventBtn.Location = new Point(336, 605);
+            RemoveEventBtn.ForeColor = SystemColors.Window;
+            RemoveEventBtn.Location = new Point(50, 41);
             RemoveEventBtn.Name = "RemoveEventBtn";
-            RemoveEventBtn.Size = new Size(127, 29);
+            RemoveEventBtn.Size = new Size(144, 50);
             RemoveEventBtn.TabIndex = 5;
             RemoveEventBtn.Text = "Remove Event";
             RemoveEventBtn.UseVisualStyleBackColor = false;
@@ -83,32 +87,45 @@
             // 
             // ViewEventDetailsBtn
             // 
-            ViewEventDetailsBtn.Location = new Point(142, 605);
+            ViewEventDetailsBtn.BackColor = Color.FromArgb(0, 0, 10);
+            ViewEventDetailsBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ViewEventDetailsBtn.ForeColor = SystemColors.Window;
+            ViewEventDetailsBtn.Location = new Point(798, 29);
             ViewEventDetailsBtn.Name = "ViewEventDetailsBtn";
-            ViewEventDetailsBtn.Size = new Size(126, 29);
+            ViewEventDetailsBtn.Size = new Size(113, 31);
             ViewEventDetailsBtn.TabIndex = 6;
             ViewEventDetailsBtn.Text = "View Details";
-            ViewEventDetailsBtn.UseVisualStyleBackColor = true;
+            ViewEventDetailsBtn.UseVisualStyleBackColor = false;
             ViewEventDetailsBtn.Click += ViewEventDetailsBtn_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(0, 0, 30);
+            panel1.Controls.Add(RemoveEventBtn);
+            panel1.Location = new Point(-8, -12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(237, 708);
+            panel1.TabIndex = 7;
             // 
             // AdminDashbord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.adminBg;
+            BackColor = Color.FromArgb(0, 0, 10);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 691);
+            ClientSize = new Size(962, 609);
             Controls.Add(ViewEventDetailsBtn);
-            Controls.Add(RemoveEventBtn);
             Controls.Add(EventListTable);
             Controls.Add(label1);
             Controls.Add(LogOutBtn);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "AdminDashbord";
             Text = "Admin Dashbord";
             Load += AdminDashbord_Load;
             ((System.ComponentModel.ISupportInitialize)EventListTable).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -119,5 +136,6 @@
         private DataGridView EventListTable;
         private Button RemoveEventBtn;
         private Button ViewEventDetailsBtn;
+        private Panel panel1;
     }
 }
