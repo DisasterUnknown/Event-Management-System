@@ -41,6 +41,7 @@
             DateTimeIN = new Label();
             PriceIN = new Label();
             SeatsCountIN = new Label();
+            DetailsBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ParticipentGrid).BeginInit();
             SuspendLayout();
@@ -193,13 +194,26 @@
             SeatsCountIN.TabIndex = 17;
             SeatsCountIN.Text = " ";
             // 
+            // DetailsBtn
+            // 
+            DetailsBtn.BackColor = SystemColors.ControlDark;
+            DetailsBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DetailsBtn.Location = new Point(236, 593);
+            DetailsBtn.Name = "DetailsBtn";
+            DetailsBtn.Size = new Size(139, 29);
+            DetailsBtn.TabIndex = 18;
+            DetailsBtn.Text = "Participent Details";
+            DetailsBtn.UseVisualStyleBackColor = false;
+            DetailsBtn.Click += DetailsBtn_Click;
+            // 
             // ViewEvent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.viewEventBg;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(612, 606);
+            ClientSize = new Size(612, 638);
+            Controls.Add(DetailsBtn);
             Controls.Add(SeatsCountIN);
             Controls.Add(PriceIN);
             Controls.Add(DateTimeIN);
@@ -239,5 +253,6 @@
         private Label DateTimeIN;
         private Label PriceIN;
         private Label SeatsCountIN;
+        private Button DetailsBtn;
     }
 }

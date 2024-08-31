@@ -32,7 +32,7 @@ namespace Root_Folder
         // Loading the events
         private void OganizerDashbord_Load(object sender, EventArgs e)
         {
-            Organizer o1 = new Organizer();
+            Person o1 = new Organizer();
             o1.ViewEventDetails(EventTable);
         }
 
@@ -118,7 +118,7 @@ namespace Root_Folder
             }
             else
             {
-                MessageBox.Show("Please select the event to be removed!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

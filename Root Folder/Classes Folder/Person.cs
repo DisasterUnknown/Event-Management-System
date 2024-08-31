@@ -53,5 +53,7 @@ namespace Root_Folder
         public abstract void Register(Person P1, Form f1);
         public abstract void Login(Person P1, Form f1);
 
+        public abstract void ViewEventDetails(DataGridView G1);
+
     }
 }

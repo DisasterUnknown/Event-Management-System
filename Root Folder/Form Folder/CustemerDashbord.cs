@@ -22,7 +22,7 @@ namespace Root_Folder
         // Page Onlaod Function
         private void CustemerDashbord_Load(object sender, EventArgs e)
         {
-            Particepent p1 = new Particepent();
+            Person p1 = new Particepent();
             p1.ViewEventDetails(EventDashBord);
         }
 

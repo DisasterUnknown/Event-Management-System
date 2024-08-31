@@ -22,5 +22,20 @@ namespace Root_Folder
         {
             MyDb.UserLogin(P1, f1);
         }
+
+        public override void ViewEventDetails(DataGridView G1)
+        {
+            MyDb.ViewEvents(G1);
+        }
+
+
+        // Event remove function
+        public void RemoveEvent(DataGridView G1)
+        {
+            string eventId = G1.SelectedRows[0].Cells["Id"].Value.ToString();
+
+            Event e1 = new Event();
+            e1.RemoveEvent(eventId, G1);
+        }
     }
 }

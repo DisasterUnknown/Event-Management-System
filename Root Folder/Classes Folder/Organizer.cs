@@ -32,7 +32,7 @@ namespace Root_Folder
 
 
         // View events
-        public void ViewEventDetails(DataGridView G1)
+        public override void ViewEventDetails(DataGridView G1)
         {
             MyDb.ViewEvents(G1);
         }

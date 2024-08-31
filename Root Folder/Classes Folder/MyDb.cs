@@ -870,7 +870,7 @@ namespace Root_Folder
         }
 
 
-        // Display Participents joined in the event Function
+        // Display Participants joined in the event Function
         public static void ParticipentGridOnload(string EventID, DataGridView G1)
         {
             using(MySqlConnection con = new MySqlConnection(connectionstring))
@@ -943,5 +943,38 @@ namespace Root_Folder
                 }
             }
         }
-    } 
+
+
+        // ViewParticipant  Details
+        public static void DisplayParticipentDetails(string Uname, Label NameIN, Label TelIN, Label GmailIN)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT Uname, Tel, Gmail FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Uname", Uname);
+
+                    using (MySqlDataReader reader = cmd0.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            NameIN.Text = reader["Uname"].ToString();
+                            TelIN.Text = reader["Tel"].ToString();
+                            GmailIN.Text = reader["Gmail"].ToString();
+                        }
+
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
+        }
+    }
 }

@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            LogOutBtn = new Button();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
-            button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            EventListTable = new DataGridView();
+            RemoveEventBtn = new Button();
+            ViewEventDetailsBtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)EventListTable).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // LogOutBtn
             // 
-            button1.BackColor = SystemColors.ControlDark;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(694, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "LogOut";
-            button1.UseVisualStyleBackColor = false;
+            LogOutBtn.BackColor = SystemColors.ControlDark;
+            LogOutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            LogOutBtn.Location = new Point(694, 12);
+            LogOutBtn.Name = "LogOutBtn";
+            LogOutBtn.Size = new Size(94, 29);
+            LogOutBtn.TabIndex = 2;
+            LogOutBtn.Text = "LogOut";
+            LogOutBtn.UseVisualStyleBackColor = false;
+            LogOutBtn.Click += LogOutBtn_Click;
             // 
             // label1
             // 
@@ -58,25 +60,36 @@
             label1.TabIndex = 3;
             label1.Text = "Events Details";
             // 
-            // dataGridView1
+            // EventListTable
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(72, 90);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(656, 509);
-            dataGridView1.TabIndex = 4;
+            EventListTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            EventListTable.Location = new Point(72, 90);
+            EventListTable.Name = "EventListTable";
+            EventListTable.RowHeadersWidth = 51;
+            EventListTable.Size = new Size(656, 509);
+            EventListTable.TabIndex = 4;
             // 
-            // button2
+            // RemoveEventBtn
             // 
-            button2.BackColor = SystemColors.ControlDark;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(336, 605);
-            button2.Name = "button2";
-            button2.Size = new Size(127, 29);
-            button2.TabIndex = 5;
-            button2.Text = "Remove Event";
-            button2.UseVisualStyleBackColor = false;
+            RemoveEventBtn.BackColor = SystemColors.ControlDark;
+            RemoveEventBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            RemoveEventBtn.Location = new Point(336, 605);
+            RemoveEventBtn.Name = "RemoveEventBtn";
+            RemoveEventBtn.Size = new Size(127, 29);
+            RemoveEventBtn.TabIndex = 5;
+            RemoveEventBtn.Text = "Remove Event";
+            RemoveEventBtn.UseVisualStyleBackColor = false;
+            RemoveEventBtn.Click += RemoveEventBtn_Click;
+            // 
+            // ViewEventDetailsBtn
+            // 
+            ViewEventDetailsBtn.Location = new Point(142, 605);
+            ViewEventDetailsBtn.Name = "ViewEventDetailsBtn";
+            ViewEventDetailsBtn.Size = new Size(126, 29);
+            ViewEventDetailsBtn.TabIndex = 6;
+            ViewEventDetailsBtn.Text = "View Details";
+            ViewEventDetailsBtn.UseVisualStyleBackColor = true;
+            ViewEventDetailsBtn.Click += ViewEventDetailsBtn_Click;
             // 
             // AdminDashbord
             // 
@@ -85,23 +98,26 @@
             BackgroundImage = Properties.Resources.adminBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 691);
-            Controls.Add(button2);
-            Controls.Add(dataGridView1);
+            Controls.Add(ViewEventDetailsBtn);
+            Controls.Add(RemoveEventBtn);
+            Controls.Add(EventListTable);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(LogOutBtn);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "AdminDashbord";
             Text = "Admin Dashbord";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += AdminDashbord_Load;
+            ((System.ComponentModel.ISupportInitialize)EventListTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button button1;
+        private Button LogOutBtn;
         private Label label1;
-        private DataGridView dataGridView1;
-        private Button button2;
+        private DataGridView EventListTable;
+        private Button RemoveEventBtn;
+        private Button ViewEventDetailsBtn;
     }
 }

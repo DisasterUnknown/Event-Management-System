@@ -26,7 +26,7 @@ namespace Root_Folder
         // Page Onload
         private void RegisterPage_Load(object sender, EventArgs e)
         {
-            if (role == "admin")
+            if (role == "AD")
             {
                 label8.Visible = true;
                 AdminPassIN.Visible = true;
