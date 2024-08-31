@@ -61,7 +61,7 @@ namespace Root_Folder
             {
                 string name = ParticipentGrid.SelectedRows[0].Cells["Uname"].Value.ToString();
 
-                ViewParticipant vp = new ViewParticipant(name, EventID, name);
+                ViewParticipant vp = new ViewParticipant(name, EventID, name, "EventView");
                 vp.Show();
                 this.Hide();
             }

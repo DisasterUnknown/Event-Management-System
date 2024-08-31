@@ -34,6 +34,7 @@
             RemoveEventBtn = new Button();
             ViewEventDetailsBtn = new Button();
             panel1 = new Panel();
+            ViewUsersBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)EventListTable).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -101,11 +102,25 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(0, 0, 30);
+            panel1.Controls.Add(ViewUsersBtn);
             panel1.Controls.Add(RemoveEventBtn);
             panel1.Location = new Point(-8, -12);
             panel1.Name = "panel1";
             panel1.Size = new Size(237, 708);
             panel1.TabIndex = 7;
+            // 
+            // ViewUsersBtn
+            // 
+            ViewUsersBtn.BackColor = Color.FromArgb(0, 0, 30);
+            ViewUsersBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ViewUsersBtn.ForeColor = SystemColors.Window;
+            ViewUsersBtn.Location = new Point(50, 119);
+            ViewUsersBtn.Name = "ViewUsersBtn";
+            ViewUsersBtn.Size = new Size(144, 50);
+            ViewUsersBtn.TabIndex = 6;
+            ViewUsersBtn.Text = "View Acc";
+            ViewUsersBtn.UseVisualStyleBackColor = false;
+            ViewUsersBtn.Click += ViewUsersBtn_Click;
             // 
             // AdminDashbord
             // 
@@ -137,5 +152,6 @@
         private Button RemoveEventBtn;
         private Button ViewEventDetailsBtn;
         private Panel panel1;
+        private Button ViewUsersBtn;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Root_Folder.Form_Folder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +16,15 @@ namespace Root_Folder
         private string Uname;
         private string EventId;
         private string organizer;
+        private string functionType;
 
-        public ViewParticipant(string Uname, string eventId, string organizer)
+        public ViewParticipant(string Uname, string eventId, string organizer, string functionType)
         {
             InitializeComponent();
             this.Uname = Uname;
             EventId = eventId;
             this.organizer = organizer;
+            this.functionType = functionType;
         }
 
 
@@ -29,15 +32,29 @@ namespace Root_Folder
         private void ViewParticepent_Load(object sender, EventArgs e)
         {
             MyDb.DisplayParticipentDetails(Uname, NameIN, TelIN, GmailIN);
+
+            if (functionType == "accountView")
+            {
+                RemoveUserBtn.Visible = false;
+            }
         }
 
 
         // Back Btn
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            ViewEvent e1 = new ViewEvent(EventId, organizer);
-            e1.Show();
-            this.Hide();
+            if (functionType == "accountView")
+            {
+                ViewUserAccounts v1 = new ViewUserAccounts();
+                v1.Show();
+                this.Hide();
+            }
+            else
+            {
+                ViewEvent e1 = new ViewEvent(EventId, organizer);
+                e1.Show();
+                this.Hide();
+            }
         }
 
 
@@ -68,9 +85,19 @@ namespace Root_Folder
                 Admin a1 = new Admin();
                 a1.KickUser(Uname);
 
-                ViewEvent e1 = new ViewEvent(EventId, organizer);
-                e1.Show();
-                this.Hide();
+                // Navigating to the correct page
+                if (functionType == "accountView")
+                {
+                    ViewUserAccounts v1 = new ViewUserAccounts();
+                    v1.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    ViewEvent e1 = new ViewEvent(EventId, organizer);
+                    e1.Show();
+                    this.Hide();
+                }
             }
         }
     }

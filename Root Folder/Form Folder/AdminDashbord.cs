@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Root_Folder.Form_Folder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,6 +70,15 @@ namespace Root_Folder
             {
                 MessageBox.Show("Please select the event!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        // Navigate to view user details page
+        private void ViewUsersBtn_Click(object sender, EventArgs e)
+        {
+            ViewUserAccounts v1 = new ViewUserAccounts();
+            v1.Show();
+            this.Hide();
         }
     }
 }

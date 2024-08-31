@@ -408,7 +408,7 @@ namespace Root_Folder
                     cmd1.Parameters.AddWithValue("@Id", eventID);
 
                     int addedRowCount = cmd1.ExecuteNonQuery();
-                    
+
                     if (addedRowCount != 1)
                     {
                         MessageBox.Show("SomeThing went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -495,7 +495,7 @@ namespace Root_Folder
 
                                 int affectedRows = cmd2.ExecuteNonQuery();
 
-                                if (affectedRows != 1) 
+                                if (affectedRows != 1)
                                 {
                                     MessageBox.Show("Something went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     con.Close();
@@ -590,7 +590,7 @@ namespace Root_Folder
                         }
                     }
 
-                    string[] particepentsArray = particepents.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToArray(); 
+                    string[] particepentsArray = particepents.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToArray();
                     int numberOfparticepents = particepentsArray.Length;
 
                     // Checking if already joined
@@ -627,7 +627,7 @@ namespace Root_Folder
 
                         int changedRows = cmd1.ExecuteNonQuery();
 
-                        if (changedRows != 1) 
+                        if (changedRows != 1)
                         {
                             MessageBox.Show("Something went wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             con.Close();
@@ -789,7 +789,7 @@ namespace Root_Folder
                         .ToList();
 
                     List<string> joinedParticipentsList = joinedParticipents
-                        .Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                        .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(i => i.Trim())
                         .ToList();
 
@@ -811,8 +811,8 @@ namespace Root_Folder
                     cmd3.Parameters.AddWithValue("@updatedJoinedParticipents", updatedJoinedParticipents);
                     cmd3.Parameters.AddWithValue("@Id", EventID);
 
-                    int affectedRows1 = Convert.ToInt32 (cmd2.ExecuteNonQuery());
-                    int affectedRows2 = Convert.ToInt32 (cmd3.ExecuteNonQuery());
+                    int affectedRows1 = Convert.ToInt32(cmd2.ExecuteNonQuery());
+                    int affectedRows2 = Convert.ToInt32(cmd3.ExecuteNonQuery());
 
                     if ((affectedRows1 != 1) && (affectedRows2 != 1))
                     {
@@ -885,7 +885,7 @@ namespace Root_Folder
         // Display Participants joined in the event Function
         public static void ParticipentGridOnload(string EventID, DataGridView G1)
         {
-            using(MySqlConnection con = new MySqlConnection(connectionstring))
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
                 try
                 {
@@ -999,66 +999,105 @@ namespace Root_Folder
                 {
                     con.Open();
 
-                    string q = "SELECT Id FROM persondb WHERE Uname = @Uname";
+                    // Checking if the user is a admin
+                    string q = "SELECT Role FROM persondb WHERE Uname = @Uname";
                     MySqlCommand cmd = new MySqlCommand(q, con);
                     cmd.Parameters.AddWithValue("@Uname", Uname);
 
-                    string UserID = $"{cmd.ExecuteScalar()}";
+                    string role = $"{cmd.ExecuteScalar()}";
 
-                    string q0 = "SELECT JoinedEvents FROM persondb WHERE Uname = @Uname";
-                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
-                    cmd0.Parameters.AddWithValue("@Uname", Uname);
-
-                    string joinedEvents = $"{cmd0.ExecuteScalar()}";
-
-                    // Converting to a list
-                    List<string> joinedEventsList = joinedEvents
-                        .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                        .Select(i => i.Trim())
-                        .ToList();
-
-                    // Removing the user id from the events joined user list
-                    foreach (var EventID in joinedEventsList)
+                    if (role == "AD")
                     {
-                        // Getting the participant list
-                        string q1 = "SELECT Participants FROM eventdb WHERE Id = @Id";
+                        MessageBox.Show("Admins are unable to remove from the application!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        con.Close();
+                    }
+                    else
+                    {
+                        // If the user is not an admin
+                        string q0 = "SELECT Id FROM persondb WHERE Uname = @Uname";
+                        MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                        cmd0.Parameters.AddWithValue("@Uname", Uname);
+
+                        string UserID = $"{cmd0.ExecuteScalar()}";
+
+                        string q1 = "SELECT JoinedEvents FROM persondb WHERE Uname = @Uname";
                         MySqlCommand cmd1 = new MySqlCommand(q1, con);
-                        cmd1.Parameters.AddWithValue("@Id", EventID);
+                        cmd1.Parameters.AddWithValue("@Uname", Uname);
 
-                        string joinedParticipants = $"{cmd1.ExecuteScalar()}";
+                        string joinedEvents = $"{cmd1.ExecuteScalar()}";
 
-                        List<string> joinedParticipantsList = joinedParticipants
+                        // Converting to a list
+                        List<string> joinedEventsList = joinedEvents
                             .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                             .Select(i => i.Trim())
                             .ToList();
 
-                        joinedParticipantsList.Remove(UserID);
-
-                        // Converting to database format 
-                        string formatedJoinedParticipants = string.Join(", ", joinedParticipantsList);
-
-                        // Update the new list
-                        string q2 = "UPDATE eventdb SET Participants = @formatedJoinedParticipants WHERE Id = @EventID";
-                        MySqlCommand cmd2 = new MySqlCommand(q2, con);
-                        cmd2.Parameters.AddWithValue("@formatedJoinedParticipants", formatedJoinedParticipants);
-                        cmd2.Parameters.AddWithValue("@EventID", EventID);
-
-                        int rowsAffected = Convert.ToInt32(cmd2.ExecuteNonQuery());
-
-                        if (rowsAffected != 1)
+                        // Removing the user id from the events joined user list
+                        foreach (var EventID in joinedEventsList)
                         {
-                            MessageBox.Show("Couldn't update the data!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            // Removing the user from the database
-                            string q3 = "DELETE FROM persondb WHERE Id = @UserID";
+                            // Getting the participant list
+                            string q2 = "SELECT Participants FROM eventdb WHERE Id = @Id";
+                            MySqlCommand cmd2 = new MySqlCommand(q2, con);
+                            cmd2.Parameters.AddWithValue("@Id", EventID);
+
+                            string joinedParticipants = $"{cmd2.ExecuteScalar()}";
+
+                            List<string> joinedParticipantsList = joinedParticipants
+                                .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(i => i.Trim())
+                                .ToList();
+
+                            joinedParticipantsList.Remove(UserID);
+
+                            // Converting to database format 
+                            string formatedJoinedParticipants = string.Join(", ", joinedParticipantsList);
+
+                            // Update the new list
+                            string q3 = "UPDATE eventdb SET Participants = @formatedJoinedParticipants WHERE Id = @EventID";
                             MySqlCommand cmd3 = new MySqlCommand(q3, con);
-                            cmd3.Parameters.AddWithValue("@UserID", UserID);
+                            cmd3.Parameters.AddWithValue("@formatedJoinedParticipants", formatedJoinedParticipants);
+                            cmd3.Parameters.AddWithValue("@EventID", EventID);
 
-                            int rowsAffected1 = Convert.ToInt32(cmd3.ExecuteNonQuery());
+                            int rowsAffected = Convert.ToInt32(cmd3.ExecuteNonQuery());
                         }
+
+                        // Removing the user from the database
+                        string q4 = "DELETE FROM persondb WHERE Id = @UserID";
+                        MySqlCommand cmd4 = new MySqlCommand(q4, con);
+                        cmd4.Parameters.AddWithValue("@UserID", UserID);
+
+                        int rowsAffected1 = Convert.ToInt32(cmd4.ExecuteNonQuery());
+
+                        con.Close();
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
+        }
+
+
+        // Display all the user accounts in the grid
+        public static void ViewUserAccounts(DataGridView G1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT * FROM persondb";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    MySqlDataAdapter bridge = new MySqlDataAdapter(cmd0);
+
+                    DataTable table = new DataTable();
+                    bridge.Fill(table);
+
+                    G1.DataSource = table;
+
+                    con.Close();
                 }
                 catch (Exception ex)
                 {

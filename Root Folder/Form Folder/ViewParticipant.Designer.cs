@@ -105,7 +105,7 @@
             // 
             RemoveUserBtn.BackColor = SystemColors.ControlDark;
             RemoveUserBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            RemoveUserBtn.Location = new Point(371, 280);
+            RemoveUserBtn.Location = new Point(12, 280);
             RemoveUserBtn.Name = "RemoveUserBtn";
             RemoveUserBtn.Size = new Size(118, 29);
             RemoveUserBtn.TabIndex = 8;
@@ -117,7 +117,7 @@
             // 
             KickUserBtn.BackColor = SystemColors.ControlDark;
             KickUserBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            KickUserBtn.Location = new Point(12, 280);
+            KickUserBtn.Location = new Point(371, 280);
             KickUserBtn.Name = "KickUserBtn";
             KickUserBtn.Size = new Size(118, 29);
             KickUserBtn.TabIndex = 9;
