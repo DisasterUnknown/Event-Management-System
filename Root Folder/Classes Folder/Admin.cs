@@ -37,5 +37,20 @@ namespace Root_Folder
             Event e1 = new Event();
             e1.RemoveEvent(eventId, G1);
         }
+
+
+        // Remove Participant
+        public void RemoveUser(string EventID, string Uname)
+        {
+            Event e1 = new Event();
+            e1.RemoveParticipant(EventID, Uname);
+        }
+
+
+        // Kick user from the System
+        public void KickUser(string Uname)
+        {
+            MyDb.KickUser(Uname);
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace Root_Folder
 
         private void JoinBtn_Click(object sender, EventArgs e)
         {
-            Particepent p1 =new Particepent();
+            Participant p1 =new Participant();
             p1.JoinEvent(Uname, EventId, this);
         }
     }

@@ -24,7 +24,7 @@ namespace Root_Folder
         // Page Onload functions
         private void ViewJoinedEvents_Load(object sender, EventArgs e)
         {
-            Particepent p1 = new Particepent();
+            Participant p1 = new Participant();
             UserID = p1.ViewJoinedEvents(Uname, DisplayJoinedEvents);
         }
 
@@ -40,7 +40,7 @@ namespace Root_Folder
         {
             if (DisplayJoinedEvents.SelectedRows.Count > 0)
             {
-                Particepent p1 = new Particepent();
+                Participant p1 = new Participant();
                 p1.LeaveEvent(UserID, Uname, DisplayJoinedEvents);
             }
             else

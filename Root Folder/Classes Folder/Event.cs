@@ -68,9 +68,16 @@ namespace Root_Folder
 
 
         // Leave Event Function
-        public void LeaveEvent(string UserID, string EventID, string Uname, DataGridView G1)
+        public void LeaveEvent(string EventID, string Uname, DataGridView G1)
         {
-            MyDb.EventLaeve(UserID, EventID, Uname, G1);
+            MyDb.EventLaeve(EventID, Uname, "Leave", G1);
+        }
+
+
+        // Remove Participant function
+        public void RemoveParticipant(string EventID, string Uname)
+        {
+            MyDb.EventLaeve(EventID, Uname, "", null);
         }
     }
 }

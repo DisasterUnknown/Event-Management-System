@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Root_Folder
 {
-    internal class Particepent : Person
+    internal class Participant : Person
     {
-        public Particepent() { }
-        public Particepent(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
-        public Particepent(string name, string password, string role) : base(name, password, role) { }
+        public Participant() { }
+        public Participant(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
+        public Participant(string name, string password, string role) : base(name, password, role) { }
 
         // Person register function
         public override void Register(Person P1, Form f1)
@@ -55,7 +55,7 @@ namespace Root_Folder
             string EventID = G1.SelectedRows[0].Cells["Id"].Value.ToString();
 
             Event e1 = new Event();
-            e1.LeaveEvent(UserID, EventID, Uname, G1);
+            e1.LeaveEvent(EventID, Uname, G1);
         }
     }
 }

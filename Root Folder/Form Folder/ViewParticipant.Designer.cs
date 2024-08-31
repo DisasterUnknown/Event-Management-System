@@ -111,6 +111,7 @@
             RemoveUserBtn.TabIndex = 8;
             RemoveUserBtn.Text = "Remove User";
             RemoveUserBtn.UseVisualStyleBackColor = false;
+            RemoveUserBtn.Click += RemoveUserBtn_Click;
             // 
             // KickUserBtn
             // 
@@ -122,6 +123,7 @@
             KickUserBtn.TabIndex = 9;
             KickUserBtn.Text = "Kick User";
             KickUserBtn.UseVisualStyleBackColor = false;
+            KickUserBtn.Click += KickUserBtn_Click;
             // 
             // NameIN
             // 

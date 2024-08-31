@@ -753,13 +753,20 @@ namespace Root_Folder
 
 
         // Leave Event Function
-        public static void EventLaeve(string UserID, string EventID, string Uname, DataGridView G1)
+        public static void EventLaeve(string EventID, string Uname, string FunctionType, DataGridView G1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
                 try
                 {
                     con.Open();
+
+                    // Geting the user Id
+                    string q = "SELECT Id FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd = new MySqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@Uname", Uname);
+
+                    string UserID = $"{cmd.ExecuteScalar()}";
 
                     // Geting the participent joined event list
                     string q0 = "SELECT JoinedEvents FROM persondb WHERE Id = @Id";
@@ -814,8 +821,11 @@ namespace Root_Folder
                     }
 
                     // Calling the Display joined events function
-                    EventsJoinedView(Uname, G1);
-                    con.Close();
+                    if (FunctionType == "Leave")
+                    {
+                        EventsJoinedView(Uname, G1);
+                        con.Close();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -968,6 +978,84 @@ namespace Root_Folder
                         }
 
                         con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
+        }
+
+
+        // Kick the user from the DataBase function
+        public static void KickUser(string Uname)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q = "SELECT Id FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd = new MySqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@Uname", Uname);
+
+                    string UserID = $"{cmd.ExecuteScalar()}";
+
+                    string q0 = "SELECT JoinedEvents FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Uname", Uname);
+
+                    string joinedEvents = $"{cmd0.ExecuteScalar()}";
+
+                    // Converting to a list
+                    List<string> joinedEventsList = joinedEvents
+                        .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(i => i.Trim())
+                        .ToList();
+
+                    // Removing the user id from the events joined user list
+                    foreach (var EventID in joinedEventsList)
+                    {
+                        // Getting the participant list
+                        string q1 = "SELECT Participants FROM eventdb WHERE Id = @Id";
+                        MySqlCommand cmd1 = new MySqlCommand(q1, con);
+                        cmd1.Parameters.AddWithValue("@Id", EventID);
+
+                        string joinedParticipants = $"{cmd1.ExecuteScalar()}";
+
+                        List<string> joinedParticipantsList = joinedParticipants
+                            .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                            .Select(i => i.Trim())
+                            .ToList();
+
+                        joinedParticipantsList.Remove(UserID);
+
+                        // Converting to database format 
+                        string formatedJoinedParticipants = string.Join(", ", joinedParticipantsList);
+
+                        // Update the new list
+                        string q2 = "UPDATE eventdb SET Participants = @formatedJoinedParticipants WHERE Id = @EventID";
+                        MySqlCommand cmd2 = new MySqlCommand(q2, con);
+                        cmd2.Parameters.AddWithValue("@formatedJoinedParticipants", formatedJoinedParticipants);
+                        cmd2.Parameters.AddWithValue("@EventID", EventID);
+
+                        int rowsAffected = Convert.ToInt32(cmd2.ExecuteNonQuery());
+
+                        if (rowsAffected != 1)
+                        {
+                            MessageBox.Show("Couldn't update the data!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            // Removing the user from the database
+                            string q3 = "DELETE FROM persondb WHERE Id = @UserID";
+                            MySqlCommand cmd3 = new MySqlCommand(q3, con);
+                            cmd3.Parameters.AddWithValue("@UserID", UserID);
+
+                            int rowsAffected1 = Convert.ToInt32(cmd3.ExecuteNonQuery());
+                        }
                     }
                 }
                 catch (Exception ex)
