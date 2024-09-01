@@ -41,7 +41,7 @@ namespace Root_Folder
 
                     if (userCount > 0)
                     {
-                        MessageBox.Show("User alredy exists!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("User already exists!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         con.Close();
                         return;
                     }
@@ -176,7 +176,7 @@ namespace Root_Folder
                     }
                     else
                     {
-                        MessageBox.Show("User name or Password are incurect!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("User name or Password are incorrect!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         con.Close();
                     }
                 }

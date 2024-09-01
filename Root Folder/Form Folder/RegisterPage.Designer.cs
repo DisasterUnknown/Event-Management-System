@@ -144,9 +144,9 @@
             label7.ForeColor = SystemColors.ButtonHighlight;
             label7.Location = new Point(86, 372);
             label7.Name = "label7";
-            label7.Size = new Size(171, 23);
+            label7.Size = new Size(161, 23);
             label7.TabIndex = 7;
-            label7.Text = "Comferm Password:";
+            label7.Text = "Confirm Password:";
             // 
             // UnameIN
             // 

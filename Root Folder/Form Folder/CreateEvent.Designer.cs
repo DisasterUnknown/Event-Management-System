@@ -159,7 +159,7 @@
             EventCreation.Name = "EventCreation";
             EventCreation.Size = new Size(94, 29);
             EventCreation.TabIndex = 6;
-            EventCreation.Text = "Conform";
+            EventCreation.Text = "Confirm ";
             EventCreation.UseVisualStyleBackColor = false;
             EventCreation.Click += EventCreation_Click;
             // 
