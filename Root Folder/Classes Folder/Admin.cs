@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Root_Folder.Classes_Folder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Root_Folder
 {
-    internal class Admin : Person
+    internal class Admin : Person, Interface
     {
         public Admin() { }
         public Admin(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }

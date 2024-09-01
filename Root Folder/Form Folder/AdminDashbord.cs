@@ -19,12 +19,16 @@ namespace Root_Folder
             InitializeComponent();
         }
 
+
+        // Page onload Function
         private void AdminDashbord_Load(object sender, EventArgs e)
         {
             Person p1 = new Admin();
             p1.ViewEventDetails(EventListTable);
         }
 
+
+        // Admin remove event function
         private void RemoveEventBtn_Click(object sender, EventArgs e)
         {
             if (EventListTable.SelectedRows.Count > 0)
