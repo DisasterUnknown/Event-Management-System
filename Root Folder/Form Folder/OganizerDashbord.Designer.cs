@@ -49,9 +49,9 @@
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(266, 22);
             label1.Name = "label1";
-            label1.Size = new Size(254, 39);
+            label1.Size = new Size(140, 39);
             label1.TabIndex = 4;
-            label1.Text = "Organization";
+            label1.Text = "Events";
             // 
             // EventTable
             // 
