@@ -1090,7 +1090,7 @@ namespace Root_Folder
                                 orgEvents.Add(EventID);
                             }
                         }
-                        
+
                         // Removing the users from the events and deleting the events
                         foreach (string EventID in orgEvents)
                         {

@@ -58,7 +58,7 @@
             EventDashBord.Name = "EventDashBord";
             EventDashBord.RowHeadersWidth = 51;
             EventDashBord.Size = new Size(656, 509);
-            EventDashBord.TabIndex = 3;
+            EventDashBord.TabIndex = 10;
             // 
             // button1
             // 
@@ -68,7 +68,7 @@
             button1.Location = new Point(42, 535);
             button1.Name = "button1";
             button1.Size = new Size(144, 50);
-            button1.TabIndex = 4;
+            button1.TabIndex = 3;
             button1.Text = "LogOut";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -81,7 +81,7 @@
             ViewJoined.Location = new Point(50, 41);
             ViewJoined.Name = "ViewJoined";
             ViewJoined.Size = new Size(144, 50);
-            ViewJoined.TabIndex = 5;
+            ViewJoined.TabIndex = 1;
             ViewJoined.Text = "View Joined";
             ViewJoined.UseVisualStyleBackColor = false;
             ViewJoined.Click += ViewJoined_Click;
@@ -94,7 +94,7 @@
             ViewJoinPageBtn.Location = new Point(798, 29);
             ViewJoinPageBtn.Name = "ViewJoinPageBtn";
             ViewJoinPageBtn.Size = new Size(113, 31);
-            ViewJoinPageBtn.TabIndex = 6;
+            ViewJoinPageBtn.TabIndex = 2;
             ViewJoinPageBtn.Text = "Join Event";
             ViewJoinPageBtn.UseVisualStyleBackColor = false;
             ViewJoinPageBtn.Click += ViewJoinPageBtn_Click;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Root_Folder
 {
-    internal class Admin : Person, Interface
+    internal class Admin : Person, PersonMethodInterface
     {
         public Admin() { }
         public Admin(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }

@@ -60,7 +60,7 @@
             EventTable.Name = "EventTable";
             EventTable.RowHeadersWidth = 51;
             EventTable.Size = new Size(656, 509);
-            EventTable.TabIndex = 5;
+            EventTable.TabIndex = 20;
             // 
             // LogOutBtn
             // 
@@ -70,7 +70,7 @@
             LogOutBtn.Location = new Point(42, 535);
             LogOutBtn.Name = "LogOutBtn";
             LogOutBtn.Size = new Size(144, 50);
-            LogOutBtn.TabIndex = 6;
+            LogOutBtn.TabIndex = 5;
             LogOutBtn.Text = "LogOut";
             LogOutBtn.UseVisualStyleBackColor = false;
             LogOutBtn.Click += LogOutBtn_Click;
@@ -83,7 +83,7 @@
             EventRemoveBtn.Location = new Point(42, 173);
             EventRemoveBtn.Name = "EventRemoveBtn";
             EventRemoveBtn.Size = new Size(144, 50);
-            EventRemoveBtn.TabIndex = 8;
+            EventRemoveBtn.TabIndex = 3;
             EventRemoveBtn.Text = "Remove";
             EventRemoveBtn.UseVisualStyleBackColor = false;
             EventRemoveBtn.Click += EventRemoveBtn_Click;
@@ -96,7 +96,7 @@
             UpdateEvent.Location = new Point(42, 29);
             UpdateEvent.Name = "UpdateEvent";
             UpdateEvent.Size = new Size(144, 50);
-            UpdateEvent.TabIndex = 9;
+            UpdateEvent.TabIndex = 1;
             UpdateEvent.Text = "Update";
             UpdateEvent.UseVisualStyleBackColor = false;
             UpdateEvent.Click += UpdateEvent_Click;
@@ -112,7 +112,7 @@
             AddEventBtn.Location = new Point(798, 29);
             AddEventBtn.Name = "AddEventBtn";
             AddEventBtn.Size = new Size(113, 31);
-            AddEventBtn.TabIndex = 10;
+            AddEventBtn.TabIndex = 4;
             AddEventBtn.Text = "Add Event";
             AddEventBtn.UseVisualStyleBackColor = false;
             AddEventBtn.Click += AddEventBtn_Click;
@@ -125,7 +125,7 @@
             ViewDetailsBtn.Location = new Point(42, 100);
             ViewDetailsBtn.Name = "ViewDetailsBtn";
             ViewDetailsBtn.Size = new Size(144, 50);
-            ViewDetailsBtn.TabIndex = 11;
+            ViewDetailsBtn.TabIndex = 2;
             ViewDetailsBtn.Text = "View Details";
             ViewDetailsBtn.UseVisualStyleBackColor = false;
             ViewDetailsBtn.Click += ViewDetailsBtn_Click;

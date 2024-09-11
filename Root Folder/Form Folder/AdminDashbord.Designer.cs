@@ -47,7 +47,7 @@
             LogOutBtn.Location = new Point(42, 535);
             LogOutBtn.Name = "LogOutBtn";
             LogOutBtn.Size = new Size(144, 50);
-            LogOutBtn.TabIndex = 2;
+            LogOutBtn.TabIndex = 4;
             LogOutBtn.Text = "LogOut";
             LogOutBtn.UseVisualStyleBackColor = false;
             LogOutBtn.Click += LogOutBtn_Click;
@@ -71,7 +71,7 @@
             EventListTable.Name = "EventListTable";
             EventListTable.RowHeadersWidth = 51;
             EventListTable.Size = new Size(656, 509);
-            EventListTable.TabIndex = 4;
+            EventListTable.TabIndex = 10;
             // 
             // RemoveEventBtn
             // 
@@ -81,7 +81,7 @@
             RemoveEventBtn.Location = new Point(50, 41);
             RemoveEventBtn.Name = "RemoveEventBtn";
             RemoveEventBtn.Size = new Size(144, 50);
-            RemoveEventBtn.TabIndex = 5;
+            RemoveEventBtn.TabIndex = 1;
             RemoveEventBtn.Text = "Remove Event";
             RemoveEventBtn.UseVisualStyleBackColor = false;
             RemoveEventBtn.Click += RemoveEventBtn_Click;
@@ -94,7 +94,7 @@
             ViewEventDetailsBtn.Location = new Point(798, 29);
             ViewEventDetailsBtn.Name = "ViewEventDetailsBtn";
             ViewEventDetailsBtn.Size = new Size(113, 31);
-            ViewEventDetailsBtn.TabIndex = 6;
+            ViewEventDetailsBtn.TabIndex = 3;
             ViewEventDetailsBtn.Text = "View Details";
             ViewEventDetailsBtn.UseVisualStyleBackColor = false;
             ViewEventDetailsBtn.Click += ViewEventDetailsBtn_Click;
@@ -117,7 +117,7 @@
             ViewUsersBtn.Location = new Point(50, 119);
             ViewUsersBtn.Name = "ViewUsersBtn";
             ViewUsersBtn.Size = new Size(144, 50);
-            ViewUsersBtn.TabIndex = 6;
+            ViewUsersBtn.TabIndex = 2;
             ViewUsersBtn.Text = "View Acc";
             ViewUsersBtn.UseVisualStyleBackColor = false;
             ViewUsersBtn.Click += ViewUsersBtn_Click;
