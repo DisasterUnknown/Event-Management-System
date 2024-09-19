@@ -120,7 +120,7 @@ namespace Root_Folder
             {
                 MessageBox.Show("The place is invalide!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (pAmount < 5)
+            else if (pAmount < 2)
             {
                 MessageBox.Show("Insuficent particepent count!!", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
