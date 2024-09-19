@@ -14,7 +14,7 @@ using Root_Folder.Classes_Folder;
 
 namespace Root_Folder
 {
-    internal class Organizer : Person, PersonInterface
+    internal class Organizer : Person, Admin_Organizer_Interface
     {
         public Organizer() { }
         public Organizer(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }

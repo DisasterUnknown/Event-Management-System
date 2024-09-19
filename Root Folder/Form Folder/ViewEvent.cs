@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Root_Folder.Classes_Folder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,8 +25,9 @@ namespace Root_Folder
 
         private void ViewEvent_Load(object sender, EventArgs e)
         {
-            MyDb.OrgViewEventDeatils(EventID, NameIN, PlaceIN, DateTimeIN, PriceIN, SeatsCountIN, OrgIN);
-            MyDb.ParticipentGridOnload(EventID, ParticipentGrid);
+            Admin_Organizer_Interface AO = new Admin();
+            AO.OrgViewEventDeatils(EventID, NameIN, PlaceIN, DateTimeIN, PriceIN, SeatsCountIN, OrgIN);
+            AO.ParticipentGridOnload(EventID, ParticipentGrid);
 
             if (Oname == "admin@123")
             {

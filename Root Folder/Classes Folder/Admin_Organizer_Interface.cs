@@ -1,31 +1,21 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using MySql.Data.MySqlClient;
-using Mysqlx.Crud;
-using Org.BouncyCastle.Crypto.Fpe;
-using Org.BouncyCastle.Tls;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
-using ZstdSharp.Unsafe;
-using static Google.Protobuf.Reflection.SourceCodeInfo.Types;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Root_Folder
+namespace Root_Folder.Classes_Folder
 {
-    internal class MyDb
+    internal interface Admin_Organizer_Interface
     {
         private static string connectionstring = "server=localhost;database=event_management_system;user=root;password=;";
 
 
 
         // View Event Details Function (Admin and Organizer)
-        public static void OrgViewEventDeatils(string EventID, Label NameIN, Label PlaceIN, Label DateTimeIN, Label PriceIN, Label SeatsCountIN, Label OrgIN)
+        public void OrgViewEventDeatils(string EventID, Label NameIN, Label PlaceIN, Label DateTimeIN, Label PriceIN, Label SeatsCountIN, Label OrgIN)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -72,7 +62,7 @@ namespace Root_Folder
 
 
         // Display Participants joined in the event Function
-        public static void ParticipentGridOnload(string EventID, DataGridView G1)
+        public void ParticipentGridOnload(string EventID, DataGridView G1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -147,7 +137,7 @@ namespace Root_Folder
 
 
         // ViewParticipant  Details
-        public static void DisplayParticipentDetails(string Uname, Label NameIN, Label TelIN, Label GmailIN)
+        public void DisplayParticipentDetails(string Uname, Label NameIN, Label TelIN, Label GmailIN)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {

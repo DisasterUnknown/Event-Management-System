@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Root_Folder
 {
-    internal class Participant : Person, PersonInterface
+    internal class Participant : Person
     {
         public Participant() { }
         public Participant(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }

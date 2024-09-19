@@ -1,4 +1,5 @@
-﻿using Root_Folder.Form_Folder;
+﻿using Root_Folder.Classes_Folder;
+using Root_Folder.Form_Folder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,8 @@ namespace Root_Folder
         // Page onload function
         private void ViewParticepent_Load(object sender, EventArgs e)
         {
-            MyDb.DisplayParticipentDetails(Uname, NameIN, TelIN, GmailIN);
+            Admin_Organizer_Interface AD = new Admin();
+            AD.DisplayParticipentDetails(Uname, NameIN, TelIN, GmailIN);
 
             if (functionType == "accountView")
             {
