@@ -26,7 +26,7 @@ namespace Root_Folder
         private void ViewEvent_Load(object sender, EventArgs e)
         {
             Admin_Organizer_Interface AO = new Admin();
-            AO.OrgViewEventDeatils(EventID, NameIN, PlaceIN, DateTimeIN, PriceIN, SeatsCountIN, OrgIN);
+            AO.OrgViewEventDeatils(EventID, this);
             AO.ParticipentGridOnload(EventID, ParticipentGrid);
 
             if (Oname == "admin@123")

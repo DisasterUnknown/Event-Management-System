@@ -128,32 +128,38 @@
             // NameIN
             // 
             NameIN.BackColor = SystemColors.Window;
+            NameIN.FlatStyle = FlatStyle.System;
             NameIN.Location = new Point(245, 111);
             NameIN.Name = "NameIN";
-            NameIN.Padding = new Padding(0, 2, 0, 2);
+            NameIN.Padding = new Padding(3, 3, 0, 2);
             NameIN.Size = new Size(186, 27);
             NameIN.TabIndex = 10;
             NameIN.Text = " ";
+            NameIN.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // TelIN
             // 
             TelIN.BackColor = SystemColors.Window;
+            TelIN.FlatStyle = FlatStyle.System;
             TelIN.Location = new Point(245, 157);
             TelIN.Name = "TelIN";
-            TelIN.Padding = new Padding(0, 2, 0, 2);
+            TelIN.Padding = new Padding(3, 3, 0, 2);
             TelIN.Size = new Size(186, 27);
             TelIN.TabIndex = 11;
             TelIN.Text = " ";
+            TelIN.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // GmailIN
             // 
             GmailIN.BackColor = SystemColors.Window;
+            GmailIN.FlatStyle = FlatStyle.System;
             GmailIN.Location = new Point(245, 201);
             GmailIN.Name = "GmailIN";
-            GmailIN.Padding = new Padding(0, 2, 0, 2);
+            GmailIN.Padding = new Padding(3, 3, 0, 2);
             GmailIN.Size = new Size(186, 27);
             GmailIN.TabIndex = 12;
             GmailIN.Text = " ";
+            GmailIN.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // ViewParticipant
             // 
@@ -191,8 +197,8 @@
         private Label label4;
         private Button RemoveUserBtn;
         private Button KickUserBtn;
-        private Label NameIN;
-        private Label TelIN;
-        private Label GmailIN;
+        public Label NameIN;
+        public Label TelIN;
+        public Label GmailIN;
     }
 }

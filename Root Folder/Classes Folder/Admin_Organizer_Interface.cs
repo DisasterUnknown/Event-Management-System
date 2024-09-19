@@ -15,7 +15,7 @@ namespace Root_Folder.Classes_Folder
 
 
         // View Event Details Function (Admin and Organizer)
-        public void OrgViewEventDeatils(string EventID, Label NameIN, Label PlaceIN, Label DateTimeIN, Label PriceIN, Label SeatsCountIN, Label OrgIN)
+        public void OrgViewEventDeatils(string EventID, ViewEvent f1)
         {
             using (MySqlConnection con = new MySqlConnection(connectionstring))
             {
@@ -40,12 +40,12 @@ namespace Root_Folder.Classes_Folder
                             string particepentAmount = reader["Pamount"].ToString();
                             string organizer = reader["Organizer"].ToString();
 
-                            NameIN.Text = name;
-                            PlaceIN.Text = place;
-                            DateTimeIN.Text = $"{date} {time}";
-                            PriceIN.Text = price;
-                            SeatsCountIN.Text = particepentAmount;
-                            OrgIN.Text = organizer;
+                            f1.NameIN.Text = name;
+                            f1.PlaceIN.Text = place;
+                            f1.DateTimeIN.Text = $"{date} {time}";
+                            f1.PriceIN.Text = price;
+                            f1.SeatsCountIN.Text = particepentAmount;
+                            f1.OrgIN.Text = organizer;
                         }
 
                         con.Close();
@@ -127,39 +127,6 @@ namespace Root_Folder.Classes_Folder
                     }
 
                     con.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex}");
-                }
-            }
-        }
-
-
-        // ViewParticipant  Details
-        public void DisplayParticipentDetails(string Uname, Label NameIN, Label TelIN, Label GmailIN)
-        {
-            using (MySqlConnection con = new MySqlConnection(connectionstring))
-            {
-                try
-                {
-                    con.Open();
-
-                    string q0 = "SELECT Uname, Tel, Gmail FROM persondb WHERE Uname = @Uname";
-                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
-                    cmd0.Parameters.AddWithValue("@Uname", Uname);
-
-                    using (MySqlDataReader reader = cmd0.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            NameIN.Text = reader["Uname"].ToString();
-                            TelIN.Text = reader["Tel"].ToString();
-                            GmailIN.Text = reader["Gmail"].ToString();
-                        }
-
-                        con.Close();
-                    }
                 }
                 catch (Exception ex)
                 {

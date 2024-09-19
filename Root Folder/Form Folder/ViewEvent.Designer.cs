@@ -288,14 +288,14 @@
         private Label label5;
         private Label label6;
         private DataGridView ParticipentGrid;
-        private Label NameIN;
-        private Label PlaceIN;
-        private Label DateTimeIN;
-        private Label PriceIN;
-        private Label SeatsCountIN;
         private Button DetailsBtn;
         private Label label7;
-        private Label OrgIN;
         private Button RemoveParticipantBtn;
+        public Label NameIN;
+        public Label PlaceIN;
+        public Label DateTimeIN;
+        public Label PriceIN;
+        public Label SeatsCountIN;
+        public Label OrgIN;
     }
 }

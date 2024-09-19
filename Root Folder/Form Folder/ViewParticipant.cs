@@ -32,8 +32,8 @@ namespace Root_Folder
         // Page onload function
         private void ViewParticepent_Load(object sender, EventArgs e)
         {
-            Admin_Organizer_Interface AD = new Admin();
-            AD.DisplayParticipentDetails(Uname, NameIN, TelIN, GmailIN);
+            Admin a1 = new Admin();
+            a1.DisplayParticipentDetails(Uname, this);
 
             if (functionType == "accountView")
             {

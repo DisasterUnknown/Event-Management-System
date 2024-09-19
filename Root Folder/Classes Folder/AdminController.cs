@@ -210,5 +210,38 @@ namespace Root_Folder.Classes_Folder
                 }
             }
         }
+
+
+        // ViewParticipant  Details
+        public static void DisplayParticipentDetails(string Uname, ViewParticipant f1)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionstring))
+            {
+                try
+                {
+                    con.Open();
+
+                    string q0 = "SELECT Uname, Tel, Gmail FROM persondb WHERE Uname = @Uname";
+                    MySqlCommand cmd0 = new MySqlCommand(q0, con);
+                    cmd0.Parameters.AddWithValue("@Uname", Uname);
+
+                    using (MySqlDataReader reader = cmd0.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            f1.NameIN.Text = reader["Uname"].ToString();
+                            f1.TelIN.Text = reader["Tel"].ToString();
+                            f1.GmailIN.Text = reader["Gmail"].ToString();
+                        }
+
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
+        }
     }
 }

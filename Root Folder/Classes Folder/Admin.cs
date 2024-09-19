@@ -23,6 +23,11 @@ namespace Root_Folder
             e1.RemoveEvent(eventId, G1);
         }
 
+        public void DisplayParticipentDetails(string Uname, ViewParticipant f1)
+        {
+            AdminController.DisplayParticipentDetails(Uname, f1);
+        }
+
 
         // Display all the user accounts in the grid
         public void ViewUserAccounts(DataGridView G1)
