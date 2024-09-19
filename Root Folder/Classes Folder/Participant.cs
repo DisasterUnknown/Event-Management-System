@@ -8,31 +8,18 @@ using System.Threading.Tasks;
 
 namespace Root_Folder
 {
-    internal class Participant : Person, PersonMethodInterface
+    internal class Participant : Person, PersonInterface
     {
         public Participant() { }
         public Participant(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
         public Participant(string name, string password, string role) : base(name, password, role) { }
 
-        // Person register function
-        public override void Register(Person P1, Form f1)
+
+        // Loading the data in the event join page onload
+        public void EventJoinPageOnLoad(string EventId, JoinEvent f1)
         {
-            MyDb.RegisterPerson(P1, f1);
+            ParticipantController.EventJoinPageOnLoad(EventId, f1);
         }
-
-        // Login
-        public override void Login(Person P1, Form f1)
-        {
-            MyDb.UserLogin(P1, f1);
-        }
-
-
-        // View Events
-        public override void ViewEventDetails(DataGridView G1)
-        {
-            MyDb.ViewEvents(G1);
-        }
-
 
         // Join Event
         public void JoinEvent(string Uname, string EventId, Form f1)
@@ -45,7 +32,7 @@ namespace Root_Folder
         // View Joined Events
         public string ViewJoinedEvents(string Uname, DataGridView G1)
         {
-            string UserID = MyDb.EventsJoinedView(Uname, G1);
+            string UserID = ParticipantController.EventsJoinedView(Uname, G1);
             return UserID;
         }
 

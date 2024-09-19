@@ -225,10 +225,10 @@
         private TextBox textBox2;
         private PictureBox BackBtn;
         private Label label5;
-        private Label DateTimeIN;
-        private Label PriceIN;
-        private Label LocationIN;
         private Label label6;
-        private Label NameIN;
+        public Label DateTimeIN;
+        public Label PriceIN;
+        public Label LocationIN;
+        public Label NameIN;
     }
 }

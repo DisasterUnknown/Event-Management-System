@@ -7,27 +7,11 @@ using System.Threading.Tasks;
 
 namespace Root_Folder
 {
-    internal class Admin : Person, PersonMethodInterface
+    internal class Admin : Person, PersonInterface
     {
         public Admin() { }
         public Admin(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
         public Admin(string name, string password, string role) :base(name, password, role) { }
-
-        // Person register function
-        public override void Register(Person A1, Form f1)
-        {
-            MyDb.RegisterPerson(A1, f1);
-        }
-
-        public override void Login(Person P1, Form f1)
-        {
-            MyDb.UserLogin(P1, f1);
-        }
-
-        public override void ViewEventDetails(DataGridView G1)
-        {
-            MyDb.ViewEvents(G1);
-        }
 
 
         // Event remove function
@@ -37,6 +21,13 @@ namespace Root_Folder
 
             Event e1 = new Event();
             e1.RemoveEvent(eventId, G1);
+        }
+
+
+        // Display all the user accounts in the grid
+        public void ViewUserAccounts(DataGridView G1)
+        {
+            AdminController.ViewUserAccounts(G1);
         }
 
 
@@ -51,7 +42,7 @@ namespace Root_Folder
         // Kick user from the System
         public void KickUser(string Uname)
         {
-            MyDb.KickUser(Uname);
+            AdminController.KickUser(Uname);
         }
     }
 }

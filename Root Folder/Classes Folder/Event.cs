@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
+using Root_Folder.Classes_Folder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,42 +43,42 @@ namespace Root_Folder
         // Adding Event
         public void AddEvent(Event E1, Form f1)
         {
-            MyDb.EventAdd(E1, f1);
+            EventController.EventAdd(E1, f1);
         }
 
 
         // Update Event
         public void UpdateEvent(Event E1, string eventName, string eventID, Form f1)
         {
-            MyDb.EventUpdate(E1, eventName, eventID, f1);
+            EventController.EventUpdate(E1, eventName, eventID, f1);
         }
 
 
         // Remove Event
         public void RemoveEvent(string eventID, DataGridView G1)
         {
-            MyDb.EventRemove(eventID, G1);
+            EventController.EventRemove(eventID, G1);
         }
 
 
         // Join Event
         public void JoinEvent(string Uname, string EventId, Form f1)
         {
-            MyDb.EventJoin(Uname, EventId, f1);
+            EventController.EventJoin(Uname, EventId, f1);
         }
 
 
         // Leave Event Function
         public void LeaveEvent(string EventID, string Uname, DataGridView G1)
         {
-            MyDb.EventLaeve(EventID, Uname, "Leave", G1);
+            EventController.EventLaeve(EventID, Uname, "Leave", G1);
         }
 
 
         // Remove Participant function
         public void RemoveParticipant(string EventID, string Uname)
         {
-            MyDb.EventLaeve(EventID, Uname, "", null);
+            EventController.EventLaeve(EventID, Uname, "", null);
         }
     }
 }

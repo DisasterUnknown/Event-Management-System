@@ -1,4 +1,5 @@
 ﻿using Org.BouncyCastle.Crypto.Macs;
+using Root_Folder.Classes_Folder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,11 +50,21 @@ namespace Root_Folder
         }
 
 
-        // Abstract Methods
-        public abstract void Register(Person P1, Form f1);
-        public abstract void Login(Person P1, Form f1);
+        // Parent Class Methods
+        public void Register(Person P1, Form f1)
+        {
+            PersonController.RegisterPerson(P1, f1);
+        }
 
-        public abstract void ViewEventDetails(DataGridView G1);
+        public void Login(Person P1, Form f1)
+        {
+            PersonController.UserLogin(P1, f1);
+        }
+
+        public void ViewEventDetails(DataGridView G1)
+        {
+            PersonController.ViewEvents(G1);
+        }
 
     }
 }

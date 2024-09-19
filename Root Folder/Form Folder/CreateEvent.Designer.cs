@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             BackBtn = new PictureBox();
-            label1 = new Label();
+            FormTopic = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -56,17 +56,17 @@
             BackBtn.TabStop = false;
             BackBtn.Click += BackBtn_Click;
             // 
-            // label1
+            // FormTopic
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Rockwell Extra Bold", 20F, FontStyle.Bold);
-            label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(165, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(222, 40);
-            label1.TabIndex = 1;
-            label1.Text = "Add Event";
+            FormTopic.BackColor = Color.Transparent;
+            FormTopic.Font = new Font("Rockwell Extra Bold", 20F, FontStyle.Bold);
+            FormTopic.ForeColor = SystemColors.ButtonFace;
+            FormTopic.Location = new Point(124, 49);
+            FormTopic.Name = "FormTopic";
+            FormTopic.Size = new Size(302, 45);
+            FormTopic.TabIndex = 1;
+            FormTopic.Text = "Add Event";
+            FormTopic.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -198,7 +198,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(FormTopic);
             Controls.Add(BackBtn);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -213,17 +213,17 @@
         #endregion
 
         private PictureBox BackBtn;
-        private Label label1;
+        private Label FormTopic;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox EventNameIN;
-        private TextBox PlaceIN;
-        private DateTimePicker DateTimeIN;
         private Button EventCreation;
-        private TextBox PriceIN;
-        private MaskedTextBox PamountIN;
+        public TextBox EventNameIN;
+        public TextBox PlaceIN;
+        public DateTimePicker DateTimeIN;
+        public TextBox PriceIN;
+        public MaskedTextBox PamountIN;
     }
 }

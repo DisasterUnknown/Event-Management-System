@@ -20,6 +20,8 @@ namespace Root_Folder
         private string FunctionType;
         private static string eventName; // For the update Function
 
+        public CreateEvent() { }
+
         public CreateEvent(string organizer, string eventId, string functionType)
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace Root_Folder
             PriceIN.Text = "Rs. ";
             if (FunctionType != "Update")
             {
+                // Attaching event handelers
                 PriceIN.Click += PriceIN_Clicked;
                 PamountIN.Click += PamountIN_Clicked;
                 EventNameIN.Click += EventNameIN_Clicked;
@@ -41,8 +44,10 @@ namespace Root_Folder
             }
             else if (FunctionType == "Update")
             {
-                MyDb.Display(eventId, EventNameIN, PlaceIN, DateTimeIN, PamountIN, PriceIN);
-                eventName = EventNameIN.Text;
+                FormTopic.Text = "Update Event";
+
+                Organizer o1 = new Organizer();
+                o1.UpdateEventDispayContent(eventId, this);
             }
         }
 

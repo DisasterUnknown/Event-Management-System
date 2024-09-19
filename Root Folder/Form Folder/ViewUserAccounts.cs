@@ -21,7 +21,8 @@ namespace Root_Folder.Form_Folder
         // Page Onload Function
         private void ViewUserAccounts_Load(object sender, EventArgs e)
         {
-            MyDb.ViewUserAccounts(UserAccountGrid);
+            Admin a1 = new Admin();
+            a1.ViewUserAccounts(UserAccountGrid);
         }
 
 

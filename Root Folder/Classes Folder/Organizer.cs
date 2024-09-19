@@ -14,29 +14,11 @@ using Root_Folder.Classes_Folder;
 
 namespace Root_Folder
 {
-    internal class Organizer : Person, PersonMethodInterface
+    internal class Organizer : Person, PersonInterface
     {
         public Organizer() { }
         public Organizer(string name, int age, string password, string email, string phoneNo, string role) : base(name, age, password, email, phoneNo, role) { }
         public Organizer(string name, string password, string role) : base(name, password, role) { }
-
-        // Person register function
-        public override void Register(Person P1, Form f1)
-        {
-            MyDb.RegisterPerson(P1, f1);
-        }
-
-        public override void Login(Person P1, Form f1)
-        {
-            MyDb.UserLogin(P1, f1);
-        }
-
-
-        // View events
-        public override void ViewEventDetails(DataGridView G1)
-        {
-            MyDb.ViewEvents(G1);
-        }
 
 
         // Add event
@@ -45,6 +27,12 @@ namespace Root_Folder
             E1.AddEvent(E1, f1);
         }
 
+
+        // Display content in the update page
+        public void UpdateEventDispayContent(string eventID, CreateEvent f1)
+        {
+            OrganizerController.UpdateEventDispayContent(eventID, f1);
+        }
 
         // Upadte event
         public void UpdateEvent(Event E1, string eventName, string eventId, Form f1)

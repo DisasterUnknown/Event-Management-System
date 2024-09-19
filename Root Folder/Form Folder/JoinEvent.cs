@@ -26,7 +26,9 @@ namespace Root_Folder
         // Page onload Function
         private void JoinEvent_Load(object sender, EventArgs e)
         {
-            MyDb.EventJoinPageOnLoad(EventId, NameIN, LocationIN, DateTimeIN, PriceIN);
+            Participant p1 = new Participant();
+            p1.EventJoinPageOnLoad(EventId, this);
+            //MyDb.EventJoinPageOnLoad(EventId, NameIN, LocationIN, DateTimeIN, PriceIN);
         }
 
         // Page Back Btn

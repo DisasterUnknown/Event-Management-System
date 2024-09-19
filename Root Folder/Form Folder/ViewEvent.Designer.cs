@@ -44,6 +44,7 @@
             DetailsBtn = new Button();
             label7 = new Label();
             OrgIN = new Label();
+            RemoveParticipantBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)BackBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ParticipentGrid).BeginInit();
             SuspendLayout();
@@ -230,6 +231,18 @@
             OrgIN.TabIndex = 20;
             OrgIN.Text = " ";
             // 
+            // RemoveParticipantBtn
+            // 
+            RemoveParticipantBtn.BackColor = SystemColors.ControlDark;
+            RemoveParticipantBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RemoveParticipantBtn.Location = new Point(438, 629);
+            RemoveParticipantBtn.Name = "RemoveParticipantBtn";
+            RemoveParticipantBtn.Size = new Size(155, 29);
+            RemoveParticipantBtn.TabIndex = 21;
+            RemoveParticipantBtn.Text = "Remove Participant";
+            RemoveParticipantBtn.UseVisualStyleBackColor = false;
+            RemoveParticipantBtn.Click += RemoveParticipantBtn_Click;
+            // 
             // ViewEvent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -237,6 +250,7 @@
             BackgroundImage = Properties.Resources.viewEventBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(612, 675);
+            Controls.Add(RemoveParticipantBtn);
             Controls.Add(OrgIN);
             Controls.Add(label7);
             Controls.Add(DetailsBtn);
@@ -282,5 +296,6 @@
         private Button DetailsBtn;
         private Label label7;
         private Label OrgIN;
+        private Button RemoveParticipantBtn;
     }
 }
